@@ -1,0 +1,14 @@
+.banner_container {
+  position: relative; /* required */
+}
+
+.banner_container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  background: url("/img/logo/SD.svg") no-repeat center / contain;
+}

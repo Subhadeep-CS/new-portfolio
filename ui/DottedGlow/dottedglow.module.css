@@ -1,0 +1,38 @@
+.dot_banner {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 14px);
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: rgb(var(--dot-color));
+  opacity: 0.35;
+
+  box-shadow:
+    0 0 2px rgba(var(--dot-color), 0.4),
+    0 0 4px rgba(var(--dot-color), 0.2);
+
+  animation: pulse 4s ease-in-out infinite;
+  animation-delay: var(--pulse-delay);
+
+  will-change: transform, opacity;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.6);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+}
