@@ -17,7 +17,7 @@ const DesignationContactInfo = () => {
       <div className="container border-x border-zinc-200 px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
           {/* Left Column Block (Items stacking) */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col justify-center">
             <DesignationContainer
               Icon={CodeXml}
               infoText="Frontend Engineer @Subhadeep"

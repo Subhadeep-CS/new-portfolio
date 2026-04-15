@@ -7,6 +7,13 @@ import ExperienceContainer from "@/components/Home/ExperienceContainer";
 import CrossDivider from "@/components/Layout/common/CrossDivider";
 import GithubContainer from "@/components/Home/GithubContainer";
 import ConnectContainer from "@/components/Home/ConnectContainer";
+import CertificationsContainer from "@/components/Home/CertificationsContainer";
+import HonorRewardContainer from "@/components/Home/HonorRewardContainer";
+import BookmarkContainer from "@/components/Home/BookmarkContainer";
+import QuotesContainer from "@/components/Home/QuotesContainer";
+import FeaturedResourcesContainer from "@/components/Home/FeaturedResourcesContainer";
+import FeaturedLibraryContainer from "@/components/Home/FeaturedLibraryContainer";
+import SpotifyContainer from "@/components/Home/SpotifyContainer";
 
 export default function Home() {
   return (
@@ -31,7 +38,28 @@ export default function Home() {
       <StackContainer />
 
       <CrossDivider />
+      <CertificationsContainer />
+
+      <CrossDivider />
+      <HonorRewardContainer />
+
+      <CrossDivider />
+      <BookmarkContainer />
+
+      <CrossDivider />
+      <QuotesContainer />
+
+      <CrossDivider />
+      <FeaturedResourcesContainer />
+
+      <CrossDivider />
+      <FeaturedLibraryContainer />
+
+      <CrossDivider />
       <GithubContainer />
+
+      <CrossDivider />
+      <SpotifyContainer />
 
       <CrossDivider />
       <ConnectContainer />

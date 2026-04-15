@@ -22,6 +22,14 @@ export const HEADER_MENU: HeaderMenuItem[] = [
     name: "Projects",
     href: "/projects",
   },
+  {
+    name: "Resources",
+    href: "/resources",
+  },
+  {
+    name: "Beyond Code",
+    href: "/self-help",
+  },
 ];
 
 export const DESIGNATION: string[] = [
@@ -164,5 +172,126 @@ export const EXPERIENCE_DATA: ExperienceInterface[] = [
         skills: ["Next.js", "Strapi", "Auth0", "VNPAY-QR", "Docker", "NGINX", "Google Cloud", "Docusaurus", "Extension", "UI/UX Design", "UX Writing", "Design System", "Brand Design", "Figma", "Research"]
       }
     ]
+  }
+];
+
+export const CERTIFICATION_DATA = [
+  {
+    title: "Meta Front-End Developer Professional Certificate",
+    issuer: "Coursera",
+    date: "Aug 2024",
+    link: "#"
+  },
+  {
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    date: "Jan 2023",
+    link: "#"
+  }
+];
+
+export const HONOR_AWARD_DATA = [
+  {
+    title: "Star Performer of the Quarter",
+    issuer: "Webart",
+    date: "Dec 2024",
+    description: "Awarded for exceptional delivery of the RailTel / Govt PSU front-end architecture."
+  }
+];
+
+export const BOOKMARK_DATA = [
+  {
+    title: "Design Inspirations & Repositories",
+    description: "Curated collection of frontend resources, component libraries, and architecture patterns.",
+    count: 247
+  }
+];
+
+export const QUOTES = [
+  {
+    text: "A man who is master of patience is master of everything else.",
+    author: "George Savile",
+  },
+  {
+    text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+    author: "Martin Fowler",
+  },
+  {
+    text: "First, solve the problem. Then, write the code.",
+    author: "John Johnson",
+  },
+  {
+    text: "Simplicity is the soul of efficiency.",
+    author: "Austin Freeman",
+  }
+];
+
+export const MENTORS_DATA = [
+  {
+    name: "Akshay Saini",
+    role: "Founder, Namaste Dev",
+    description: "Simplified JavaScript & React internals, making complex frontend concepts accessible and highly intuitive.",
+    link: "https://namastedev.com",
+  },
+  {
+    name: "Chirag Goel",
+    role: "Software Engineer",
+    description: "Invaluable lessons on React architecture, performance optimization, and mastering modern web development.",
+    link: "https://namastedev.com",
+  },
+  {
+    name: "Kevin Powell",
+    role: "CSS Evangelist",
+    description: "Demystified CSS for me. He taught me how to embrace the cascade and write scalable, responsive stylesheets.",
+    link: "https://www.kevinpowell.co/",
+  }
+];
+
+export const BOOKS_DATA = [
+  {
+    title: "You Don't Know JS Yet",
+    author: "Kyle Simpson",
+    description: "The definitive guide to understanding JavaScript deeply, demystifying closures, scope, and async programming.",
+    buyLink: "https://github.com/getify/You-Dont-Know-JS",
+    theme: "bg-yellow-100",
+    themeBorder: "border-yellow-200"
+  },
+  {
+    title: "Clean Code",
+    author: "Robert C. Martin",
+    description: "A handbook of agile software craftsmanship, emphasizing readability, refactoring, and clean architecture.",
+    buyLink: "https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882",
+    theme: "bg-zinc-100",
+    themeBorder: "border-zinc-200"
+  }
+];
+
+export const OTHER_RESOURCES_DATA = [
+  {
+    title: "Frontend Mentor",
+    description: "Real-world HTML, CSS, and JavaScript challenges that helped sharpen my UI development skills.",
+    link: "https://www.frontendmentor.io/"
+  },
+  {
+    title: "MDN Web Docs",
+    description: "The absolute source of truth for web standards, JavaScript documentation, and browser compatibility.",
+    link: "https://developer.mozilla.org/"
+  }
+];
+
+export const SELF_HELP_BOOKS_DATA = [
+  {
+    title: "Atomic Habits",
+    author: "James Clear",
+    description: "An easy and proven way to build good habits and break bad ones. This book helped me optimize my daily routines and improve 1% everyday.",
+    coverUrl: "https://m.media-amazon.com/images/I/81bGKUa1e0L._AC_UF1000,1000_QL80_.jpg",
+    buyLink: "https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299"
+  },
+  {
+    title: "Deep Work",
+    author: "Cal Newport",
+    description: "Rules for focused success in a distracted world. Crucial for mastering long, uninterrupted hours of deep programming.",
+    coverUrl: "https://m.media-amazon.com/images/I/71sB1uEDXDL._AC_UF1000,1000_QL80_.jpg",
+    buyLink: "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692"
   }
 ];
