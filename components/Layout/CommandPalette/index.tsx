@@ -1,0 +1,108 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Command } from "cmdk";
+import { useRouter } from "next/navigation";
+import { Search, Folder, BookOpen, UserCircle, Github, Linkedin, MonitorPlay } from "lucide-react";
+
+export default function CommandPalette() {
+    const [open, setOpen] = useState(false);
+    const router = useRouter();
+
+    // Toggle the menu when ⌘K is pressed
+    useEffect(() => {
+        const down = (e: KeyboardEvent) => {
+            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                setOpen((open) => !open);
+            }
+        };
+        document.addEventListener("keydown", down);
+        return () => document.removeEventListener("keydown", down);
+    }, []);
+
+    const runCommand = (command: () => void) => {
+        setOpen(false);
+        command();
+    };
+
+    return (
+        <Command.Dialog
+            open={open}
+            onOpenChange={setOpen}
+            label="Global Command Menu"
+            className="fixed inset-0 bg-white/40 dark:bg-black/60 backdrop-blur-sm z-[99999] flex items-start justify-center pt-[15vh] px-4 animate-in fade-in duration-200"
+        >
+            <div className="w-full max-w-[550px] bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 ease-out">
+                <div className="flex items-center px-4 py-4 border-b border-zinc-100 dark:border-zinc-800">
+                    <Search className="w-[18px] h-[18px] text-zinc-400 mr-3 shrink-0" />
+                    <Command.Input
+                        autoFocus
+                        placeholder="Type a command or search..."
+                        className="w-full bg-transparent border-none outline-none text-[15px] text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 font-medium"
+                    />
+                    <div className="hidden sm:flex items-center gap-1">
+                        <kbd className="px-2 py-1 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded text-[10px] items-center text-zinc-500 font-bold font-mono shadow-sm">ESC</kbd>
+                    </div>
+                </div>
+
+                <Command.List className="max-h-[320px] overflow-y-auto p-2 scrollbar-hide">
+                    <Command.Empty className="py-12 text-center text-sm font-medium text-zinc-500">No results found.</Command.Empty>
+
+                    <Command.Group heading="Navigation" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:text-zinc-500 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest mt-1">
+                        <Command.Item
+                            onSelect={() => runCommand(() => router.push("/"))}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <UserCircle className="w-[18px] h-[18px] mr-3 text-blue-500" />
+                            <span>Homepage / About Me</span>
+                        </Command.Item>
+                        <Command.Item
+                            onSelect={() => runCommand(() => router.push("/projects"))}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <Folder className="w-[18px] h-[18px] mr-3 text-orange-500" />
+                            <span>Projects</span>
+                        </Command.Item>
+                        <Command.Item
+                            onSelect={() => runCommand(() => router.push("/resources"))}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <MonitorPlay className="w-[18px] h-[18px] mr-3 text-indigo-500" />
+                            <span>Resources & Mentors</span>
+                        </Command.Item>
+                        <Command.Item
+                            onSelect={() => runCommand(() => router.push("/self-help"))}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <BookOpen className="w-[18px] h-[18px] mr-3 text-emerald-500" />
+                            <span>Beyond Code (Library)</span>
+                        </Command.Item>
+                    </Command.Group>
+
+                    <Command.Separator className="h-[1px] bg-zinc-100 dark:bg-zinc-800 my-2 mx-1" />
+
+                    <Command.Group heading="Social Links" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:text-zinc-500 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest">
+                        <Command.Item
+                            onSelect={() => runCommand(() => window.open("https://github.com/Subhadeep-CS", "_blank"))}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <Github className="w-[18px] h-[18px] mr-3 text-zinc-500 dark:text-zinc-400" />
+                            <span>GitHub Profile</span>
+                            <span className="ml-auto text-[11px] text-zinc-400 uppercase tracking-widest font-semibold flex items-center gap-1">Open <span className="text-[14px]">↗</span></span>
+                        </Command.Item>
+                        <Command.Item
+                            onSelect={() => runCommand(() => window.open("https://www.linkedin.com/in/subhadeep-das-frontend-dev", "_blank"))}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <Linkedin className="w-[18px] h-[18px] mr-3 text-blue-600 dark:text-blue-500" />
+                            <span>LinkedIn connection</span>
+                            <span className="ml-auto text-[11px] text-zinc-400 uppercase tracking-widest font-semibold flex items-center gap-1">Open <span className="text-[14px]">↗</span></span>
+                        </Command.Item>
+                    </Command.Group>
+
+                </Command.List>
+            </div>
+        </Command.Dialog>
+    );
+}
