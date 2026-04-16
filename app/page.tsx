@@ -11,14 +11,15 @@ import CertificationsContainer from "@/components/Home/CertificationsContainer";
 import HonorRewardContainer from "@/components/Home/HonorRewardContainer";
 import BookmarkContainer from "@/components/Home/BookmarkContainer";
 import QuotesContainer from "@/components/Home/QuotesContainer";
+import LivePlaygroundContainer from "@/components/Home/LivePlaygroundContainer";
 import FeaturedResourcesContainer from "@/components/Home/FeaturedResourcesContainer";
 import FeaturedLibraryContainer from "@/components/Home/FeaturedLibraryContainer";
 import SpotifyContainer from "@/components/Home/SpotifyContainer";
 
 export default function Home() {
   return (
-    <section className="flex flex-col py-4">
-      <div className="border-y flex justify-center">
+    <section className="flex flex-col">
+      <div className="border-b flex justify-center border-collapse">
         <Banner />
       </div>
 
@@ -36,6 +37,9 @@ export default function Home() {
 
       <CrossDivider />
       <StackContainer />
+
+      <CrossDivider />
+      <LivePlaygroundContainer />
 
       <CrossDivider />
       <CertificationsContainer />

@@ -3,13 +3,15 @@
 import { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
-import { Search, Folder, BookOpen, UserCircle, Github, Linkedin, MonitorPlay } from "lucide-react";
+import { Search, Folder, BookOpen, UserCircle, Github, Linkedin, MonitorPlay, TerminalSquare, Rotate3D } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function CommandPalette() {
     const [open, setOpen] = useState(false);
     const router = useRouter();
+    const { setTheme } = useTheme();
 
-    // Toggle the menu when ⌘K is pressed
+    // Toggle the menu when ⌘K is pressed or event dispatched
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
             if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -17,8 +19,16 @@ export default function CommandPalette() {
                 setOpen((open) => !open);
             }
         };
+
+        const handleOpenEvent = () => setOpen(true);
+
         document.addEventListener("keydown", down);
-        return () => document.removeEventListener("keydown", down);
+        window.addEventListener("open-command-palette", handleOpenEvent);
+        
+        return () => {
+            document.removeEventListener("keydown", down);
+            window.removeEventListener("open-command-palette", handleOpenEvent);
+        };
     }, []);
 
     const runCommand = (command: () => void) => {
@@ -31,6 +41,11 @@ export default function CommandPalette() {
             open={open}
             onOpenChange={setOpen}
             label="Global Command Menu"
+            onPointerDown={(e) => {
+                if (e.target === e.currentTarget) {
+                    setOpen(false);
+                }
+            }}
             className="fixed inset-0 bg-white/40 dark:bg-black/60 backdrop-blur-sm z-[99999] flex items-start justify-center pt-[15vh] px-4 animate-in fade-in duration-200"
         >
             <div className="w-full max-w-[550px] bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 ease-out">
@@ -98,6 +113,35 @@ export default function CommandPalette() {
                             <Linkedin className="w-[18px] h-[18px] mr-3 text-blue-600 dark:text-blue-500" />
                             <span>LinkedIn connection</span>
                             <span className="ml-auto text-[11px] text-zinc-400 uppercase tracking-widest font-semibold flex items-center gap-1">Open <span className="text-[14px]">↗</span></span>
+                        </Command.Item>
+                    </Command.Group>
+
+                    <Command.Separator className="h-[1px] bg-zinc-100 dark:bg-zinc-800 my-2 mx-1" />
+
+                    <Command.Group heading="Developer Extras" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:text-zinc-500 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest">
+                        <Command.Item
+                            onSelect={() => runCommand(() => {
+                                setTheme("dark");
+                                console.log("%c INIT HACKER MODE... 🚀", "color: #00ff00; font-size: 20px; font-weight: bold; background: black; padding: 10px;");
+                            })}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-emerald-400 transition-colors"
+                        >
+                            <TerminalSquare className="w-[18px] h-[18px] mr-3 text-emerald-500" />
+                            <span>System: Enable Hacker Mode</span>
+                        </Command.Item>
+                        <Command.Item
+                            onSelect={() => runCommand(() => {
+                                document.body.style.transition = 'transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                                document.body.style.transform = 'rotate(360deg)';
+                                setTimeout(() => {
+                                    document.body.style.transition = '';
+                                    document.body.style.transform = '';
+                                }, 1500);
+                            })}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <Rotate3D className="w-[18px] h-[18px] mr-3 text-fuchsia-500" />
+                            <span>Action: Do a barrel roll</span>
                         </Command.Item>
                     </Command.Group>
 

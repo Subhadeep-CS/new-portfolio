@@ -1,3 +1,5 @@
+"use client";
+
 import StackSectionHeader from "./StackSectionHeading";
 import { TECH_STACK } from "@/utils/app_constant";
 import StackCard from "./StackCard";

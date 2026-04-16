@@ -12,6 +12,17 @@ import {
   SiDocker,
   SiVercel,
 } from "react-icons/si";
+
+import {
+  CodeXml,
+  Lightbulb,
+  MapPin,
+  Phone,
+  Link as LinkIcon,
+  Mail,
+  User,
+} from "lucide-react";
+
 import { AboutMeInterface, HeaderMenuItem } from "./utils.type";
 export const HEADER_MENU: HeaderMenuItem[] = [
   {
@@ -294,4 +305,45 @@ export const SELF_HELP_BOOKS_DATA = [
     coverUrl: "https://m.media-amazon.com/images/I/71sB1uEDXDL._AC_UF1000,1000_QL80_.jpg",
     buyLink: "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692"
   }
+];
+
+/* DESIGNATION CONTENT */
+export const DESIGNATIONS = [
+  {
+    Icon: CodeXml,
+    infoText: "Frontend Engineer @Subhadeep",
+  },
+  {
+    Icon: Lightbulb,
+    infoText: "Founder @SomeIdea",
+  },
+];
+
+export const CONTACT_INFO = [
+  {
+    Icon: MapPin,
+    infoText: "India",
+  },
+  {
+    isClock: true,
+  },
+  {
+    Icon: Phone,
+    infoText: "+91 12345 67890",
+    href: "tel:+911234567890",
+  },
+  {
+    Icon: Mail,
+    infoText: "contact@subhadeep.com",
+    href: "mailto:contact@subhadeep.com",
+  },
+  {
+    Icon: LinkIcon,
+    infoText: "subhadeep.com",
+    href: "https://subhadeep.com",
+  },
+  {
+    Icon: User,
+    infoText: "he/him",
+  },
 ];

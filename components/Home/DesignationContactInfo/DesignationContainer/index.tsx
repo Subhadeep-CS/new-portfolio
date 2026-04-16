@@ -9,14 +9,14 @@ const DesignationContainer = ({
 }: DesignationContainerProps) => {
   const content = (
     <>
-      <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center shadow-none shrink-0 border border-zinc-200">
-        <Icon className="w-5 h-5 text-zinc-600 stroke-[1.5]" />
+      <div className="w-8 h-8 rounded-lg bg-zinc-50 flex items-center justify-center shadow-none shrink-0 border border-zinc-200">
+        <Icon className="w-4 h-4 text-zinc-600 stroke-[1.5]" />
       </div>
-      <span className="text-[15px] font-medium text-zinc-800 break-all">{infoText}</span>
+      <span className="text-sm font-medium text-zinc-600 break-all">{infoText}</span>
     </>
   );
 
-  const containerClasses = "flex items-center gap-4 bg-transparent hover:bg-zinc-50 p-2 rounded-2xl transition-colors cursor-pointer group";
+  const containerClasses = "flex items-center gap-2 bg-transparent hover:bg-zinc-50 p-2 rounded-2xl transition-colors cursor-pointer group";
 
   if (href) {
     return (

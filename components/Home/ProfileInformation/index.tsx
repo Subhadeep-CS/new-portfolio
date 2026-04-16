@@ -1,4 +1,3 @@
-import UserAvatar from "./UserAvatar";
 import UserAvatarFlagContainer from "./UserAvatarFlagContainer";
 import UserInformation from "./UserInformation";
 

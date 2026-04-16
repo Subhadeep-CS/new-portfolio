@@ -49,11 +49,11 @@ export const LiveClock = () => {
     // Display a loader or nothing until client hydrates to avoid hydration mismatch
     if (!timeString) {
         return (
-            <div className="flex items-center gap-4 bg-transparent p-2 rounded-2xl">
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center border shrink-0">
-                    <Clock className="w-5 h-5 text-zinc-600" />
+            <div className="flex items-center gap-2 bg-transparent p-2 rounded-2xl">
+                <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center border shrink-0">
+                    <Clock className="w-4 h-4 text-zinc-600" />
                 </div>
-                <span className="text-[15px] font-medium text-zinc-800">--:--</span>
+                <span className="text-sm font-medium text-zinc-800">--:--</span>
             </div>
         );
     }
@@ -62,12 +62,12 @@ export const LiveClock = () => {
         <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-4 bg-transparent hover:bg-zinc-50 p-2 rounded-2xl transition-colors cursor-pointer"
+            className="flex items-center gap-2 bg-transparent hover:bg-zinc-50 p-2 rounded-2xl transition-colors cursor-pointer"
         >
-            <div className="w-10 h-10 rounded-xl bg-zinc-100 flex items-center justify-center border shrink-0">
-                <Clock className="w-5 h-5 text-zinc-600" />
+            <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center border shrink-0">
+                <Clock className="w-4 h-4 text-zinc-600" />
             </div>
-            <div className="flex items-center gap-2 text-[15px] font-medium text-zinc-800">
+            <div className="flex items-center gap-2 text-sm font-medium text-zinc-800">
                 <span>{timeString}</span>
                 <span className="text-zinc-400">//</span>
                 <span className="text-zinc-500">{diffString}</span>
