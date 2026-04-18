@@ -7,7 +7,7 @@ const Navbar = () => {
       <ul className="flex items-center gap-2">
         {HEADER_MENU?.map((menuItem: { name: string; href: string }) => (
           <Link href={menuItem?.href} key={menuItem.name}>
-            <li className="text-base text-zinc-500 font-semibold hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer">
+            <li className="text-base text-zinc-500 font-medium hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer">
               {menuItem?.name}
             </li>
           </Link>

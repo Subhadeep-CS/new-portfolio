@@ -7,7 +7,7 @@ const FeaturedLibraryContainer = () => {
     const featuredBooks = SELF_HELP_BOOKS_DATA.slice(0, 2);
 
     return (
-        <section className="border-y border-zinc-200 dark:border-zinc-800">
+        <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-4 flex justify-between items-center bg-[#FAFAFA] dark:bg-zinc-900/50">
                 <h3 className="text-[19px] font-semibold text-zinc-900 dark:text-zinc-100 border-l-2 border-emerald-500 pl-3 leading-none">
                     Beyond Code

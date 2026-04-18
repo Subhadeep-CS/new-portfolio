@@ -21,7 +21,7 @@ const ExperienceContainer = () => {
   });
 
   return (
-    <section className="border-y border-zinc-200 dark:border-zinc-800 relative z-0">
+    <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800 relative z-0">
       <ExperienceSectionHeader />
       <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8 relative" ref={containerRef}>
         

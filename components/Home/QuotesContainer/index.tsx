@@ -16,7 +16,7 @@ const QuotesContainer = () => {
     }, [isHovered]);
 
     return (
-        <section className="border-y border-zinc-200">
+        <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <div className="container border-x border-zinc-200 px-4 py-8">
                 <div
                     className="relative w-full max-w-4xl mx-auto border border-zinc-200 rounded-xl bg-[#FAFAFA] p-8 sm:p-12 overflow-hidden flex flex-col justify-center min-h-[220px]"

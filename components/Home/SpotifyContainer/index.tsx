@@ -23,7 +23,7 @@ const SpotifyContainer = () => {
     if (!mounted) return null;
 
     return (
-        <section className="border-y border-zinc-200">
+        <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <div className="container border-x border-zinc-200 px-4 py-4 flex justify-between items-center bg-[#FAFAFA]">
                 <h3 className="text-[19px] font-semibold text-zinc-900 border-l-2 border-[#1DB954] pl-3 leading-none">
                     Currently on Repeat

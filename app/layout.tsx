@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable}`}>
+      <body className={`${poppins.variable} font-sans antialiased text-zinc-900 dark:text-zinc-50`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

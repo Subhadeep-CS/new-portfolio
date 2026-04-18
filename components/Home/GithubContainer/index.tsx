@@ -4,7 +4,7 @@ import GithubSectionHeader from "./GithubSectionHeading";
 
 const GithubContainer = () => {
     return (
-        <section className="border-y border-zinc-200">
+        <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <GithubSectionHeader />
             <div className="container border-x border-zinc-200 px-4 py-8 overflow-x-auto">
                 <div className="flex justify-center lg:justify-start w-full min-w-max">

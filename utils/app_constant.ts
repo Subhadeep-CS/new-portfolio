@@ -3,14 +3,29 @@ import {
   SiReact,
   SiTailwindcss,
   SiTypescript,
+  SiJavascript,
+  SiShadcnui,
   SiNodedotjs,
   SiExpress,
+  SiNpm,
+  SiBun,
   SiMongodb,
   SiPostgresql,
-  SiFramer,
   SiGit,
+  SiFramer,
+  SiGreensock,
+  SiGraphql,
+  SiReactrouter,
+  SiRedux,
+  SiReactquery,
+  SiFigma,
+  SiMui,
+  SiAntdesign,
   SiDocker,
   SiVercel,
+  SiGithub,
+  SiRadixui,
+  SiBootstrap,
 } from "react-icons/si";
 
 import {
@@ -49,17 +64,80 @@ export const DESIGNATION: string[] = [
   "Convert Cafine To Code",
 ];
 
+// export const ABOUT_ME: AboutMeInterface[] = [
+//   {
+//     key: "Who I Am",
+//     details:
+//       "I’m a Frontend Engineer focused on building scalable, high-performance web applications using React.js and Next.js. With nearly a year of real-world experience, I enjoy crafting clean user interfaces that balance aesthetics, usability, and performance.",
+//     children: [],
+//   },
+//   {
+//     key: "What I Specialize In",
+//     details:
+//       "My expertise lies in modern frontend development, where I design reusable components, manage complex application state, and deliver smooth user experiences for production-grade applications.",
+//     children: [
+//       {
+//         key: "Core Technologies",
+//         details: "React.js, Next.js (App Router), JavaScript (ES6+)",
+//       },
+//       {
+//         key: "State Management",
+//         details:
+//           "Redux Toolkit with scalable and predictable state architecture",
+//       },
+//       {
+//         key: "UI Engineering",
+//         details: "Responsive, accessible UI using Tailwind CSS and shadcn/ui",
+//       },
+//       {
+//         key: "Performance & SEO",
+//         details:
+//           "Optimizing rendering, bundle size, and building SEO-friendly pages",
+//       },
+//     ],
+//   },
+//   {
+//     key: "Professional Experience",
+//     details:
+//       "I have hands-on experience working on production applications across government and healthcare domains, where reliability, maintainability, and clarity are critical.",
+//     children: [
+//       {
+//         key: "Government Platform",
+//         details:
+//           "Contributed to a Navaratna PSU project (RailTel / KwikRail vendor portal), handling complex forms and workflows",
+//       },
+//       {
+//         key: "Healthcare Application",
+//         details:
+//           "Built data-driven, form-heavy user interfaces with a strong focus on usability and performance",
+//       },
+//     ],
+//   },
+//   {
+//     key: "How I Think as an Engineer",
+//     details:
+//       "I prioritize clean code, long-term maintainability, and scalable architecture. I actively refactor bloated codebases, follow best practices, and continuously strengthen my fundamentals in JavaScript, React internals, and frontend system design.",
+//     children: [],
+//   },
+//   {
+//     key: "Where I’m Headed",
+//     details:
+//       "My goal is to grow into a Senior Frontend Engineer by mastering frontend architecture, advanced Next.js patterns, and performance optimization, while gradually expanding into full-stack development.",
+//     children: [],
+//   },
+// ];
+
 export const ABOUT_ME: AboutMeInterface[] = [
   {
     key: "Who I Am",
     details:
-      "I’m a Frontend Engineer focused on building scalable, high-performance web applications using React.js and Next.js. With nearly a year of real-world experience, I enjoy crafting clean user interfaces that balance aesthetics, usability, and performance.",
+      "I’m a Frontend Engineer with nearly 2 years of experience building scalable, high-performance web applications using React.js and Next.js. I focus on crafting clean, intuitive user interfaces that balance aesthetics, usability, and performance.",
     children: [],
   },
   {
     key: "What I Specialize In",
     details:
-      "My expertise lies in modern frontend development, where I design reusable components, manage complex application state, and deliver smooth user experiences for production-grade applications.",
+      "I specialize in modern frontend development, designing scalable component architectures, managing complex application state, and delivering smooth, production-grade user experiences.",
     children: [
       {
         key: "Core Technologies",
@@ -72,57 +150,72 @@ export const ABOUT_ME: AboutMeInterface[] = [
       },
       {
         key: "UI Engineering",
-        details: "Responsive, accessible UI using Tailwind CSS and shadcn/ui",
+        details:
+          "Responsive, accessible UI development using Tailwind CSS and shadcn/ui",
       },
       {
         key: "Performance & SEO",
         details:
-          "Optimizing rendering, bundle size, and building SEO-friendly pages",
+          "Optimizing rendering, reducing bundle size, and building SEO-friendly applications",
       },
     ],
   },
   {
     key: "Professional Experience",
     details:
-      "I have hands-on experience working on production applications across government and healthcare domains, where reliability, maintainability, and clarity are critical.",
+      "I have hands-on experience working on production-grade applications across different domains, focusing on scalability, performance, and maintainability.",
     children: [
       {
         key: "Government Platform",
         details:
-          "Contributed to a Navaratna PSU project (RailTel / KwikRail vendor portal), handling complex forms and workflows",
+          "Contributed to a Navaratna PSU project (RailTel / KwikRail vendor portal), building complex multi-step forms, workflows, and data-driven UI systems",
       },
       {
-        key: "Healthcare Application",
+        key: "OTT Platform (Imboxo)",
         details:
-          "Built data-driven, form-heavy user interfaces with a strong focus on usability and performance",
+          "Built and contributed to an OTT platform (imboxo.com), developing dynamic, content-driven user interfaces with a focus on performance, smooth media experience, and scalable frontend architecture",
       },
     ],
   },
   {
     key: "How I Think as an Engineer",
     details:
-      "I prioritize clean code, long-term maintainability, and scalable architecture. I actively refactor bloated codebases, follow best practices, and continuously strengthen my fundamentals in JavaScript, React internals, and frontend system design.",
+      "I prioritize clean code, scalable architecture, and long-term maintainability. I actively refactor complex codebases, follow best practices, and continuously deepen my understanding of JavaScript, React internals, and frontend system design.",
     children: [],
   },
   {
     key: "Where I’m Headed",
     details:
-      "My goal is to grow into a Senior Frontend Engineer by mastering frontend architecture, advanced Next.js patterns, and performance optimization, while gradually expanding into full-stack development.",
+      "I’m focused on growing into a Senior Frontend Engineer by mastering advanced frontend architecture, deepening my expertise in Next.js, and gradually expanding into full-stack development.",
     children: [],
   },
 ];
-
 export const TECH_STACK = [
-  { name: "Next.js", url: "https://nextjs.org/", icon: SiNextdotjs, color: "#000000" },
-  { name: "React", url: "https://react.dev/", icon: SiReact, color: "#61DAFB" },
+  { name: "JavaScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", url: "https://www.typescriptlang.org/", icon: SiTypescript, color: "#3178C6" },
+  { name: "React", url: "https://react.dev/", icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", url: "https://nextjs.org/", icon: SiNextdotjs, color: "#000000" },
+  { name: "React Router", url: "https://reactrouter.com/", icon: SiReactrouter, color: "#CA4245" },
+  { name: "Redux", url: "https://redux.js.org/", icon: SiRedux, color: "#764ABC" },
+  { name: "TanStack", url: "https://tanstack.com/query/latest", icon: SiReactquery, color: "#FF4154" },
+  { name: "GraphQL", url: "https://graphql.org/", icon: SiGraphql, color: "#E10098" },
   { name: "Tailwind CSS", url: "https://tailwindcss.com/", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "shadcn/ui", url: "https://ui.shadcn.com/", icon: SiShadcnui, color: "#000000" },
+  { name: "Radix UI", url: "https://www.radix-ui.com/", icon: SiRadixui, color: "#161618" },
+  { name: "Bootstrap", url: "https://getbootstrap.com/", icon: SiBootstrap, color: "#7952B3" },
+  { name: "Material UI", url: "https://mui.com/", icon: SiMui, color: "#007FFF" },
+  { name: "Ant Design", url: "https://ant.design/", icon: SiAntdesign, color: "#0170FE" },
+  { name: "Framer Motion", url: "https://www.framer.com/motion/", icon: SiFramer, color: "#0055FF" },
+  { name: "GSAP", url: "https://greensock.com/gsap/", icon: SiGreensock, color: "#88CE02" },
   { name: "Node.js", url: "https://nodejs.org/", icon: SiNodedotjs, color: "#339933" },
   { name: "Express", url: "https://expressjs.com/", icon: SiExpress, color: "#000000" },
   { name: "MongoDB", url: "https://www.mongodb.com/", icon: SiMongodb, color: "#47A248" },
   { name: "PostgreSQL", url: "https://www.postgresql.org/", icon: SiPostgresql, color: "#4169E1" },
-  { name: "Framer Motion", url: "https://www.framer.com/motion/", icon: SiFramer, color: "#0055FF" },
   { name: "Git", url: "https://git-scm.com/", icon: SiGit, color: "#F05032" },
+  { name: "GitHub", url: "https://github.com/", icon: SiGithub, color: "#181717" },
+  { name: "Figma", url: "https://www.figma.com/", icon: SiFigma, color: "#F24E1E" },
+  { name: "npm", url: "https://www.npmjs.com/", icon: SiNpm, color: "#CB3837" },
+  { name: "Bun", url: "https://bun.sh/", icon: SiBun, color: "#f472b6" },
   { name: "Docker", url: "https://www.docker.com/", icon: SiDocker, color: "#2496ED" },
   { name: "Vercel", url: "https://vercel.com/", icon: SiVercel, color: "#000000" },
 ];
@@ -311,12 +404,12 @@ export const SELF_HELP_BOOKS_DATA = [
 export const DESIGNATIONS = [
   {
     Icon: CodeXml,
-    infoText: "Frontend Engineer @Subhadeep",
+    infoText: "Frontend Engineer @Webart",
   },
-  {
-    Icon: Lightbulb,
-    infoText: "Founder @SomeIdea",
-  },
+  // {
+  //   Icon: Lightbulb,
+  //   infoText: "Founder @SomeIdea",
+  // },
 ];
 
 export const CONTACT_INFO = [
@@ -329,13 +422,13 @@ export const CONTACT_INFO = [
   },
   {
     Icon: Phone,
-    infoText: "+91 12345 67890",
-    href: "tel:+911234567890",
+    infoText: "+91 98746 69132 ",
+    href: "tel:+919874669132",
   },
   {
     Icon: Mail,
-    infoText: "contact@subhadeep.com",
-    href: "mailto:contact@subhadeep.com",
+    infoText: "dassubhadeep631@gmail.com",
+    href: "mailto:dassubhadeep631@gmail.com",
   },
   {
     Icon: LinkIcon,
