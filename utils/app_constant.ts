@@ -8,7 +8,6 @@ import {
   SiNodedotjs,
   SiExpress,
   SiNpm,
-  SiBun,
   SiMongodb,
   SiPostgresql,
   SiGit,
@@ -25,7 +24,8 @@ import {
   SiVercel,
   SiGithub,
   SiRadixui,
-  SiBootstrap,
+  SiSocketdotio,
+  SiAstro,
 } from "react-icons/si";
 
 import {
@@ -54,7 +54,7 @@ export const HEADER_MENU: HeaderMenuItem[] = [
   },
   {
     name: "Beyond Code",
-    href: "/self-help",
+    href: "/library",
   },
 ];
 
@@ -195,6 +195,7 @@ export const TECH_STACK = [
   { name: "TypeScript", url: "https://www.typescriptlang.org/", icon: SiTypescript, color: "#3178C6" },
   { name: "React", url: "https://react.dev/", icon: SiReact, color: "#61DAFB" },
   { name: "Next.js", url: "https://nextjs.org/", icon: SiNextdotjs, color: "#000000" },
+  { name: "Astro", url: "https://astro.build/", icon: SiAstro, color: "#FF5D01" },
   { name: "React Router", url: "https://reactrouter.com/", icon: SiReactrouter, color: "#CA4245" },
   { name: "Redux", url: "https://redux.js.org/", icon: SiRedux, color: "#764ABC" },
   { name: "TanStack", url: "https://tanstack.com/query/latest", icon: SiReactquery, color: "#FF4154" },
@@ -202,7 +203,7 @@ export const TECH_STACK = [
   { name: "Tailwind CSS", url: "https://tailwindcss.com/", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "shadcn/ui", url: "https://ui.shadcn.com/", icon: SiShadcnui, color: "#000000" },
   { name: "Radix UI", url: "https://www.radix-ui.com/", icon: SiRadixui, color: "#161618" },
-  { name: "Bootstrap", url: "https://getbootstrap.com/", icon: SiBootstrap, color: "#7952B3" },
+  { name: "Socket.io", url: "https://socket.io/", icon: SiSocketdotio, color: "#010101" },
   { name: "Material UI", url: "https://mui.com/", icon: SiMui, color: "#007FFF" },
   { name: "Ant Design", url: "https://ant.design/", icon: SiAntdesign, color: "#0170FE" },
   { name: "Framer Motion", url: "https://www.framer.com/motion/", icon: SiFramer, color: "#0055FF" },
@@ -215,7 +216,6 @@ export const TECH_STACK = [
   { name: "GitHub", url: "https://github.com/", icon: SiGithub, color: "#181717" },
   { name: "Figma", url: "https://www.figma.com/", icon: SiFigma, color: "#F24E1E" },
   { name: "npm", url: "https://www.npmjs.com/", icon: SiNpm, color: "#CB3837" },
-  { name: "Bun", url: "https://bun.sh/", icon: SiBun, color: "#f472b6" },
   { name: "Docker", url: "https://www.docker.com/", icon: SiDocker, color: "#2496ED" },
   { name: "Vercel", url: "https://vercel.com/", icon: SiVercel, color: "#000000" },
 ];
@@ -439,4 +439,61 @@ export const CONTACT_INFO = [
     Icon: User,
     infoText: "he/him",
   },
+];
+
+export interface ProjectInterface {
+  title: string;
+  description: string;
+  year: string;
+  tech: string[];
+  link?: string;
+  github?: string;
+  image?: string;
+  type: string;
+}
+
+export const PROJECTS_DATA: ProjectInterface[] = [
+  {
+    title: "Imboxo OTT",
+    description: "A high-performance media streaming platform with dynamic content discovery, custom video player integration, and seamless cross-device synchronization.",
+    year: "2025",
+    type: "Personal Project",
+    tech: ["Next.js 15", "Video.js", "Redux Toolkit", "Framer Motion", "Tailwind CSS"],
+    link: "https://imboxo.com",
+    github: "#",
+  },
+  {
+    title: "ZaDark Extension",
+    description: "A productivity-focused browser extension for Zalo Web, serving over 20,000 active users. Includes dark mode, UI customization, and custom scripts.",
+    year: "2024",
+    type: "Browser Extension",
+    tech: ["JavaScript", "WebExtensions API", "Docusaurus", "Tailwind CSS"],
+    link: "https://zadark.com",
+    github: "#",
+  },
+  {
+    title: "Quaric Design System",
+    description: "Developed a scalable UI library and brand identity for Quaric, ensuring visual consistency across all web and mobile platforms.",
+    year: "2024",
+    type: "Design Engineering",
+    tech: ["React", "Framer Motion", "Storybook", "Figma", "Tailwind CSS"],
+    link: "https://quaric.com",
+  },
+  {
+    title: "Govt Vendor Portal",
+    description: "Built a robust frontend for a Govt PSU vendor management system, handling complex multi-step registration forms and data-heavy dashboards.",
+    year: "2023",
+    type: "Government Project",
+    tech: ["React.js", "Redux toolkit", "Ant Design", "Formik", "SCSS"],
+    link: "#",
+  },
+  {
+    title: "The Portfolio Journey",
+    description: "This very portfolio! A reflection of my engineering philosophy, focusing on aesthetics, performance, and clean motion design.",
+    year: "2023",
+    type: "Brand Identity",
+    tech: ["Next.js 15", "Framer Motion", "Lucide Icons", "Radix UI"],
+    link: "/",
+    github: "https://github.com/Subhadeep-CS/new-portfolio",
+  }
 ];

@@ -1,112 +1,141 @@
 "use client";
+import { useState } from "react";
 import { ExperienceInterface } from "@/utils/app_constant";
 import { CodeXml, ChevronDown } from "lucide-react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ExperienceCard = ({ experience }: { experience: ExperienceInterface }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    // Get all unique skills/technologies used in this company across all roles
+    const allSkills = Array.from(new Set(experience.roles.flatMap(role => role.skills)));
+
     return (
-        <div className="py-8 first:pt-4 flex flex-col gap-4">
-            {/* Header: Company Info */}
-            <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-zinc-900 border flex items-center justify-center text-white font-bold overflow-hidden relative">
-                    <span className="text-sm">{experience.company.charAt(0)}</span>
-                </div>
-                <h3 className="text-xl font-semibold text-zinc-900 flex items-center gap-2">
-                    {experience.company}
-                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                </h3>
-            </div>
-
-            {/* Roles Timeline */}
-            <div className="flex flex-col ml-5 border-l border-zinc-200">
-                {experience.roles.map((role, rIndex) => (
-                    <div key={rIndex} className="relative pl-8 pb-8 last:pb-0">
-                        {/* Role Icon Positioned Over the Border */}
-                        <div className="absolute -left-3.5 top-0 w-7 h-7 bg-white rounded-full border border-zinc-200 flex items-center justify-center">
-                            <CodeXml className="w-4 h-4 text-zinc-600" />
-                        </div>
-
-                        {/* Role Header */}
-                        <div className="flex items-start justify-between">
-                            <div>
-                                <h4 className="text-[17px] font-semibold text-zinc-900">{role.title}</h4>
-                                <div className="flex flex-wrap items-center gap-2 mt-1 text-sm text-zinc-500 font-medium tracking-wide">
-                                    <span>{role.type}</span>
-                                    <span className="text-zinc-300">|</span>
-                                    <span>{role.startDate} – {role.endDate}</span>
-                                    <span className="text-zinc-300">|</span>
-                                    <span>{role.duration}</span>
-                                </div>
-                            </div>
-                            <ChevronDown className="w-5 h-5 text-zinc-400" />
-                        </div>
-
-                        {/* Content Body */}
-                        <div className="mt-6 text-[15.5px] leading-relaxed text-zinc-700">
-                            {/* Main Responsibilities */}
-                            <ul className="space-y-3">
-                                {role.responsibilities.map((resp, i) => (
-                                    <motion.li
-                                        key={i}
-                                        whileHover={{ x: 6 }}
-                                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                        className="flex items-start gap-3 pl-2 cursor-default group"
-                                    >
-                                        <span className="w-1.5 h-1.5 mt-2 rounded-full bg-zinc-300 group-hover:bg-blue-500 transition-colors duration-300 shrink-0" />
-                                        <span className="group-hover:text-zinc-900 transition-colors duration-300">
-                                            {resp}
-                                        </span>
-                                    </motion.li>
-                                ))}
-                            </ul>
-
-                            {/* Projects */}
-                            {role.projects && role.projects.length > 0 && (
-                                <div className="mt-6 space-y-6">
-                                    {role.projects.map((project, pIndex) => (
-                                        <div key={pIndex}>
-                                            <h5 className="font-semibold text-zinc-900 mb-4 flex items-center gap-2">
-                                                In-house Project:
-                                                <span className="font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md text-sm">{project.name}</span>
-                                            </h5>
-                                            <ul className="space-y-3">
-                                                {project.description.map((desc, dIndex) => (
-                                                    <motion.li
-                                                        key={dIndex}
-                                                        whileHover={{ x: 6 }}
-                                                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                                        className="flex items-start gap-3 pl-2 cursor-default group"
-                                                    >
-                                                        <span className="w-1.5 h-1.5 mt-2 rounded-full bg-zinc-300 group-hover:bg-blue-500 transition-colors duration-300 shrink-0" />
-                                                        <span className="group-hover:text-zinc-900 transition-colors duration-300">
-                                                            {desc}
-                                                        </span>
-                                                    </motion.li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-
-                            {/* Skills Tags */}
-                            <div className="flex flex-wrap gap-2 mt-6">
-                                {role.skills.map((skill, sIndex) => (
-                                    <span
-                                        key={sIndex}
-                                        className="px-2.5 py-1 text-[13px] border border-zinc-200 rounded-md text-zinc-600 bg-white"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
+        <div className="py-2 first:pt-0">
+            {/* Header: Company Info + Main Technologies */}
+            <div 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer group"
+            >
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-white font-bold overflow-hidden shrink-0">
+                        <span className="text-lg">{experience.company.charAt(0)}</span>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                            {experience.company}
+                            <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                        </h3>
+                        {/* Show limited skills when closed, all when expanded if needed, but the user asked for technologies in the header */}
+                        <div className="flex flex-wrap gap-2 mt-1">
+                            {allSkills.map((skill, index) => (
+                                <span 
+                                    key={index} 
+                                    className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
                         </div>
                     </div>
-                ))}
+                </div>
+                
+                <div className="flex items-center gap-4 self-end md:self-auto">
+                    <motion.div
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors"
+                    >
+                        <ChevronDown className="w-5 h-5 text-zinc-500 group-hover:text-blue-500 transition-colors" />
+                    </motion.div>
+                </div>
             </div>
+
+            {/* Detailed Content: Roles Timeline */}
+            <AnimatePresence>
+                {isExpanded && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                        className="overflow-hidden"
+                    >
+                        <div className="mt-8 pt-8 border-t border-zinc-100 dark:border-zinc-900">
+                            <div className="flex flex-col ml-6 border-l-2 border-zinc-100 dark:border-zinc-900">
+                                {experience.roles.map((role, rIndex) => (
+                                    <div key={rIndex} className="relative pl-8 pb-10 last:pb-0">
+                                        {/* Role Icon Positioned Over the Border */}
+                                        <div className="absolute -left-[1.1rem] top-0 w-8 h-8 bg-white dark:bg-zinc-950 rounded-full border-2 border-zinc-100 dark:border-zinc-900 flex items-center justify-center">
+                                            <CodeXml className="w-4 h-4 text-zinc-500" />
+                                        </div>
+
+                                        {/* Role Header */}
+                                        <div className="flex flex-col gap-1">
+                                            <h4 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{role.title}</h4>
+                                            <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                                                <span className="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs">{role.type}</span>
+                                                <span className="w-1 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                                                <span>{role.startDate} – {role.endDate}</span>
+                                                <span className="w-1 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                                                <span className="italic">{role.duration}</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Content Body */}
+                                        <div className="mt-6 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                                            {/* Main Responsibilities */}
+                                            <ul className="space-y-4">
+                                                {role.responsibilities.map((resp, i) => (
+                                                    <li
+                                                        key={i}
+                                                        className="flex items-start gap-3 group/item"
+                                                    >
+                                                        <span className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-400/50 group-hover/item:bg-blue-500 transition-colors shrink-0" />
+                                                        <span className="group-hover/item:text-zinc-900 dark:group-hover/item:text-zinc-200 transition-colors">
+                                                            {resp}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+
+                                            {/* Projects */}
+                                            {role.projects && role.projects.length > 0 && (
+                                                <div className="mt-8 space-y-8">
+                                                    {role.projects.map((project, pIndex) => (
+                                                        <div key={pIndex} className="bg-zinc-50 dark:bg-zinc-900/50 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+                                                            <h5 className="font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+                                                                Project:
+                                                                <span className="text-blue-500">{project.name}</span>
+                                                            </h5>
+                                                            <ul className="space-y-3">
+                                                                {project.description.map((desc, dIndex) => (
+                                                                    <li
+                                                                        key={dIndex}
+                                                                        className="flex items-start gap-3 group/desc text-[14.5px]"
+                                                                    >
+                                                                        <span className="w-1 h-1 mt-2.5 rounded-full bg-zinc-400 shrink-0" />
+                                                                        <span className="group-hover/desc:text-zinc-900 dark:group-hover/desc:text-zinc-200 transition-colors">
+                                                                            {desc}
+                                                                        </span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
 
 export default ExperienceCard;
+

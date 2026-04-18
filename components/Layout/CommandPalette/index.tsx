@@ -87,7 +87,7 @@ export default function CommandPalette() {
                             <span>Resources & Mentors</span>
                         </Command.Item>
                         <Command.Item
-                            onSelect={() => runCommand(() => router.push("/self-help"))}
+                            onSelect={() => runCommand(() => router.push("/library"))}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <BookOpen className="w-[18px] h-[18px] mr-3 text-emerald-500" />

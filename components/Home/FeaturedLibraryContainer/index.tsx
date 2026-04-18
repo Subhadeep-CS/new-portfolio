@@ -43,7 +43,7 @@ const FeaturedLibraryContainer = () => {
 
                 <div className="flex justify-center border-t border-zinc-100 dark:border-zinc-800 pt-8">
                     <Link
-                        href="/self-help"
+                        href="/library"
                         className="group flex justify-center items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-[12px] font-medium hover:bg-zinc-800 dark:hover:bg-white transition-all shadow-sm active:scale-95"
                     >
                         Explore The Library
