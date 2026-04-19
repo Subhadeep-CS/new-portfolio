@@ -1,10 +1,39 @@
 "use client";
-
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star } from "lucide-react";
+
+interface Particle {
+    id: number;
+    x: number;
+    y: number;
+    rotation: number;
+    size: number;
+    color: string;
+}
 
 const LivePlaygroundContainer = () => {
     const [radius, setRadius] = useState(16);
     const [color, setColor] = useState("#10b981");
+    const [particles, setParticles] = useState<Particle[]>([]);
+
+    const createSparkle = () => {
+        const newParticles = Array.from({ length: 12 }).map((_, i) => ({
+            id: Date.now() + i,
+            x: (Math.random() - 0.5) * 250,
+            y: (Math.random() - 0.5) * 250,
+            rotation: Math.random() * 360,
+            size: Math.random() * 15 + 10,
+            color: ["#FFEA00", "#FF00FF", "#00FFFF", "#FF3D00", "#6200EA"][Math.floor(Math.random() * 5)]
+        }));
+
+        setParticles((prev) => [...prev, ...newParticles]);
+
+        // Clean up particles
+        setTimeout(() => {
+            setParticles((prev) => prev.filter(p => !newParticles.includes(p)));
+        }, 1000);
+    };
 
     return (
         <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
@@ -18,15 +47,42 @@ const LivePlaygroundContainer = () => {
                     
                     {/* Rendered Output */}
                     <div className="flex justify-center items-center w-full h-[250px] border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-xl relative overflow-hidden bg-white dark:bg-zinc-950">
-                        <button
+                        <AnimatePresence>
+                            {particles.map((particle) => (
+                                <motion.div
+                                    key={particle.id}
+                                    initial={{ x: 0, y: 0, opacity: 1, scale: 0 }}
+                                    animate={{ 
+                                        x: particle.x, 
+                                        y: particle.y, 
+                                        opacity: 0, 
+                                        scale: [0, 1.5, 1], 
+                                        rotate: particle.rotation 
+                                    }}
+                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    className="absolute z-20 pointer-events-none"
+                                    style={{ 
+                                        color: particle.color,
+                                        filter: `drop-shadow(0 0 10px ${particle.color}) drop-shadow(0 0 20px ${particle.color}44)`
+                                    }}
+                                >
+                                    <Star fill="currentColor" size={particle.size} strokeWidth={0} />
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={createSparkle}
                             style={{
                                 borderRadius: `${radius}px`,
                                 backgroundColor: color,
                             }}
-                            className="px-8 py-4 text-white font-bold text-lg shadow-lg hover:scale-105 active:scale-95 transition-transform"
+                            className="px-8 py-4 text-white font-bold text-lg shadow-lg relative z-10"
                         >
                             Hover Me!
-                        </button>
+                        </motion.button>
                     </div>
 
                     {/* Controls & Code */}
@@ -71,3 +127,4 @@ const LivePlaygroundContainer = () => {
 };
 
 export default LivePlaygroundContainer;
+

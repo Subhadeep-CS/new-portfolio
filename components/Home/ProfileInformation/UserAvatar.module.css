@@ -1,0 +1,119 @@
+.avatarContainer {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.avatarContainer:hover {
+  transform: scale(1.08);
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  border: 4px solid transparent;
+  transition: border-color 0.3s ease;
+  background: #fff; /* Fallback */
+}
+
+.avatarContainer:hover .avatarWrapper {
+  border-color: rgba(255, 100, 0, 0.8);
+  box-shadow: 0 0 20px rgba(255, 100, 0, 0.4);
+}
+
+.fireEffect, .fireEffectOuter {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.fireEffect {
+  inset: -15px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #ff4500 40deg,
+    #ff8c00 80deg,
+    #ffd700 120deg,
+    transparent 160deg
+  );
+  filter: blur(12px) brightness(1.8);
+  z-index: 1;
+  animation: rotateFire 1.2s linear infinite, pulseFire 2s ease-in-out infinite;
+}
+
+.fireEffectOuter {
+  inset: -25px;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    #ff0000 70deg,
+    #ff4d00 140deg,
+    #ffae00 210deg,
+    transparent 280deg
+  );
+  filter: blur(20px) brightness(1.4);
+  z-index: 0;
+  animation: rotateFire 1.8s linear infinite reverse, pulseFire 3s ease-in-out infinite;
+}
+
+.avatarContainer:hover .fireEffect,
+.avatarContainer:hover .fireEffectOuter {
+  opacity: 0.8;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: 0 0 10px #ffae00, 0 0 20px #ff4d00;
+}
+
+.avatarContainer:hover .sparkle {
+  animation: sparkleMove 1s ease-out infinite;
+  opacity: 1;
+}
+
+@keyframes rotateFire {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseFire {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes sparkleMove {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0);
+    opacity: 0;
+  }
+}
+
