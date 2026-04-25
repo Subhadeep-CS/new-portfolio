@@ -56,6 +56,10 @@ export const HEADER_MENU: HeaderMenuItem[] = [
     name: "Beyond Code",
     href: "/library",
   },
+  {
+    name: "Education",
+    href: "/education",
+  },
 ];
 
 export const DESIGNATION: string[] = [
@@ -278,6 +282,60 @@ export const EXPERIENCE_DATA: ExperienceInterface[] = [
     ]
   }
 ];
+
+export interface EducationInterface {
+  institution: string;
+  degree: string;
+  fieldId?: string;
+  startDate: string;
+  endDate: string;
+  duration: string;
+  grade?: string;
+  logoUrl?: string;
+  description: string[];
+  skills?: string[];
+}
+
+export const EDUCATION_DATA: EducationInterface[] = [
+  {
+    institution: "University of Science — VNUHCM",
+    degree: "Bachelor’s degree in Information Systems",
+    startDate: "08.2018",
+    endDate: "10.2026",
+    duration: "8y 3m",
+    description: [
+      "Currently studying for a Bachelor’s degree in Information Systems.",
+      "Language Proficiency: B1 level in English (CEFR).",
+      "Achieved several awards, including:",
+      "Bronze Medal — 10th Design, Manufacturing, and Application Award 2022",
+      "2nd Prize — Business Startup Competition 2019"
+    ],
+    skills: ["C++", "Java", "Python", "PHP", "DSA", "Advanced Databases", "Systems Design", "Distributed Systems", "Software Engineering", "Teamwork"]
+  },
+  {
+    institution: "Ly Tu Trong High School for the Gifted — Can Tho City",
+    degree: "High School Diploma",
+    startDate: "08.2015",
+    endDate: "06.2018",
+    duration: "2y 11m",
+    description: [
+      "Specialized in Computer Science and Advanced Mathematics."
+    ],
+    skills: ["Algorithms", "C++", "PHP", "MySQL", "Laravel", "Node.js", "Pandoc"]
+  },
+  {
+    institution: "Thuan Hung Secondary School",
+    degree: "Secondary School Graduation",
+    startDate: "08.2011",
+    endDate: "06.2015",
+    duration: "3y 11m",
+    description: [
+      "Started the journey into programming and web technologies."
+    ],
+    skills: ["Pascal", "NukeViet", "HTML", "CSS", "JavaScript"]
+  }
+];
+
 
 export const CERTIFICATION_DATA = [
   {

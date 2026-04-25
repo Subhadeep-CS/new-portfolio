@@ -4,39 +4,45 @@ import { ExperienceInterface } from "@/utils/app_constant";
 import { CodeXml, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ExperienceCard = ({ experience }: { experience: ExperienceInterface }) => {
+const ExperienceCard = ({ experience, isLast }: { experience: ExperienceInterface, isLast?: boolean }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Get all unique skills/technologies used in this company across all roles
     const allSkills = Array.from(new Set(experience.roles.flatMap(role => role.skills)));
 
     return (
-        <div className="py-2 first:pt-0">
+        <div className="relative pl-12 pb-2 first:pt-0 group/exp">
+            
+            {/* Vertical Timeline Line between Companies - Only if not last */}
+            {!isLast && (
+                <div className="absolute left-[1.35rem] top-12 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 group-hover/exp:bg-blue-500/30 transition-colors" />
+            )}
+
+            {/* Company Icon Node */}
+            <div className="absolute left-0 top-0 w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-white font-bold overflow-hidden shrink-0 z-10 group-hover/exp:border-blue-500/50 transition-colors">
+                <span className="text-lg">{experience.company.charAt(0)}</span>
+            </div>
+
             {/* Header: Company Info + Main Technologies */}
             <div 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer group"
+                className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer pt-1"
             >
-                <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-white font-bold overflow-hidden shrink-0">
-                        <span className="text-lg">{experience.company.charAt(0)}</span>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-                            {experience.company}
-                            <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                        </h3>
-                        {/* Show limited skills when closed, all when expanded if needed, but the user asked for technologies in the header */}
-                        <div className="flex flex-wrap gap-2 mt-1">
-                            {allSkills.map((skill, index) => (
-                                <span 
-                                    key={index} 
-                                    className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
+                <div className="flex flex-col gap-1">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 group-hover/exp:text-blue-600 dark:group-hover/exp:text-blue-400 transition-colors">
+                        {experience.company}
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                    </h3>
+                    <div className="flex flex-wrap gap-2 mt-1">
+                        {allSkills.slice(0, 5).map((skill, index) => (
+                            <span 
+                                key={index} 
+                                className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800"
+                            >
+                                {skill}
+                            </span>
+                        ))}
+                        {allSkills.length > 5 && <span className="text-[10px] text-zinc-400">+{allSkills.length - 5} more</span>}
                     </div>
                 </div>
                 
@@ -44,7 +50,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceInterface }) => 
                     <motion.div
                         animate={{ rotate: isExpanded ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="w-10 h-10 rounded-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors"
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 group-hover/exp:bg-blue-50 dark:group-hover/exp:bg-blue-900/20 transition-colors"
                     >
                         <ChevronDown className="w-5 h-5 text-zinc-500 group-hover:text-blue-500 transition-colors" />
                     </motion.div>
@@ -138,4 +144,3 @@ const ExperienceCard = ({ experience }: { experience: ExperienceInterface }) => 
 };
 
 export default ExperienceCard;
-

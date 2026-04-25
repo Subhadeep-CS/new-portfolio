@@ -1,6 +1,5 @@
 import { SELF_HELP_BOOKS_DATA } from "@/utils/app_constant";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import ExpandButton from "@/components/Layout/common/ExpandButton";
 
 const FeaturedLibraryContainer = () => {
     // Show only the first 2 books
@@ -42,13 +41,11 @@ const FeaturedLibraryContainer = () => {
                 </div>
 
                 <div className="flex justify-center border-t border-zinc-100 dark:border-zinc-800 pt-8">
-                    <Link
-                        href="/library"
-                        className="group flex justify-center items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-[12px] font-medium hover:bg-zinc-800 dark:hover:bg-white transition-all shadow-sm active:scale-95"
-                    >
-                        Explore The Library
-                        <ArrowRight className="w-[18px] h-[18px] group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    <ExpandButton 
+                        isLink 
+                        href="/library" 
+                        label="Explore The Library" 
+                    />
                 </div>
             </div>
         </section>
