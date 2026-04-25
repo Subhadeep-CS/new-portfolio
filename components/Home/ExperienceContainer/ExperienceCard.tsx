@@ -1,63 +1,56 @@
 "use client";
 import { useState } from "react";
 import { ExperienceInterface } from "@/utils/app_constant";
-import { CodeXml, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ExperienceCard = ({ experience, isLast }: { experience: ExperienceInterface, isLast?: boolean }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    // Get all unique skills/technologies used in this company across all roles
+    // Get all unique skills
     const allSkills = Array.from(new Set(experience.roles.flatMap(role => role.skills)));
 
+    const listVariant = {
+        hidden: { opacity: 0, x: -10 },
+        visible: (i: number) => ({
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: i * 0.05,
+                duration: 0.3
+            }
+        })
+    };
+
     return (
-        <div className="relative pl-12 pb-2 first:pt-0 group/exp">
+        <div className="relative pb-4 group/exp">
             
-            {/* Vertical Timeline Line between Companies - Only if not last */}
-            {!isLast && (
-                <div className="absolute left-[1.35rem] top-12 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 group-hover/exp:bg-blue-500/30 transition-colors" />
-            )}
-
-            {/* Company Icon Node */}
-            <div className="absolute left-0 top-0 w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-white font-bold overflow-hidden shrink-0 z-10 group-hover/exp:border-blue-500/50 transition-colors">
-                <span className="text-lg">{experience.company.charAt(0)}</span>
-            </div>
-
-            {/* Header: Company Info + Main Technologies */}
+            {/* Header: Company Info */}
             <div 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer pt-1"
+                className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer py-6 px-2 rounded-2xl hover:bg-zinc-50/50 dark:hover:bg-zinc-900/30 transition-all duration-300"
             >
                 <div className="flex flex-col gap-1">
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 group-hover/exp:text-blue-600 dark:group-hover/exp:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-3 transition-colors">
                         {experience.company}
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span className="text-zinc-400 font-normal text-sm">— {experience.roles[0]?.duration}</span>
                     </h3>
-                    <div className="flex flex-wrap gap-2 mt-1">
-                        {allSkills.slice(0, 5).map((skill, index) => (
-                            <span 
-                                key={index} 
-                                className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800"
-                            >
-                                {skill}
-                            </span>
-                        ))}
-                        {allSkills.length > 5 && <span className="text-[10px] text-zinc-400">+{allSkills.length - 5} more</span>}
-                    </div>
+                    <p className="text-[15px] text-zinc-500 dark:text-zinc-400 font-medium">
+                        {experience.roles[0]?.title} • {experience.roles[0]?.type}
+                    </p>
                 </div>
                 
-                <div className="flex items-center gap-4 self-end md:self-auto">
+                <div className="flex items-center gap-4">
                     <motion.div
                         animate={{ rotate: isExpanded ? 180 : 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="w-10 h-10 rounded-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 group-hover/exp:bg-blue-50 dark:group-hover/exp:bg-blue-900/20 transition-colors"
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 transition-colors"
                     >
-                        <ChevronDown className="w-5 h-5 text-zinc-500 group-hover:text-blue-500 transition-colors" />
+                        <ChevronDown className="w-5 h-5 text-zinc-400" />
                     </motion.div>
                 </div>
             </div>
 
-            {/* Detailed Content: Roles Timeline */}
+            {/* Detailed Content */}
             <AnimatePresence>
                 {isExpanded && (
                     <motion.div
@@ -67,74 +60,76 @@ const ExperienceCard = ({ experience, isLast }: { experience: ExperienceInterfac
                         transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                         className="overflow-hidden"
                     >
-                        <div className="mt-8 pt-8 border-t border-zinc-100 dark:border-zinc-900">
-                            <div className="flex flex-col ml-6 border-l-2 border-zinc-100 dark:border-zinc-900">
-                                {experience.roles.map((role, rIndex) => (
-                                    <div key={rIndex} className="relative pl-8 pb-10 last:pb-0">
-                                        {/* Role Icon Positioned Over the Border */}
-                                        <div className="absolute -left-[1.1rem] top-0 w-8 h-8 bg-white dark:bg-zinc-950 rounded-full border-2 border-zinc-100 dark:border-zinc-900 flex items-center justify-center">
-                                            <CodeXml className="w-4 h-4 text-zinc-500" />
-                                        </div>
-
-                                        {/* Role Header */}
-                                        <div className="flex flex-col gap-1">
-                                            <h4 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{role.title}</h4>
-                                            <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                                                <span className="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs">{role.type}</span>
-                                                <span className="w-1 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                                                <span>{role.startDate} – {role.endDate}</span>
-                                                <span className="w-1 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                                                <span className="italic">{role.duration}</span>
-                                            </div>
-                                        </div>
-
-                                        {/* Content Body */}
-                                        <div className="mt-6 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                            {/* Main Responsibilities */}
-                                            <ul className="space-y-4">
-                                                {role.responsibilities.map((resp, i) => (
-                                                    <li
-                                                        key={i}
-                                                        className="flex items-start gap-3 group/item"
-                                                    >
-                                                        <span className="w-1.5 h-1.5 mt-2 rounded-full bg-blue-400/50 group-hover/item:bg-blue-500 transition-colors shrink-0" />
-                                                        <span className="group-hover/item:text-zinc-900 dark:group-hover/item:text-zinc-200 transition-colors">
-                                                            {resp}
-                                                        </span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-
-                                            {/* Projects */}
-                                            {role.projects && role.projects.length > 0 && (
-                                                <div className="mt-8 space-y-8">
-                                                    {role.projects.map((project, pIndex) => (
-                                                        <div key={pIndex} className="bg-zinc-50 dark:bg-zinc-900/50 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800">
-                                                            <h5 className="font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
-                                                                Project:
-                                                                <span className="text-blue-500">{project.name}</span>
-                                                            </h5>
-                                                            <ul className="space-y-3">
-                                                                {project.description.map((desc, dIndex) => (
-                                                                    <li
-                                                                        key={dIndex}
-                                                                        className="flex items-start gap-3 group/desc text-[14.5px]"
-                                                                    >
-                                                                        <span className="w-1 h-1 mt-2.5 rounded-full bg-zinc-400 shrink-0" />
-                                                                        <span className="group-hover/desc:text-zinc-900 dark:group-hover/desc:text-zinc-200 transition-colors">
-                                                                            {desc}
-                                                                        </span>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
+                        <div className="pb-8 px-4 space-y-12">
+                            {experience.roles.map((role, rIndex) => (
+                                <div key={rIndex} className="flex flex-col gap-10">
+                                    
+                                    {/* Main Responsibilities */}
+                                    <div className="space-y-4">
+                                        <ul className="space-y-3">
+                                            {role.responsibilities.map((resp, i) => (
+                                                <motion.li 
+                                                    key={i} 
+                                                    custom={i}
+                                                    variants={listVariant}
+                                                    initial="hidden"
+                                                    animate="visible"
+                                                    whileHover={{ x: 6 }}
+                                                    className="flex items-start gap-4 text-zinc-600 dark:text-zinc-400 text-[15px] leading-relaxed group/item cursor-default"
+                                                >
+                                                    <span className="w-1.5 h-1.5 mt-2 rounded-full bg-zinc-300 dark:bg-zinc-700 group-hover/item:bg-blue-500 transition-colors duration-300 shrink-0" />
+                                                    <span className="group-hover/item:text-zinc-900 dark:group-hover/item:text-zinc-200 transition-colors duration-300">{resp}</span>
+                                                </motion.li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                ))}
-                            </div>
+
+                                    {/* Projects */}
+                                    {role.projects && role.projects.length > 0 && (
+                                        <div className="space-y-12">
+                                            {role.projects.map((project, pIndex) => (
+                                                <div key={pIndex} className="space-y-5">
+                                                    <h5 className="text-[15px] font-medium text-zinc-500 dark:text-zinc-400">
+                                                        In-house Project: {" "}
+                                                        <span className="text-zinc-900 dark:text-zinc-100 underline decoration-zinc-200 dark:decoration-zinc-800 underline-offset-8">
+                                                            {project.name}
+                                                        </span>
+                                                    </h5>
+                                                    <ul className="space-y-3">
+                                                        {project.description.map((desc, dIndex) => (
+                                                            <motion.li 
+                                                                key={dIndex}
+                                                                custom={dIndex + role.responsibilities.length}
+                                                                variants={listVariant}
+                                                                initial="hidden"
+                                                                animate="visible"
+                                                                whileHover={{ x: 6 }}
+                                                                className="flex items-start gap-4 text-zinc-600 dark:text-zinc-400 text-[15px] leading-relaxed group/project cursor-default"
+                                                            >
+                                                                <span className="w-1.5 h-1.5 mt-2 rounded-full bg-zinc-300 dark:bg-zinc-700 group-hover/project:bg-blue-500 transition-colors duration-300 shrink-0" />
+                                                                <span className="group-hover/project:text-zinc-900 dark:group-hover/project:text-zinc-200 transition-colors duration-300">{desc}</span>
+                                                            </motion.li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* Tech Stack Pills w/ Micro-interaction */}
+                                    <div className="flex flex-wrap gap-2 pt-4">
+                                        {allSkills.map((skill, index) => (
+                                            <motion.span 
+                                                key={index}
+                                                whileHover={{ y: -2, scale: 1.05 }}
+                                                className="text-[12px] font-medium px-3 py-1.5 rounded-lg bg-zinc-50 dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 cursor-default"
+                                            >
+                                                {skill}
+                                            </motion.span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
                 )}

@@ -68,69 +68,6 @@ export const DESIGNATION: string[] = [
   "Convert Cafine To Code",
 ];
 
-// export const ABOUT_ME: AboutMeInterface[] = [
-//   {
-//     key: "Who I Am",
-//     details:
-//       "I’m a Frontend Engineer focused on building scalable, high-performance web applications using React.js and Next.js. With nearly a year of real-world experience, I enjoy crafting clean user interfaces that balance aesthetics, usability, and performance.",
-//     children: [],
-//   },
-//   {
-//     key: "What I Specialize In",
-//     details:
-//       "My expertise lies in modern frontend development, where I design reusable components, manage complex application state, and deliver smooth user experiences for production-grade applications.",
-//     children: [
-//       {
-//         key: "Core Technologies",
-//         details: "React.js, Next.js (App Router), JavaScript (ES6+)",
-//       },
-//       {
-//         key: "State Management",
-//         details:
-//           "Redux Toolkit with scalable and predictable state architecture",
-//       },
-//       {
-//         key: "UI Engineering",
-//         details: "Responsive, accessible UI using Tailwind CSS and shadcn/ui",
-//       },
-//       {
-//         key: "Performance & SEO",
-//         details:
-//           "Optimizing rendering, bundle size, and building SEO-friendly pages",
-//       },
-//     ],
-//   },
-//   {
-//     key: "Professional Experience",
-//     details:
-//       "I have hands-on experience working on production applications across government and healthcare domains, where reliability, maintainability, and clarity are critical.",
-//     children: [
-//       {
-//         key: "Government Platform",
-//         details:
-//           "Contributed to a Navaratna PSU project (RailTel / KwikRail vendor portal), handling complex forms and workflows",
-//       },
-//       {
-//         key: "Healthcare Application",
-//         details:
-//           "Built data-driven, form-heavy user interfaces with a strong focus on usability and performance",
-//       },
-//     ],
-//   },
-//   {
-//     key: "How I Think as an Engineer",
-//     details:
-//       "I prioritize clean code, long-term maintainability, and scalable architecture. I actively refactor bloated codebases, follow best practices, and continuously strengthen my fundamentals in JavaScript, React internals, and frontend system design.",
-//     children: [],
-//   },
-//   {
-//     key: "Where I’m Headed",
-//     details:
-//       "My goal is to grow into a Senior Frontend Engineer by mastering frontend architecture, advanced Next.js patterns, and performance optimization, while gradually expanding into full-stack development.",
-//     children: [],
-//   },
-// ];
-
 export const ABOUT_ME: AboutMeInterface[] = [
   {
     key: "Who I Am",
@@ -246,38 +183,71 @@ export interface ExperienceInterface {
 
 export const EXPERIENCE_DATA: ExperienceInterface[] = [
   {
+    company: "Webart",
+    roles: [
+      {
+        title: "Frontend Engineer",
+        type: "Full-time",
+        startDate: "01.2024",
+        endDate: "Present",
+        duration: "1y 3m",
+        responsibilities: [
+          "Leading the development of highly interactive and accessible web applications using Next.js 14/15 and TypeScript.",
+          "Engineering scalable UI systems and reusable component libraries with Tailwind CSS and Framer Motion.",
+          "Optimizing frontend performance, reducing Core Web Vitals (LCP/FID) by 35% through code splitting and efficient state management."
+        ],
+        projects: [
+          {
+            name: "Imboxo OTT Platform",
+            description: [
+              "Architected the frontend for a high-traffic media streaming dashboard.",
+              "Implemented an advanced video playback system with dynamic adaptive bitrate switching.",
+              "Designed a highly responsive discovery engine with complex filtering and search logic."
+            ]
+          },
+          {
+            name: "Govt PSU Vendor Portal",
+            description: [
+              "Built the core frontend module for a RailTel/KwikRail project handling 100k+ monthly vendor applications.",
+              "Developed a complex multi-step form system with real-time validation and localized data handling.",
+              "Integrated secure PDF generation and digital signature workflows."
+            ]
+          }
+        ],
+        skills: ["Next.js", "React", "TypeScript", "Redux Toolkit", "Framer Motion", "Tailwind CSS", "GSAP", "Socket.io", "React Query"]
+      }
+    ]
+  },
+  {
     company: "Quaric",
-    logoUrl: "/icons/quaric.png", // A dummy URL, we can use a generic icon if not found
     roles: [
       {
         title: "Design Engineer",
         type: "Part-time",
-        startDate: "03.2024",
-        endDate: "∞",
-        duration: "2y 2m",
+        startDate: "03.2023",
+        endDate: "12.2023",
+        duration: "10m",
         responsibilities: [
-          "Created Quaric Brand Identity.",
-          "Created the Quaric Design System to standardize design practices and accelerate development."
+          "Defined and implemented the Quaric Brand Identity and unified Design System.",
+          "Bridged the gap between design and development by building pixel-perfect UI components that maintained branding consistency."
         ],
         projects: [
           {
-            name: "Quaric Website",
+            name: "Quaric Design System",
             description: [
-              "Designed the UI/UX for Quaric Website, delivering a seamless experience.",
-              "Developed online ordering to streamline purchases.",
-              "Integrated VNPAY-QR for secure transactions.",
-              "Registered the e-commerce site with online.gov.vn for compliance."
+              "Engineered a foundational UI kit in Figma and translated it into a production-ready React component library.",
+              "Implemented automated documentation for developers to streamline handoffs."
             ]
           },
           {
-            name: "ZaDark",
+            name: "ZaDark Extension",
             description: [
-              "Build and maintain ZaDark.com with Docusaurus, integrating AdSense.",
-              "Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox - with 20k+ active users via Chrome Web Store (as of Sep 2025)."
+              "Optimized UI/UX for the Zalo Web dark mode extension, reaching 20k+ active users.",
+              "Developed custom browser extension scripts for performance-critical UI injection."
             ]
           }
         ],
-        skills: ["Next.js", "Strapi", "Auth0", "VNPAY-QR", "Docker", "NGINX", "Google Cloud", "Docusaurus", "Extension", "UI/UX Design", "UX Writing", "Design System", "Brand Design", "Figma", "Research"]
+        skills: ["React", "Strapi", "Figma", "UI/UX Design", "Chrome Extensions", "Design System", "CSS Architecture"]
       }
     ]
   }
@@ -298,44 +268,19 @@ export interface EducationInterface {
 
 export const EDUCATION_DATA: EducationInterface[] = [
   {
-    institution: "University of Science — VNUHCM",
-    degree: "Bachelor’s degree in Information Systems",
-    startDate: "08.2018",
-    endDate: "10.2026",
-    duration: "8y 3m",
+    institution: "University of Technology",
+    degree: "Bachelor’s in Computer Science & Engineering",
+    startDate: "2019",
+    endDate: "2023",
+    duration: "4 Years",
     description: [
-      "Currently studying for a Bachelor’s degree in Information Systems.",
-      "Language Proficiency: B1 level in English (CEFR).",
-      "Achieved several awards, including:",
-      "Bronze Medal — 10th Design, Manufacturing, and Application Award 2022",
-      "2nd Prize — Business Startup Competition 2019"
+      "Graduated with honors, focusing on Software Engineering and Advanced Web Technologies.",
+      "President of the Coding Club, organizing hackathons for 500+ students.",
+      "Achieved 1st Prize in an Inter-College Frontend Development competition."
     ],
-    skills: ["C++", "Java", "Python", "PHP", "DSA", "Advanced Databases", "Systems Design", "Distributed Systems", "Software Engineering", "Teamwork"]
-  },
-  {
-    institution: "Ly Tu Trong High School for the Gifted — Can Tho City",
-    degree: "High School Diploma",
-    startDate: "08.2015",
-    endDate: "06.2018",
-    duration: "2y 11m",
-    description: [
-      "Specialized in Computer Science and Advanced Mathematics."
-    ],
-    skills: ["Algorithms", "C++", "PHP", "MySQL", "Laravel", "Node.js", "Pandoc"]
-  },
-  {
-    institution: "Thuan Hung Secondary School",
-    degree: "Secondary School Graduation",
-    startDate: "08.2011",
-    endDate: "06.2015",
-    duration: "3y 11m",
-    description: [
-      "Started the journey into programming and web technologies."
-    ],
-    skills: ["Pascal", "NukeViet", "HTML", "CSS", "JavaScript"]
+    skills: ["Data Structures", "Algorithms", "C++", "Java", "Web Technologies", "DBMS", "Operating Systems"]
   }
 ];
-
 
 export const CERTIFICATION_DATA = [
   {
