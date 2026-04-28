@@ -15,7 +15,7 @@ const Footer = () => {
                 </p>
 
                 <p>
-                    Built by <Link href="https://github.com/ncdai" target="_blank" className="font-bold text-zinc-900 dark:text-white hover:underline">ncdai</Link>. The source code is available on <Link href="https://github.com/Subhadeep-CS/new-portfolio" target="_blank" className="font-bold text-zinc-900 dark:text-white hover:underline whitespace-nowrap">GitHub</Link>.
+                    Built by <Link href="https://github.com/Subhadeep-CS" target="_blank" className="font-bold text-zinc-900 dark:text-white hover:underline">Subhadeep</Link>. The source code is available on <Link href="https://github.com/Subhadeep-CS/new-portfolio" target="_blank" className="font-bold text-zinc-900 dark:text-white hover:underline whitespace-nowrap">GitHub</Link>.
                 </p>
 
             </div>

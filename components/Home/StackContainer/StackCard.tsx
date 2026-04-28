@@ -3,13 +3,23 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { IconType } from "react-icons";
 
-const StackCard = ({ tech }) => {
+interface TechProps {
+    tech: {
+        name: string;
+        url: string;
+        icon: IconType;
+        color: string;
+    }
+}
+
+const StackCard = ({ tech }: TechProps) => {
     const Icon = tech.icon;
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }) {
+    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
         let { left, top } = currentTarget.getBoundingClientRect();
         mouseX.set(clientX - left);
         mouseY.set(clientY - top);

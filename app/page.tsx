@@ -4,6 +4,7 @@ import DesignationContactInfo from "@/components/Home/DesignationContactInfo";
 import ProfileInformation from "@/components/Home/ProfileInformation";
 import StackContainer from "@/components/Home/StackContainer";
 import ExperienceContainer from "@/components/Home/ExperienceContainer";
+import FeaturedProjectsContainer from "@/components/Home/FeaturedProjectsContainer";
 import EducationContainer from "@/components/Home/EducationContainer";
 import CrossDivider from "@/components/Layout/common/CrossDivider";
 import GithubContainer from "@/components/Home/GithubContainer";
@@ -37,6 +38,9 @@ export default function Home() {
       <ExperienceContainer />
 
       <CrossDivider />
+      <FeaturedProjectsContainer />
+
+      <CrossDivider />
       <EducationContainer />
 
       <CrossDivider />
@@ -66,8 +70,8 @@ export default function Home() {
       {/* <CrossDivider />
       <GithubContainer /> */}
 
-      <CrossDivider />
-      <SpotifyContainer />
+      {/* <CrossDivider />
+      <SpotifyContainer /> */}
 
       <CrossDivider />
       <ConnectContainer />

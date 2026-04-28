@@ -15,7 +15,7 @@ const ExpandButton = ({ isExpanded, onClick, href, label, isLink = false }: Expa
     // Style classes based on the user's provided CSS reference with standardized typography
     const btnBaseClass = `
         relative inline-flex items-center justify-center px-10 py-3 rounded-full
-        border-[1.5px] border-zinc-900 dark:border-white
+        border-[2px] border-zinc-900 dark:border-white
         text-zinc-900 dark:text-white
         bg-white dark:bg-transparent
         font-semibold text-sm

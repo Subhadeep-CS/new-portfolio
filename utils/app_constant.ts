@@ -26,6 +26,15 @@ import {
   SiRadixui,
   SiSocketdotio,
   SiAstro,
+  SiStorybook,
+  SiSass,
+  SiStyledcomponents,
+  SiJest,
+  SiVitest,
+  SiZod,
+  SiPostman,
+  SiVite,
+  SiPrisma,
 } from "react-icons/si";
 
 import {
@@ -49,88 +58,102 @@ export const HEADER_MENU: HeaderMenuItem[] = [
     href: "/projects",
   },
   {
-    name: "Resources",
-    href: "/resources",
-  },
-  {
-    name: "Beyond Code",
-    href: "/library",
-  },
-  {
     name: "Education",
     href: "/education",
   },
+  // {
+  //   name: "Resources (Soon)",
+  //   href: "/resources",
+  // },
+  // {
+  //   name: "Beyond Code (Soon)",
+  //   href: "/library",
+  // },
 ];
 
 export const DESIGNATION: string[] = [
   "Software Engineer",
   "Frontend Engineer",
-  "Convert Cafine To Code",
+  "React.js Developer",
+  "Next.js Developer",
+  "UI/UX Focused Developer",
+  "Building Scalable Frontends",
+  "Clean Code Advocate",
+  "Performance Driven Developer",
+  "Crafting Pixel-Perfect UIs",
+  "Turning Ideas Into Interfaces",
+  "Frontend System Design Enthusiast",
+  "JavaScript Specialist",
+  "Problem Solver",
+  "Continuous Learner",
+  "From Concept to Production",
+  "Coffee → Code ☕",
 ];
 
 export const ABOUT_ME: AboutMeInterface[] = [
   {
     key: "Who I Am",
     details:
-      "I’m a Frontend Engineer with nearly 2 years of experience building scalable, high-performance web applications using React.js and Next.js. I focus on crafting clean, intuitive user interfaces that balance aesthetics, usability, and performance.",
+      "I am a results-driven Software Engineer specializing in Frontend development with React.js and Next.js. With a strong foundation in building scalable, high-performance web applications, I focus on delivering seamless user experiences through clean architecture and modern engineering practices.",
     children: [],
   },
   {
     key: "What I Specialize In",
     details:
-      "I specialize in modern frontend development, designing scalable component architectures, managing complex application state, and delivering smooth, production-grade user experiences.",
+      "I specialize in architecting modern frontend systems, from real-time communication platforms to complex enterprise dashboards, ensuring high performance, accessibility, and scalability.",
     children: [
       {
         key: "Core Technologies",
-        details: "React.js, Next.js (App Router), JavaScript (ES6+)",
+        details: "React.js, Next.js (App Router), TypeScript, JavaScript (ES6+)",
       },
       {
-        key: "State Management",
+        key: "Real-time & Communication",
         details:
-          "Redux Toolkit with scalable and predictable state architecture",
+          "WebSockets (Socket.IO), WebRTC (Audio/Video Calling), Push Notifications (FCM)",
       },
       {
-        key: "UI Engineering",
+        key: "State & Data Management",
         details:
-          "Responsive, accessible UI development using Tailwind CSS and shadcn/ui",
+          "Redux Toolkit, RTK Query, Zustand, TanStack Query, GraphQL",
       },
       {
-        key: "Performance & SEO",
+        key: "Performance & Optimization",
         details:
-          "Optimizing rendering, reducing bundle size, and building SEO-friendly applications",
+          "Core Web Vitals, SSR/SSG/ISR, Service Workers, Web Workers, Code Splitting",
       },
     ],
   },
   {
     key: "Professional Experience",
     details:
-      "I have hands-on experience working on production-grade applications across different domains, focusing on scalability, performance, and maintainability.",
+      "I have extensive experience in building production-grade applications, ranging from media streaming platforms to government vendor portals, with a focus on performance and long-term maintainability.",
     children: [
       {
-        key: "Government Platform",
+        key: "Next.js Architecture",
         details:
-          "Contributed to a Navaratna PSU project (RailTel / KwikRail vendor portal), building complex multi-step forms, workflows, and data-driven UI systems",
+          "Scaling applications using App Router, SSR, and SSG while maintaining strict performance budgets.",
       },
       {
-        key: "OTT Platform (Imboxo)",
+        key: "Interactive UIs",
         details:
-          "Built and contributed to an OTT platform (imboxo.com), developing dynamic, content-driven user interfaces with a focus on performance, smooth media experience, and scalable frontend architecture",
+          "Crafting fluid animations and micro-interactions using GSAP and Framer Motion.",
       },
     ],
   },
   {
     key: "How I Think as an Engineer",
     details:
-      "I prioritize clean code, scalable architecture, and long-term maintainability. I actively refactor complex codebases, follow best practices, and continuously deepen my understanding of JavaScript, React internals, and frontend system design.",
+      "I prioritize scalability and maintainability. I believe in established testing standards, comprehensive code reviews, and following atomic design principles to build robust, reusable UI systems.",
     children: [],
   },
   {
     key: "Where I’m Headed",
     details:
-      "I’m focused on growing into a Senior Frontend Engineer by mastering advanced frontend architecture, deepening my expertise in Next.js, and gradually expanding into full-stack development.",
+      "I’m focused on mastering advanced frontend architecture and deepening my expertise in full-stack development, while continuing to advocate for web performance and accessibility.",
     children: [],
   },
 ];
+
 export const TECH_STACK = [
   { name: "JavaScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "TypeScript", url: "https://www.typescriptlang.org/", icon: SiTypescript, color: "#3178C6" },
@@ -140,15 +163,24 @@ export const TECH_STACK = [
   { name: "React Router", url: "https://reactrouter.com/", icon: SiReactrouter, color: "#CA4245" },
   { name: "Redux", url: "https://redux.js.org/", icon: SiRedux, color: "#764ABC" },
   { name: "TanStack", url: "https://tanstack.com/query/latest", icon: SiReactquery, color: "#FF4154" },
-  { name: "GraphQL", url: "https://graphql.org/", icon: SiGraphql, color: "#E10098" },
+  { name: "Storybook", url: "https://storybook.js.org/", icon: SiStorybook, color: "#FF4785" },
+  { name: "SASS", url: "https://sass-lang.com/", icon: SiSass, color: "#CC6699" },
+  { name: "Styled Components", url: "https://styled-components.com/", icon: SiStyledcomponents, color: "#DB7093" },
   { name: "Tailwind CSS", url: "https://tailwindcss.com/", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "shadcn/ui", url: "https://ui.shadcn.com/", icon: SiShadcnui, color: "#000000" },
   { name: "Radix UI", url: "https://www.radix-ui.com/", icon: SiRadixui, color: "#161618" },
+  { name: "Framer Motion", url: "https://www.framer.com/motion/", icon: SiFramer, color: "#0055FF" },
+  { name: "GSAP", url: "https://greensock.com/gsap/", icon: SiGreensock, color: "#88CE02" },
+  { name: "GraphQL", url: "https://graphql.org/", icon: SiGraphql, color: "#E10098" },
   { name: "Socket.io", url: "https://socket.io/", icon: SiSocketdotio, color: "#010101" },
   { name: "Material UI", url: "https://mui.com/", icon: SiMui, color: "#007FFF" },
   { name: "Ant Design", url: "https://ant.design/", icon: SiAntdesign, color: "#0170FE" },
-  { name: "Framer Motion", url: "https://www.framer.com/motion/", icon: SiFramer, color: "#0055FF" },
-  { name: "GSAP", url: "https://greensock.com/gsap/", icon: SiGreensock, color: "#88CE02" },
+  { name: "Vitest", url: "https://vitest.dev/", icon: SiVitest, color: "#6E9F18" },
+  { name: "Jest", url: "https://jestjs.io/", icon: SiJest, color: "#C21325" },
+  { name: "Vite", url: "https://vitejs.dev/", icon: SiVite, color: "#646CFF" },
+  { name: "Postman", url: "https://www.postman.com/", icon: SiPostman, color: "#FF6C37" },
+  { name: "Zod", url: "https://zod.dev/", icon: SiZod, color: "#3E67B1" },
+  { name: "Prisma", url: "https://www.prisma.io/", icon: SiPrisma, color: "#2D3748" },
   { name: "Node.js", url: "https://nodejs.org/", icon: SiNodedotjs, color: "#339933" },
   { name: "Express", url: "https://expressjs.com/", icon: SiExpress, color: "#000000" },
   { name: "MongoDB", url: "https://www.mongodb.com/", icon: SiMongodb, color: "#47A248" },
@@ -183,74 +215,66 @@ export interface ExperienceInterface {
 
 export const EXPERIENCE_DATA: ExperienceInterface[] = [
   {
-    company: "Webart",
+    company: "WebArt Technology",
+    logoUrl: "/img/icon/webartlogo_web.png",
     roles: [
       {
-        title: "Frontend Engineer",
+        title: "Software Engineer (Frontend – React.js / Next.js)",
         type: "Full-time",
-        startDate: "01.2024",
+        startDate: "Jul 2025",
         endDate: "Present",
-        duration: "1y 3m",
+        duration: "Present",
         responsibilities: [
-          "Leading the development of highly interactive and accessible web applications using Next.js 14/15 and TypeScript.",
-          "Engineering scalable UI systems and reusable component libraries with Tailwind CSS and Framer Motion.",
-          "Optimizing frontend performance, reducing Core Web Vitals (LCP/FID) by 35% through code splitting and efficient state management."
+          "Architected and scaled Next.js applications (App Router, SSR, SSG), improving SEO rankings and reducing LCP and TTI metrics.",
+          "Designed and implemented a real-time chat platform using WebSockets and Socket.IO, enabling instant messaging and live presence.",
+          "Integrated audio and video calling using WebRTC, handling signaling, peer connection lifecycle, and connection recovery.",
+          "Implemented Service Workers for offline caching, background sync, and improved repeat-visit performance.",
+          "Leveraged Web Workers to offload CPU-intensive operations, preventing main-thread blocking and UI jank.",
+          "Built push notification workflows using Firebase Cloud Messaging (FCM) for real-time user alerts.",
+          "Enhanced UI interactions with GSAP and Framer Motion, balancing animations with strict performance budgets.",
+          "Optimized frontend performance through code splitting, lazy loading, memoization, and intelligent caching.",
+          "Established testing standards using Jest and React Testing Library.",
+          "Conducted code reviews focusing on performance, accessibility, and long-term maintainability."
         ],
-        projects: [
-          {
-            name: "Imboxo OTT Platform",
-            description: [
-              "Architected the frontend for a high-traffic media streaming dashboard.",
-              "Implemented an advanced video playback system with dynamic adaptive bitrate switching.",
-              "Designed a highly responsive discovery engine with complex filtering and search logic."
-            ]
-          },
-          {
-            name: "Govt PSU Vendor Portal",
-            description: [
-              "Built the core frontend module for a RailTel/KwikRail project handling 100k+ monthly vendor applications.",
-              "Developed a complex multi-step form system with real-time validation and localized data handling.",
-              "Integrated secure PDF generation and digital signature workflows."
-            ]
-          }
-        ],
-        skills: ["Next.js", "React", "TypeScript", "Redux Toolkit", "Framer Motion", "Tailwind CSS", "GSAP", "Socket.io", "React Query"]
+        skills: ["Next.js", "React.js", "WebSockets", "Socket.IO", "WebRTC", "Service Workers", "Web Workers", "Firebase Cloud Messaging", "GSAP", "Framer Motion", "Jest", "React Testing Library"]
       }
     ]
   },
   {
-    company: "Quaric",
+    company: "Brainium Information Technologies Pvt. Ltd.",
+    logoUrl: "/img/icon/brainiumicon.png",
     roles: [
       {
-        title: "Design Engineer",
-        type: "Part-time",
-        startDate: "03.2023",
-        endDate: "12.2023",
-        duration: "10m",
+        title: "Software Engineer",
+        type: "Full-time",
+        startDate: "Aug 2024",
+        endDate: "May 2025",
+        duration: "10 mos",
         responsibilities: [
-          "Defined and implemented the Quaric Brand Identity and unified Design System.",
-          "Bridged the gap between design and development by building pixel-perfect UI components that maintained branding consistency."
+          "Developed 15+ reusable React components, improving delivery speed and UI consistency across modules.",
+          "Implemented Redux Toolkit, RTK Query, and Zustand for predictable and scalable state management.",
+          "Integrated TanStack Query for server-state handling, significantly reducing redundant API calls.",
+          "Consumed GraphQL APIs, implementing schema-driven queries and optimized data-fetch strategies.",
+          "Improved SEO and initial render performance using SSR and SSG in Next.js.",
+          "Collaborated in architecture discussions and peer code reviews with senior engineers."
         ],
-        projects: [
-          {
-            name: "Quaric Design System",
-            description: [
-              "Engineered a foundational UI kit in Figma and translated it into a production-ready React component library.",
-              "Implemented automated documentation for developers to streamline handoffs."
-            ]
-          },
-          {
-            name: "ZaDark Extension",
-            description: [
-              "Optimized UI/UX for the Zalo Web dark mode extension, reaching 20k+ active users.",
-              "Developed custom browser extension scripts for performance-critical UI injection."
-            ]
-          }
+        skills: ["React", "Redux Toolkit", "RTK Query", "Zustand", "TanStack Query", "GraphQL", "Next.js", "SSR", "SSG"]
+      },
+      {
+        title: "Software Developer Intern",
+        type: "Internship",
+        startDate: "Apr 2024",
+        endDate: "Aug 2024",
+        duration: "5 mos",
+        responsibilities: [
+          "Built modular and reusable UI components following atomic design principles.",
+          "Assisted in React to Next.js migration, improving routing, SEO, and performance.",
+          "Fixed UI bugs and followed Git-based workflows and PR reviews."
         ],
-        skills: ["React", "Strapi", "Figma", "UI/UX Design", "Chrome Extensions", "Design System", "CSS Architecture"]
+        skills: ["React", "Next.js", "Atomic Design", "Git"]
       }
     ]
-  }
+  },
 ];
 
 export interface EducationInterface {
@@ -268,17 +292,44 @@ export interface EducationInterface {
 
 export const EDUCATION_DATA: EducationInterface[] = [
   {
-    institution: "University of Technology",
-    degree: "Bachelor’s in Computer Science & Engineering",
-    startDate: "2019",
-    endDate: "2023",
-    duration: "4 Years",
+    institution: "Barrackpore Rastraguru Surendranath College",
+    degree: "Master's degree, Computer Science",
+    startDate: "2020",
+    endDate: "2022",
+    duration: "2 Years",
+    grade: "A+",
     description: [
-      "Graduated with honors, focusing on Software Engineering and Advanced Web Technologies.",
-      "President of the Coding Club, organizing hackathons for 500+ students.",
-      "Achieved 1st Prize in an Inter-College Frontend Development competition."
+      "Conducted research on 'Informal System Design and Synthesis in the Limelight of Asymmetric Type Functions' in collaboration with the Department of Computer Science.",
+      "Presented research findings at a college conference in front of external evaluators from Kalyani Mahavidyalaya.",
+      "Mastered advanced theoretical concepts and practical applications in modern computer science."
     ],
-    skills: ["Data Structures", "Algorithms", "C++", "Java", "Web Technologies", "DBMS", "Operating Systems"]
+    skills: ["Computer Science", "System Design", "Type Functions", "Research Methodology", "jQuery", "Bootstrap"]
+  },
+  {
+    institution: "Bangabasi College",
+    degree: "Bachelor's degree, Computer Science",
+    startDate: "2017",
+    endDate: "2020",
+    duration: "3 Years",
+    grade: "A",
+    description: [
+      "Graduated with a Bachelor's degree focusing on core Computer Science fundamentals.",
+      "Strong emphasis on Data Structures, Algorithms, and C++ programming.",
+      "Consistently achieved high academic performance (Grade A)."
+    ],
+    skills: ["C++", "DSA", "Computer Science", "Algorithms"]
+  },
+  {
+    institution: "Shyamnagar Kanti Chandra High School",
+    degree: "WBCHSE Board (Science)",
+    startDate: "2015",
+    endDate: "2017",
+    duration: "2 Years",
+    grade: "A+",
+    description: [
+      "Completed Higher Secondary education with a focus on Mathematics, Physics, Chemistry, and Biology.",
+      "Achieved Grade A+ in the WBCHSE board examinations."
+    ]
   }
 ];
 
@@ -308,9 +359,25 @@ export const HONOR_AWARD_DATA = [
 
 export const BOOKMARK_DATA = [
   {
-    title: "Design Inspirations & Repositories",
-    description: "Curated collection of frontend resources, component libraries, and architecture patterns.",
-    count: 247
+    title: "Design Inspirations",
+    description: "A curated collection of pixel-perfect UI designs, landing pages, and component libraries that I reference for every project.",
+    count: 247,
+    link: "https://www.lapa.ninja/",
+    color: "bg-blue-500"
+  },
+  {
+    title: "Frontend Repositories",
+    description: "Star-marked repositories featuring advanced React patterns, Next.js 15 templates, and utility libraries I use in production.",
+    count: 128,
+    link: "https://github.com/Subhadeep-CS?tab=stars",
+    color: "bg-fuchsia-500"
+  },
+  {
+    title: "Technical Articles",
+    description: "Deep dives into JavaScript internals, performance optimization, and architectural patterns from top engineering blogs.",
+    count: 85,
+    link: "https://dev.to/",
+    color: "bg-emerald-500"
   }
 ];
 
@@ -407,12 +474,8 @@ export const SELF_HELP_BOOKS_DATA = [
 export const DESIGNATIONS = [
   {
     Icon: CodeXml,
-    infoText: "Frontend Engineer @Webart",
+    infoText: "Frontend Engineer @WebArt Technology",
   },
-  // {
-  //   Icon: Lightbulb,
-  //   infoText: "Founder @SomeIdea",
-  // },
 ];
 
 export const CONTACT_INFO = [

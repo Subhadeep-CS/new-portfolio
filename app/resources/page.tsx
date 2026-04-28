@@ -12,6 +12,7 @@ export default function Resources() {
                 title={<>Growth & <br /><span className="text-indigo-500">Resources.</span></>}
                 subtitle="A curated collection of the courses, brilliant minds, books, and resources that have shaped my journey in frontend development."
                 backgroundText="LEARN MORE"
+                comingSoon={true}
             />
 
             <CrossDivider />

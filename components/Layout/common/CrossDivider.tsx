@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 const CrossDivider = () => (
-    <div className="container border-x border-zinc-200 dark:border-zinc-800">
+    <div className="w-full border-x border-zinc-200 dark:border-zinc-800">
         <div className="w-full h-10">
             <motion.div
                 className="w-full h-full cursor-pointer opacity-30 dark:opacity-10"

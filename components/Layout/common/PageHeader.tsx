@@ -8,15 +8,21 @@ interface PageHeaderProps {
   subtitle: string;
   backgroundText: string;
   accentColor?: string;
+  comingSoon?: boolean;
 }
 
-const PageHeader = ({ title, subtitle, backgroundText, accentColor = "text-blue-500" }: PageHeaderProps) => {
+const PageHeader = ({ title, subtitle, backgroundText, accentColor = "text-blue-500", comingSoon = false }: PageHeaderProps) => {
   return (
     <div className="border-y border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 flex flex-col justify-center px-4 py-20 overflow-hidden relative">
       <div className="container border-x border-zinc-100 dark:border-zinc-800/50 flex flex-col justify-center px-4 py-8 relative z-10">
         <div className="max-w-3xl pl-4">
           <h1 className="text-4xl sm:text-6xl font-black text-zinc-900 dark:text-white mb-6 leading-[1.1] tracking-tighter">
             {title}
+            {comingSoon && (
+              <span className="ml-4 inline-block align-middle px-3 py-1 bg-blue-500 text-white text-[12px] font-bold uppercase tracking-widest rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.3)] animate-pulse">
+                Coming Soon
+              </span>
+            )}
           </h1>
           <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
             {subtitle}

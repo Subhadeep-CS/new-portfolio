@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 
-const CommandPallete = () => {
+const CommandPalette = () => {
     return (
         <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
@@ -16,4 +16,4 @@ const CommandPallete = () => {
     )
 }
 
-export default CommandPallete
+export default CommandPalette
