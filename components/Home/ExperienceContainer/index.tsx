@@ -10,7 +10,7 @@ const ExperienceContainer = () => {
     <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800 relative z-0">
       <ExperienceSectionHeader />
       <div className="container border-x border-zinc-200 dark:border-zinc-800 relative py-8">
-        <div className="flex flex-col w-full max-w-4xl mx-auto divide-y divide-zinc-200 dark:divide-zinc-800 px-4">
+        <div className="flex flex-col w-full max-w-4xl mx-auto divide-y divide-zinc-200 dark:divide-zinc-800">
           {EXPERIENCE_DATA.map((experience, index) => (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -18,7 +18,7 @@ const ExperienceContainer = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               key={index}
-              className={`pl-8 md:pl-12 ${index === 0 ? "pb-12" : "py-12"}`}
+              className={`px-4 pl-8 md:pl-12 ${index === 0 ? "pb-12" : "py-12"}`}
             >
               <ExperienceCard
                 experience={experience}

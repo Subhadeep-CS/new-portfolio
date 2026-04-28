@@ -20,10 +20,10 @@ const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { exper
     return (
         <div className="relative group/card">
             {/* Company Header */}
-            <div className="flex items-center gap-4 mb-8 -ml-8 md:-ml-12 relative z-10">
+            <div className="flex items-center gap-2 mb-6 -ml-8 md:-ml-12 relative z-10">
                 <div className="relative group/logo">
                     <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-fuchsia-500 rounded-2xl opacity-0 group-hover/logo:opacity-20 blur-xl transition-opacity duration-500" />
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden flex-shrink-0 bg-white dark:bg-zinc-950 p-2 relative z-10 transition-transform duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-3 shadow-sm">
+                    <div className="w-10 h-10 md:w-10 md:h-10 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden flex-shrink-0 bg-white dark:bg-zinc-950 p-2 relative z-10 transition-transform duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-3 shadow-sm">
                         {experience.logoUrl ? (
                             <Image
                                 src={experience.logoUrl}
@@ -41,7 +41,7 @@ const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { exper
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <h3 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
+                    <h3 className="text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">
                         {experience.company}
                     </h3>
                     <motion.div
