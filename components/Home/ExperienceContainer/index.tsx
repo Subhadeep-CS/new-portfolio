@@ -18,7 +18,7 @@ const ExperienceContainer = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               key={index}
-              className={`px-4 pl-8 md:pl-12 ${index === 0 ? "pb-12" : "py-12"}`}
+              className={`px-4 ${index === 0 ? "pb-12" : "py-12"}`}
             >
               <ExperienceCard
                 experience={experience}

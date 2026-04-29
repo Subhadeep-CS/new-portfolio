@@ -297,11 +297,12 @@ export const EDUCATION_DATA: EducationInterface[] = [
     startDate: "2020",
     endDate: "2022",
     duration: "2 Years",
-    grade: "A+",
+    grade: "8.73 CGPA",
     description: [
+      "Achieved a cumulative grade point average of 8.73 CGPA.",
       "Conducted research on 'Informal System Design and Synthesis in the Limelight of Asymmetric Type Functions' in collaboration with the Department of Computer Science.",
       "Presented research findings at a college conference in front of external evaluators from Kalyani Mahavidyalaya.",
-      "Mastered advanced theoretical concepts and practical applications in modern computer science."
+      "Mastered advanced theoretical concepts and practical applications in modern computer science with a focus on system design."
     ],
     skills: ["Computer Science", "System Design", "Type Functions", "Research Methodology", "jQuery", "Bootstrap"]
   },
@@ -311,11 +312,11 @@ export const EDUCATION_DATA: EducationInterface[] = [
     startDate: "2017",
     endDate: "2020",
     duration: "3 Years",
-    grade: "A",
+    grade: "74.75%",
     description: [
-      "Graduated with a Bachelor's degree focusing on core Computer Science fundamentals.",
+      "Graduated with 74.75% marks, focusing on core Computer Science fundamentals.",
       "Strong emphasis on Data Structures, Algorithms, and C++ programming.",
-      "Consistently achieved high academic performance (Grade A)."
+      "Consistently achieved high academic performance with a focus on problem-solving."
     ],
     skills: ["C++", "DSA", "Computer Science", "Algorithms"]
   },
@@ -325,10 +326,22 @@ export const EDUCATION_DATA: EducationInterface[] = [
     startDate: "2015",
     endDate: "2017",
     duration: "2 Years",
-    grade: "A+",
+    grade: "82.6%",
     description: [
       "Completed Higher Secondary education with a focus on Mathematics, Physics, Chemistry, and Biology.",
-      "Achieved Grade A+ in the WBCHSE board examinations."
+      "Achieved 82.6% in the WBCHSE board examinations."
+    ]
+  },
+  {
+    institution: "Barrackpore Ramakrishna Vivekananda Mission",
+    degree: "WBBSE Board (Secondary)",
+    startDate: "2013",
+    endDate: "2015",
+    duration: "2 Years",
+    grade: "82.3%",
+    description: [
+      "Completed Secondary education with a focus on general science and mathematics.",
+      "Achieved 82.3% in the WBBSE board examinations."
     ]
   }
 ];

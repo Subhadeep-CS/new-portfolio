@@ -37,14 +37,15 @@ export default function Home() {
       <CrossDivider />
       <ExperienceContainer />
 
+
+      <CrossDivider />
+      <StackContainer />
+
       <CrossDivider />
       <FeaturedProjectsContainer />
 
       <CrossDivider />
       <EducationContainer />
-
-      <CrossDivider />
-      <StackContainer />
 
       <CrossDivider />
       <LivePlaygroundContainer />
@@ -55,17 +56,17 @@ export default function Home() {
       <CrossDivider />
       <HonorRewardContainer />
 
-      <CrossDivider />
-      <BookmarkContainer />
+      {/* <CrossDivider />
+      <BookmarkContainer /> */}
 
       <CrossDivider />
       <QuotesContainer />
-
+      {/* 
       <CrossDivider />
       <FeaturedResourcesContainer />
 
       <CrossDivider />
-      <FeaturedLibraryContainer />
+      <FeaturedLibraryContainer /> */}
 
       {/* <CrossDivider />
       <GithubContainer /> */}
