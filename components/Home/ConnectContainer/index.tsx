@@ -14,7 +14,7 @@ const ConnectContainer = () => {
     return (
         <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <ConnectSectionHeader />
-            <div className="container border-x border-zinc-200 px-4 py-8">
+            <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                     {socials.map((social) => {
                         const Icon = social.icon;
@@ -25,7 +25,7 @@ const ConnectContainer = () => {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-3 p-4 border border-zinc-200 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-300 transition-all group active:scale-95 duration-200 w-full"
+                                        className="flex items-center gap-3 p-4 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group active:scale-95 duration-200 w-full"
                                     >
                                         <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-white dark:bg-black border border-zinc-100 dark:border-zinc-800 shadow-sm transition-transform duration-300">
                                             <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" style={{ color: social.color }} />

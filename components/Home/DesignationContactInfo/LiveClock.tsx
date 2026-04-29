@@ -50,10 +50,10 @@ export const LiveClock = () => {
     if (!timeString) {
         return (
             <div className="flex items-center gap-2 bg-transparent p-2 rounded-2xl">
-                <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center border shrink-0">
-                    <Clock className="w-4 h-4 text-zinc-600" />
+                <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border border-zinc-200 dark:border-zinc-800 shrink-0">
+                    <Clock className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
                 </div>
-                <span className="text-sm font-medium text-zinc-800">--:--</span>
+                <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">--:--</span>
             </div>
         );
     }
@@ -62,15 +62,15 @@ export const LiveClock = () => {
         <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2 bg-transparent hover:bg-zinc-50 p-2 rounded-2xl transition-colors cursor-pointer"
+            className="flex items-center gap-2 bg-transparent hover:bg-zinc-50 dark:hover:bg-zinc-900 p-2 rounded-2xl transition-colors cursor-pointer"
         >
-            <div className="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center border shrink-0">
-                <Clock className="w-4 h-4 text-zinc-600" />
+            <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border border-zinc-200 dark:border-zinc-800 shrink-0">
+                <Clock className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
             </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-zinc-800">
+            <div className="flex items-center gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <span>{timeString}</span>
-                <span className="text-zinc-400">//</span>
-                <span className="text-zinc-500">{diffString}</span>
+                <span className="text-zinc-400 dark:text-zinc-600">//</span>
+                <span className="text-zinc-500 dark:text-zinc-400">{diffString}</span>
             </div>
         </motion.div>
     );

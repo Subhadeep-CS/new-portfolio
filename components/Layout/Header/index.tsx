@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container px-2 h-12 flex items-center justify-between border-x">
         <div className="flex items-center gap-2 text-muted sm:ml-auto">
           <Navbar />
-          {/* <ModeToggle /> */}
+          <ModeToggle />
           <CommandPalette />
         </div>
       </div>
