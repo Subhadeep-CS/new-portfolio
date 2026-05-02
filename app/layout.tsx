@@ -7,6 +7,7 @@ import CustomCursor from "@/components/Layout/CustomCursor";
 import CommandPalette from "@/components/Layout/CommandPalette";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
 import FloatingCommandButton from "@/components/Layout/Header/FloatingCommandButton";
+import SmoothScroll from "@/components/Layout/SmoothScroll";
 import { poppins } from "@/utils/font";
 
 export default function RootLayout({
@@ -28,15 +29,17 @@ export default function RootLayout({
           forcedTheme="light"
           disableTransitionOnChange
         >
-          <Header />
-          <main className="min-h-screen flex flex-col">
-            <TooltipProvider>{children}</TooltipProvider>
-          </main>
-          <Footer />
-          <CustomCursor />
-          <CommandPalette />
-          <ScrollToTop />
-          <FloatingCommandButton />
+          <SmoothScroll>
+            <Header />
+            <main className="min-h-screen flex flex-col">
+              <TooltipProvider>{children}</TooltipProvider>
+            </main>
+            <Footer />
+            <CustomCursor />
+            <CommandPalette />
+            <ScrollToTop />
+            <FloatingCommandButton />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
