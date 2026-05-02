@@ -21,7 +21,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Subhadeep Das | Frontend Engineer & Creative Developer",
-  description: "Explore the portfolio of Subhadeep Das, a Frontend Engineer specializing in building high-performance, enterprise-grade web applications and immersive user experiences.",
+  description: "Subhadeep Das is a Frontend Developer specializing in React.js and Next.js. Explore projects, skills, and portfolio.",
   keywords: ["Subhadeep Das", "Frontend Engineer", "React Developer", "UI/UX Designer", "Software Engineer Portfolio"],
   openGraph: {
     title: "Subhadeep Das | Frontend Engineer",

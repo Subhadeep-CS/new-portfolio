@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects | Subhadeep Das",
-  description: "A showcase of engineering projects by Subhadeep Das, ranging from enterprise dashboards to creative frontend experiments.",
+  description: "Explore the projects and engineering works of Subhadeep Das, a Frontend Developer specialized in React.js and Next.js.",
 };
 
 const ProjectsPage = () => {
