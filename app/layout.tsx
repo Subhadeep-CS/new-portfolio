@@ -6,6 +6,7 @@ import Footer from "@/components/Layout/Footer";
 import CustomCursor from "@/components/Layout/CustomCursor";
 import CommandPalette from "@/components/Layout/CommandPalette";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
+import FloatingCommandButton from "@/components/Layout/Header/FloatingCommandButton";
 import { poppins } from "@/utils/font";
 
 export default function RootLayout({
@@ -15,11 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/img/logo/SD.svg" type="image/svg+xml" />
+      </head>
       <body className={`${poppins.variable} font-sans antialiased text-zinc-900 dark:text-zinc-50`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          // defaultTheme="system"
+          // enableSystem
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <Header />
@@ -30,6 +36,7 @@ export default function RootLayout({
           <CustomCursor />
           <CommandPalette />
           <ScrollToTop />
+          <FloatingCommandButton />
         </ThemeProvider>
       </body>
     </html>

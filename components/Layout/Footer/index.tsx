@@ -7,6 +7,8 @@ const Footer = () => {
 
                 <p className="flex items-center justify-center flex-wrap gap-1.5">
                     <span className="text-zinc-600 dark:text-zinc-400">Inspired by</span>
+                    <Link href="https://x.com/iamncdai" target="_blank" className="font-semibold text-zinc-800 dark:text-zinc-200 hover:underline">ncdai</Link>
+                    <span className="text-zinc-400">/</span>
                     <Link href="https://tailwindcss.com" target="_blank" className="font-semibold text-zinc-800 dark:text-zinc-200 hover:underline">tailwindcss.com</Link>
                     <span className="text-zinc-400">/</span>
                     <Link href="https://ui.shadcn.com" target="_blank" className="font-semibold text-zinc-800 dark:text-zinc-200 hover:underline">ui.shadcn.com</Link>

@@ -1,16 +1,9 @@
 "use client";
 import { useState } from "react";
 import { ExperienceInterface } from "@/utils/app_constant";
-import { ChevronDown, Briefcase, Code2, GraduationCap, Terminal, Sparkles } from "lucide-react";
+import { ChevronDown, Briefcase, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-
-const RoleIcon = ({ title }: { title: string }) => {
-    const lowerTitle = title.toLowerCase();
-    if (lowerTitle.includes("intern")) return <GraduationCap className="w-4 h-4" />;
-    if (lowerTitle.includes("engineer") || lowerTitle.includes("developer")) return <Terminal className="w-4 h-4" />;
-    return <Briefcase className="w-4 h-4" />;
-};
 
 const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { experience: ExperienceInterface, isLast?: boolean, defaultExpanded?: boolean }) => {
     const [isExpanded, setIsExpanded] = useState(defaultExpanded);
@@ -40,18 +33,20 @@ const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { exper
                     {/* Line down to first role */}
                     <div className="w-[2px] flex-1 bg-zinc-200 dark:bg-zinc-800 mt-2 min-h-[16px] group-hover/card:bg-blue-500/30 transition-colors duration-500 rounded-t-full" />
                 </div>
-                
+
                 {/* Right Column: Company Name */}
                 <div className="flex-1 pb-6 flex items-start">
                     <div className="flex items-center gap-2 h-10 md:h-12 w-full">
-                        <h3 className="text-lg md:text-xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight truncate">
+                        <h3 className="text-[16px] md:text-[18px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight text-wrap">
                             {experience.company}
                         </h3>
-                        <motion.div
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)] shrink-0"
-                        />
+                        {experience.company.toLowerCase().includes("webart") && (
+                            <motion.div
+                                animate={{ scale: [1, 1.2, 1] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)] shrink-0"
+                            />
+                        )}
                     </div>
                 </div>
             </div>
@@ -64,51 +59,45 @@ const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { exper
                         <div className="flex flex-col items-center shrink-0 w-10 md:w-12">
                             {/* Upper line to bridge gap to dot */}
                             <div className="w-[2px] h-1.5 bg-zinc-200 dark:bg-zinc-800 group-hover/card:bg-blue-500/30 transition-colors duration-500" />
-                            
+
                             {/* Dot */}
                             <div className="w-4 h-4 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center justify-center transition-colors duration-300 group-hover/card:border-blue-500/50 shrink-0 z-10">
                                 <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700 group-hover/card:bg-blue-500 transition-colors duration-300" />
                             </div>
-                            
+
                             {/* Lower Line connecting to next role */}
                             {rIndex < experience.roles.length - 1 && (
                                 <div className="w-[2px] flex-1 bg-zinc-200 dark:bg-zinc-800 group-hover/card:bg-blue-500/30 transition-colors duration-500" />
                             )}
                         </div>
-                        
-                        {/* Right Column: Role Content */}
+
+                        {/* Role Content Wrapper */}
                         <div className="flex-1 pb-10 min-w-0">
                             <div className="space-y-4">
                                 {/* Role Header */}
-                                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                                    <div className="space-y-1.5">
-                                        <div
-                                            onClick={() => setIsExpanded(!isExpanded)}
-                                            className="flex items-center gap-2 group/role cursor-pointer"
-                                        >
-                                            <div className="p-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 transition-colors group-hover/role:bg-blue-500 group-hover/role:text-white shrink-0">
-                                                <RoleIcon title={role.title} />
-                                            </div>
-                                            <h4 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 transition-colors group-hover/role:text-blue-500">
-                                                {role.title}
-                                            </h4>
-                                        </div>
+                                <div
+                                    onClick={() => setIsExpanded(!isExpanded)}
+                                    className="flex items-center justify-between gap-2 group/role cursor-pointer"
+                                >
+                                    <div className="space-y-1">
+                                        <h4 className="text-[14px] md:text-[16px] font-semibold text-zinc-800 dark:text-zinc-200 transition-colors group-hover/role:text-blue-500 leading-tight pr-2 text-wrap">
+                                            {role.title}
+                                        </h4>
 
-                                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-zinc-500 dark:text-zinc-500 pl-1">
+                                        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[12px] md:text-[13px] font-medium text-zinc-500 dark:text-zinc-500">
                                             <span>{role.type}</span>
                                             <span className="text-zinc-300 dark:text-zinc-800">|</span>
                                             <span className="tabular-nums">{role.startDate} — {role.endDate}</span>
-                                            <span className="text-zinc-300 dark:text-zinc-800">|</span>
+                                            <span className="hidden sm:inline text-zinc-300 dark:text-zinc-800">|</span>
                                             <span className="text-zinc-400 dark:text-zinc-600 font-normal">{role.duration}</span>
                                         </div>
                                     </div>
 
                                     <button
-                                        onClick={() => setIsExpanded(!isExpanded)}
-                                        className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-400 cursor-pointer shrink-0 self-start"
+                                        className="p-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-400 shrink-0"
                                     >
                                         <motion.div animate={{ rotate: isExpanded ? 0 : -90 }}>
-                                            <ChevronDown className="w-5 h-5" />
+                                            <ChevronDown className="w-4 h-4 md:w-5 md:h-5" />
                                         </motion.div>
                                     </button>
                                 </div>

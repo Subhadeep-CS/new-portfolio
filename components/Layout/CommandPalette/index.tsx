@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
-import { Search, Folder, BookOpen, UserCircle, Github, Linkedin, MonitorPlay, TerminalSquare, Rotate3D } from "lucide-react";
+import { Search, Folder, BookOpen, UserCircle, Github, Linkedin, MonitorPlay, TerminalSquare, Rotate3D, FileText } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export default function CommandPalette() {
@@ -92,6 +92,19 @@ export default function CommandPalette() {
                         >
                             <BookOpen className="w-[18px] h-[18px] mr-3 text-emerald-500" />
                             <span>Beyond Code (Library)</span>
+                        </Command.Item>
+                        <Command.Item
+                            onSelect={() => runCommand(() => {
+                                const link = document.createElement('a');
+                                link.href = '/document/SUBHADEEP_DAS_CV_FRONTEND_ENGINEER.pdf';
+                                link.download = 'Subhadeep_Das_CV_Frontend_Engineer.pdf';
+                                link.click();
+                            })}
+                            className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
+                        >
+                            <FileText className="w-[18px] h-[18px] mr-3 text-red-500" />
+                            <span>Download CV / Resume</span>
+                            <span className="ml-auto text-[10px] text-zinc-400 uppercase tracking-widest font-semibold flex items-center gap-1">PDF</span>
                         </Command.Item>
                     </Command.Group>
 

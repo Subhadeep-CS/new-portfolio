@@ -10,7 +10,6 @@ const FeaturedLibraryContainer = () => {
             <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-4 flex justify-between items-center bg-[#FAFAFA] dark:bg-zinc-900/50">
                 <h3 className="text-[19px] font-semibold text-zinc-900 dark:text-zinc-100 border-l-2 border-emerald-500 pl-3 leading-none flex items-center gap-3">
                     Beyond Code
-                    <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase tracking-widest rounded border border-emerald-500/20">Coming Soon</span>
                 </h3>
             </div>
             <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8">

@@ -44,7 +44,7 @@ const LivePlaygroundContainer = () => {
             </div>
             <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-zinc-50 dark:bg-zinc-900/30 p-6 rounded-[20px] border border-zinc-200 dark:border-zinc-800">
-                    
+
                     {/* Rendered Output */}
                     <div className="flex justify-center items-center w-full h-[250px] border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-xl relative overflow-hidden bg-white dark:bg-zinc-950">
                         <AnimatePresence>
@@ -52,16 +52,16 @@ const LivePlaygroundContainer = () => {
                                 <motion.div
                                     key={particle.id}
                                     initial={{ x: 0, y: 0, opacity: 1, scale: 0 }}
-                                    animate={{ 
-                                        x: particle.x, 
-                                        y: particle.y, 
-                                        opacity: 0, 
-                                        scale: [0, 1.5, 1], 
-                                        rotate: particle.rotation 
+                                    animate={{
+                                        x: particle.x,
+                                        y: particle.y,
+                                        opacity: 0,
+                                        scale: [0, 1.5, 1],
+                                        rotate: particle.rotation
                                     }}
                                     transition={{ duration: 0.8, ease: "easeOut" }}
                                     className="absolute z-20 pointer-events-none"
-                                    style={{ 
+                                    style={{
                                         color: particle.color,
                                         filter: `drop-shadow(0 0 10px ${particle.color}) drop-shadow(0 0 20px ${particle.color}44)`
                                     }}
@@ -79,7 +79,7 @@ const LivePlaygroundContainer = () => {
                                 borderRadius: `${radius}px`,
                                 backgroundColor: color,
                             }}
-                            className="px-8 py-4 text-white font-bold text-lg shadow-lg relative z-10"
+                            className="px-8 py-4 text-white font-bold text-lg shadow-lg relative z-10 cursor-pointer"
                         >
                             Hover Me!
                         </motion.button>
@@ -100,7 +100,7 @@ const LivePlaygroundContainer = () => {
                                 className="w-full accent-fuchsia-500"
                             />
                         </div>
-                        
+
                         <div>
                             <div className="flex justify-between mb-2">
                                 <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Theme Color</label>

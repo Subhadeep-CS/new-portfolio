@@ -10,7 +10,6 @@ export default function SelfHelp() {
                 title={<>Habits & <br /><span className="text-emerald-500">Mindset.</span></>}
                 subtitle="Programming is only half the battle. This is a collection of non-technical self-help books that have helped me overcome procrastination and build discipline."
                 backgroundText="BEYOND CODE"
-                comingSoon={true}
             />
 
             <CrossDivider />

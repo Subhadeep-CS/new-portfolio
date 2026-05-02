@@ -45,6 +45,19 @@ import {
   Link as LinkIcon,
   Mail,
   User,
+  Palette,
+  Github,
+  BookOpen,
+  Building2,
+  Tv,
+  Headphones,
+  Users,
+  Gem,
+  Stethoscope,
+  Mic,
+  Bitcoin,
+  Box,
+  Code,
 } from "lucide-react";
 
 import { AboutMeInterface, HeaderMenuItem } from "./utils.type";
@@ -60,6 +73,10 @@ export const HEADER_MENU: HeaderMenuItem[] = [
   {
     name: "Education",
     href: "/education",
+  },
+  {
+    name: "Resume",
+    href: "/resume",
   },
   // {
   //   name: "Resources (Soon)",
@@ -219,7 +236,7 @@ export const EXPERIENCE_DATA: ExperienceInterface[] = [
     logoUrl: "/img/icon/webartlogo_web.png",
     roles: [
       {
-        title: "Software Engineer (Frontend – React.js / Next.js)",
+        title: "Software Engineer",
         type: "Full-time",
         startDate: "Jul 2025",
         endDate: "Present",
@@ -307,7 +324,7 @@ export const EDUCATION_DATA: EducationInterface[] = [
     skills: ["Computer Science", "System Design", "Type Functions", "Research Methodology", "jQuery", "Bootstrap"]
   },
   {
-    institution: "Bangabasi College",
+    institution: "University of Calcutta",
     degree: "Bachelor's degree, Computer Science",
     startDate: "2017",
     endDate: "2020",
@@ -348,16 +365,24 @@ export const EDUCATION_DATA: EducationInterface[] = [
 
 export const CERTIFICATION_DATA = [
   {
-    title: "Meta Front-End Developer Professional Certificate",
-    issuer: "Coursera",
-    date: "Aug 2024",
-    link: "#"
+    title: "Javascript Basic",
+    issuer: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/f0d92f5507ab"
   },
   {
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    date: "Jan 2023",
-    link: "#"
+    title: "Namaste React",
+    issuer: "Namaste Dev",
+    link: "https://namastedev.com/dassubhadeep631/certificates/namaste-react"
+  },
+  {
+    title: "Frontend Developer (React)",
+    issuer: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/2cfdaa6f29b5"
+  },
+  {
+    title: "Namaste Frontend System Design",
+    issuer: "Namaste Dev",
+    link: "https://namastedev.com/online.course6938/certificates/namaste-frontend-system-design"
   }
 ];
 
@@ -374,23 +399,20 @@ export const BOOKMARK_DATA = [
   {
     title: "Design Inspirations",
     description: "A curated collection of pixel-perfect UI designs, landing pages, and component libraries that I reference for every project.",
-    count: 247,
     link: "https://www.lapa.ninja/",
-    color: "bg-blue-500"
+    icon: Palette
   },
   {
     title: "Frontend Repositories",
     description: "Star-marked repositories featuring advanced React patterns, Next.js 15 templates, and utility libraries I use in production.",
-    count: 128,
     link: "https://github.com/Subhadeep-CS?tab=stars",
-    color: "bg-fuchsia-500"
+    icon: Github
   },
   {
     title: "Technical Articles",
     description: "Deep dives into JavaScript internals, performance optimization, and architectural patterns from top engineering blogs.",
-    count: 85,
     link: "https://dev.to/",
-    color: "bg-emerald-500"
+    icon: BookOpen
   }
 ];
 
@@ -511,8 +533,8 @@ export const CONTACT_INFO = [
   },
   {
     Icon: LinkIcon,
-    infoText: "subhadeep.com",
-    href: "https://subhadeep.com",
+    infoText: "subhadeepdas.com",
+    href: "https://subhadeepdas.com",
   },
   {
     Icon: User,
@@ -529,50 +551,94 @@ export interface ProjectInterface {
   github?: string;
   image?: string;
   type: string;
+  icon?: any;
 }
 
 export const PROJECTS_DATA: ProjectInterface[] = [
   {
-    title: "Imboxo OTT",
-    description: "A high-performance media streaming platform with dynamic content discovery, custom video player integration, and seamless cross-device synchronization.",
-    year: "2025",
-    type: "Personal Project",
-    tech: ["Next.js 15", "Video.js", "Redux Toolkit", "Framer Motion", "Tailwind CSS"],
-    link: "https://imboxo.com",
-    github: "#",
-  },
-  {
-    title: "ZaDark Extension",
-    description: "A productivity-focused browser extension for Zalo Web, serving over 20,000 active users. Includes dark mode, UI customization, and custom scripts.",
-    year: "2024",
-    type: "Browser Extension",
-    tech: ["JavaScript", "WebExtensions API", "Docusaurus", "Tailwind CSS"],
-    link: "https://zadark.com",
-    github: "#",
-  },
-  {
-    title: "Quaric Design System",
-    description: "Developed a scalable UI library and brand identity for Quaric, ensuring visual consistency across all web and mobile platforms.",
-    year: "2024",
-    type: "Design Engineering",
-    tech: ["React", "Framer Motion", "Storybook", "Figma", "Tailwind CSS"],
-    link: "https://quaric.com",
-  },
-  {
-    title: "Govt Vendor Portal",
-    description: "Built a robust frontend for a Govt PSU vendor management system, handling complex multi-step registration forms and data-heavy dashboards.",
+    title: "RailTel Vendor Platform",
+    description: "An enterprise-grade dashboard for the Government PSU RailTel. Architected to handle massive datasets, visualizing over 100,000 purchase orders through dynamic, high-performance charts.",
     year: "2023",
-    type: "Government Project",
-    tech: ["React.js", "Redux toolkit", "Ant Design", "Formik", "SCSS"],
-    link: "#",
+    type: "Enterprise Dashboard",
+    tech: ["React", "Tailwind CSS", "Recharts", "Redux"],
+    icon: Building2,
+  },
+  {
+    title: "Imboxo OTT",
+    description: "A high-performance media streaming platform featuring dynamic content discovery and seamless cross-device playback. Engineered for scale and immersive entertainment experiences.",
+    year: "2024",
+    type: "Streaming Platform",
+    tech: ["Next.js", "Video.js", "Redux Toolkit", "Tailwind CSS"],
+    link: "https://imboxo.com",
+    icon: Tv,
+  },
+  {
+    title: "Pr3cio",
+    description: "A comprehensive web-based music streaming service. Features include real-time audio playback, dynamic playlist generation, and a fluid, dark-mode focused interface.",
+    year: "2024",
+    type: "Audio Streaming App",
+    tech: ["React", "Web Audio API", "Zustand", "Framer Motion"],
+    link: "https://pr3cio.com/",
+    icon: Headphones,
+  },
+  {
+    title: "Webart CRM Workspace",
+    description: "An advanced internal CRM system featuring real-time communication modules. Engineered peer-to-peer audio and video calling integrations alongside secure instant messaging.",
+    year: "2024",
+    type: "Internal Product",
+    tech: ["React", "WebRTC", "Socket.io", "Tailwind CSS"],
+    icon: Users,
+  },
+  {
+    title: "The Million Carats",
+    description: "A premium e-commerce destination for high-end jewelry. Built with a focus on high-fidelity product imagery, complex cart state management, and seamless secure checkouts.",
+    year: "2023",
+    type: "E-Commerce",
+    tech: ["Next.js", "Tailwind CSS", "Redux", "Stripe"],
+    link: "https://www.themillioncarats.com/",
+    icon: Gem,
+  },
+  {
+    title: "Medicompares",
+    description: "A UK-based healthcare marketplace enabling users to discover, compare, and securely book online medical treatments. Features robust search filtering and complex booking workflows.",
+    year: "2023",
+    type: "Healthcare Marketplace",
+    tech: ["React", "Node.js", "PostgreSQL", "Google Maps API"],
+    link: "https://www.medicompares.co.uk/",
+    icon: Stethoscope,
+  },
+  {
+    title: "The White Room",
+    description: "The official digital presence for The White Room band. An interactive, visually striking promotional site showcasing tours, discography, and media galleries with fluid animations.",
+    year: "2023",
+    type: "Promotional Website",
+    tech: ["React", "GSAP", "Tailwind CSS"],
+    icon: Mic,
+  },
+  {
+    title: "Crypto Market Tracker",
+    description: "A real-time cryptocurrency tracking application. Integrates live market data feeds to render precise pricing charts, market cap trends, and real-time fluctuations.",
+    year: "2022",
+    type: "Fintech App",
+    tech: ["React", "Chart.js", "CoinGecko API", "Firebase"],
+    link: "https://crypto-application-b3b2f.web.app/",
+    icon: Bitcoin,
+  },
+  {
+    title: "KwikRail Configurator",
+    description: "A complex web-based CAD system for an Australian supplier. Allows users to dynamically configure modular handrails and barrier systems directly within the browser.",
+    year: "2024",
+    type: "CAD System",
+    tech: ["React", "Three.js", "Zustand", "Tailwind CSS"],
+    icon: Box,
   },
   {
     title: "The Portfolio Journey",
-    description: "This very portfolio! A reflection of my engineering philosophy, focusing on aesthetics, performance, and clean motion design.",
-    year: "2023",
-    type: "Brand Identity",
-    tech: ["Next.js 15", "Framer Motion", "Lucide Icons", "Radix UI"],
-    link: "/",
-    github: "https://github.com/Subhadeep-CS/new-portfolio",
-  }
+    description: "The current iteration of my personal portfolio. A reflection of my engineering philosophy, focusing on aesthetic design, micro-interactions, and pristine code architecture.",
+    year: "2024",
+    type: "Personal Brand",
+    tech: ["Next.js 15", "Framer Motion", "Tailwind CSS"],
+    link: "https://subhadeepdas.com",
+    icon: Code,
+  },
 ];

@@ -17,6 +17,19 @@ import LivePlaygroundContainer from "@/components/Home/LivePlaygroundContainer";
 import FeaturedResourcesContainer from "@/components/Home/FeaturedResourcesContainer";
 import FeaturedLibraryContainer from "@/components/Home/FeaturedLibraryContainer";
 import SpotifyContainer from "@/components/Home/SpotifyContainer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Subhadeep Das | Frontend Engineer & Creative Developer",
+  description: "Explore the portfolio of Subhadeep Das, a Frontend Engineer specializing in building high-performance, enterprise-grade web applications and immersive user experiences.",
+  keywords: ["Subhadeep Das", "Frontend Engineer", "React Developer", "UI/UX Designer", "Software Engineer Portfolio"],
+  openGraph: {
+    title: "Subhadeep Das | Frontend Engineer",
+    description: "Building production-grade platforms with modern web technologies.",
+    type: "website",
+    url: "https://subhadeepdas.com", // Adjust to your actual domain
+  }
+};
 
 export default function Home() {
   return (
@@ -34,12 +47,12 @@ export default function Home() {
       <CrossDivider />
       <AboutContainer />
 
-      <CrossDivider />
-      <ExperienceContainer />
-
 
       <CrossDivider />
       <StackContainer />
+
+      <CrossDivider />
+      <ExperienceContainer />
 
       <CrossDivider />
       <FeaturedProjectsContainer />
@@ -56,8 +69,8 @@ export default function Home() {
       <CrossDivider />
       <HonorRewardContainer />
 
-      {/* <CrossDivider />
-      <BookmarkContainer /> */}
+      <CrossDivider />
+      <BookmarkContainer />
 
       <CrossDivider />
       <QuotesContainer />
@@ -70,8 +83,8 @@ export default function Home() {
 
       {/* <CrossDivider />
       <GithubContainer /> */}
-
-      {/* <CrossDivider />
+      {/* 
+      <CrossDivider />
       <SpotifyContainer /> */}
 
       <CrossDivider />
