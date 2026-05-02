@@ -388,10 +388,10 @@ export const CERTIFICATION_DATA = [
 
 export const HONOR_AWARD_DATA = [
   {
-    title: "Star Performer of the Quarter",
+    title: "Developer of the Quarter – Certificate of Recognition",
     issuer: "Webart",
-    date: "Dec 2024",
-    description: "Awarded for exceptional delivery of the RailTel / Govt PSU front-end architecture."
+    date: "JUL-SEP 2025",
+    description: "Awarded ‘Developer of the Quarter’ for exceptional performance and contribution to key projects."
   }
 ];
 
