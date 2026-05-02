@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, Variants } from "framer-motion";
 import { PROJECTS_DATA } from "@/utils/app_constant";
 import { Lock, Github, ExternalLink, AppWindow } from "lucide-react";
 import Link from "next/link";
@@ -44,7 +44,7 @@ const SpotlightCard = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -52,9 +52,17 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, scale: 0.96, y: 20 },
-  show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+  show: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.5, 
+      ease: [0.16, 1, 0.3, 1] 
+    } 
+  }
 };
 
 const ProjectShowcase = () => {
