@@ -53,8 +53,8 @@ const FeaturedProjectsContainer = () => {
                     Featured Projects
                 </h3>
             </div>
-            <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            <div className="container border-x border-zinc-200 dark:border-zinc-800 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 px-4 ">
                     {featuredProjects.map((project, idx) => (
                         <div key={idx} className="w-full h-full">
                             <SpotlightCard>

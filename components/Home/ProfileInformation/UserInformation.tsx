@@ -73,7 +73,7 @@ const UserInformation = () => {
 
   return (
     <div className="border-l border-zinc-200 dark:border-zinc-800 flex flex-col gap-1 justify-end divide-y-1 w-full *:pl-4">
-      <div className="text-zinc-300 dark:text-zinc-700 hidden">text-3xl text-zinc-950 font-medium</div>
+      <div className="text-zinc-400 dark:text-zinc-700">text-3xl text-zinc-950 font-medium</div>
       <div className="flex gap-2 items-center">
         <h3 className="text-3xl text-zinc-950 dark:text-zinc-100 font-medium">Subhadeep Das</h3>
         <div className="flex gap-1 items-center">

@@ -5,8 +5,109 @@ import { ChevronDown, Briefcase, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { experience: ExperienceInterface, isLast?: boolean, defaultExpanded?: boolean }) => {
+const ExperienceRoleItem = ({ role, isLastRole, defaultExpanded = false }: { role: any, isLastRole: boolean, defaultExpanded?: boolean }) => {
     const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
+    return (
+        <div className="flex gap-4 md:gap-6 items-stretch w-full">
+            {/* Left Column: Timeline Dot & Line */}
+            <div className="flex flex-col items-center shrink-0 w-10 md:w-12">
+                {/* Upper line to bridge gap to dot */}
+                <div className="w-[2px] h-1.5 bg-zinc-200 dark:bg-zinc-800 group-hover/card:bg-blue-500/30 transition-colors duration-500" />
+
+                {/* Dot */}
+                <div className="w-4 h-4 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center justify-center transition-colors duration-300 group-hover/card:border-blue-500/50 shrink-0 z-10">
+                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700 group-hover/card:bg-blue-500 transition-colors duration-300" />
+                </div>
+
+                {/* Lower Line connecting to next role */}
+                {!isLastRole && (
+                    <div className="w-[2px] flex-1 bg-zinc-200 dark:bg-zinc-800 group-hover/card:bg-blue-500/30 transition-colors duration-500" />
+                )}
+            </div>
+
+            {/* Role Content Wrapper */}
+            <div className="flex-1 pb-4 min-w-0">
+                <div className="space-y-4">
+                    {/* Role Header */}
+                    <div
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="flex items-center justify-between gap-2 group/role cursor-pointer"
+                    >
+                        <div className="space-y-1">
+                            <h4 className="text-[14px] md:text-[16px] font-semibold text-zinc-800 dark:text-zinc-200 transition-colors group-hover/role:text-blue-500 leading-tight pr-2 text-wrap">
+                                {role.title}
+                            </h4>
+
+                            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[12px] md:text-[13px] font-medium text-zinc-500 dark:text-zinc-500">
+                                <span>{role.type}</span>
+                                <span className="text-zinc-300 dark:text-zinc-800">|</span>
+                                <span className="tabular-nums">{role.startDate} — {role.endDate}</span>
+                                <span className="hidden sm:inline text-zinc-300 dark:text-zinc-800">|</span>
+                                <span className="text-zinc-400 dark:text-zinc-600 font-normal">{role.duration}</span>
+                            </div>
+                        </div>
+
+                        <button
+                            className="p-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-400 shrink-0"
+                        >
+                            <motion.div animate={{ rotate: isExpanded ? 0 : -90 }}>
+                                <ChevronDown className="w-4 h-4 md:w-5 md:h-5" />
+                            </motion.div>
+                        </button>
+                    </div>
+
+                    {/* Expandable Content */}
+                    <AnimatePresence>
+                        {isExpanded && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "circOut" }}
+                                className="overflow-hidden"
+                            >
+                                <div className="space-y-6 pt-2">
+                                    {/* Responsibilities */}
+                                    <ul className="space-y-3 pl-1">
+                                        {role.responsibilities.map((resp: string, i: number) => (
+                                            <motion.li
+                                                key={i}
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: i * 0.05 }}
+                                                className="flex items-start gap-3 group/item text-zinc-600 dark:text-zinc-400 text-[15px] leading-relaxed"
+                                            >
+                                                <Sparkles className="w-3.5 h-3.5 mt-1 text-zinc-300 dark:text-zinc-700 group-hover/item:text-blue-500 transition-colors shrink-0" />
+                                                <span className="group-hover/item:text-zinc-900 dark:group-hover/item:text-zinc-200 transition-colors">{resp}</span>
+                                            </motion.li>
+                                        ))}
+                                    </ul>
+
+                                    {/* Skills Pills */}
+                                    <div className="flex flex-wrap gap-2 pl-1">
+                                        {role.skills.map((skill: string, sIndex: number) => (
+                                            <motion.span
+                                                key={sIndex}
+                                                whileHover={{ y: -2, scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-sm transition-all cursor-default"
+                                            >
+                                                {skill}
+                                            </motion.span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { experience: ExperienceInterface, isLast?: boolean, defaultExpanded?: boolean }) => {
 
     return (
         <div className="group/card w-full max-w-full">
@@ -54,101 +155,12 @@ const ExperienceCard = ({ experience, isLast, defaultExpanded = false }: { exper
             {/* Roles Container */}
             <div className="flex flex-col w-full">
                 {experience.roles.map((role, rIndex) => (
-                    <div key={rIndex} className="flex gap-4 md:gap-6 items-stretch w-full">
-                        {/* Left Column: Timeline Dot & Line */}
-                        <div className="flex flex-col items-center shrink-0 w-10 md:w-12">
-                            {/* Upper line to bridge gap to dot */}
-                            <div className="w-[2px] h-1.5 bg-zinc-200 dark:bg-zinc-800 group-hover/card:bg-blue-500/30 transition-colors duration-500" />
-
-                            {/* Dot */}
-                            <div className="w-4 h-4 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center justify-center transition-colors duration-300 group-hover/card:border-blue-500/50 shrink-0 z-10">
-                                <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700 group-hover/card:bg-blue-500 transition-colors duration-300" />
-                            </div>
-
-                            {/* Lower Line connecting to next role */}
-                            {rIndex < experience.roles.length - 1 && (
-                                <div className="w-[2px] flex-1 bg-zinc-200 dark:bg-zinc-800 group-hover/card:bg-blue-500/30 transition-colors duration-500" />
-                            )}
-                        </div>
-
-                        {/* Role Content Wrapper */}
-                        <div className="flex-1 pb-10 min-w-0">
-                            <div className="space-y-4">
-                                {/* Role Header */}
-                                <div
-                                    onClick={() => setIsExpanded(!isExpanded)}
-                                    className="flex items-center justify-between gap-2 group/role cursor-pointer"
-                                >
-                                    <div className="space-y-1">
-                                        <h4 className="text-[14px] md:text-[16px] font-semibold text-zinc-800 dark:text-zinc-200 transition-colors group-hover/role:text-blue-500 leading-tight pr-2 text-wrap">
-                                            {role.title}
-                                        </h4>
-
-                                        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[12px] md:text-[13px] font-medium text-zinc-500 dark:text-zinc-500">
-                                            <span>{role.type}</span>
-                                            <span className="text-zinc-300 dark:text-zinc-800">|</span>
-                                            <span className="tabular-nums">{role.startDate} — {role.endDate}</span>
-                                            <span className="hidden sm:inline text-zinc-300 dark:text-zinc-800">|</span>
-                                            <span className="text-zinc-400 dark:text-zinc-600 font-normal">{role.duration}</span>
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        className="p-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-400 shrink-0"
-                                    >
-                                        <motion.div animate={{ rotate: isExpanded ? 0 : -90 }}>
-                                            <ChevronDown className="w-4 h-4 md:w-5 md:h-5" />
-                                        </motion.div>
-                                    </button>
-                                </div>
-
-                                {/* Expandable Content */}
-                                <AnimatePresence>
-                                    {isExpanded && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3, ease: "circOut" }}
-                                            className="overflow-hidden"
-                                        >
-                                            <div className="space-y-6 pt-2">
-                                                {/* Responsibilities */}
-                                                <ul className="space-y-3 pl-1">
-                                                    {role.responsibilities.map((resp, i) => (
-                                                        <motion.li
-                                                            key={i}
-                                                            initial={{ opacity: 0, x: -10 }}
-                                                            animate={{ opacity: 1, x: 0 }}
-                                                            transition={{ delay: i * 0.05 }}
-                                                            className="flex items-start gap-3 group/item text-zinc-600 dark:text-zinc-400 text-[15px] leading-relaxed"
-                                                        >
-                                                            <Sparkles className="w-3.5 h-3.5 mt-1 text-zinc-300 dark:text-zinc-700 group-hover/item:text-blue-500 transition-colors shrink-0" />
-                                                            <span className="group-hover/item:text-zinc-900 dark:group-hover/item:text-zinc-200 transition-colors">{resp}</span>
-                                                        </motion.li>
-                                                    ))}
-                                                </ul>
-
-                                                {/* Skills Pills */}
-                                                <div className="flex flex-wrap gap-2 pl-1">
-                                                    {role.skills.map((skill, sIndex) => (
-                                                        <motion.span
-                                                            key={sIndex}
-                                                            whileHover={{ y: -2, scale: 1.05 }}
-                                                            whileTap={{ scale: 0.95 }}
-                                                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/30 hover:shadow-sm transition-all cursor-default"
-                                                        >
-                                                            {skill}
-                                                        </motion.span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        </div>
-                    </div>
+                    <ExperienceRoleItem
+                        key={rIndex}
+                        role={role}
+                        isLastRole={rIndex === experience.roles.length - 1}
+                        defaultExpanded={rIndex === 0 && defaultExpanded}
+                    />
                 ))}
             </div>
         </div>
