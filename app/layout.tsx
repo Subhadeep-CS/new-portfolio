@@ -11,6 +11,7 @@ import SmoothScroll from "@/components/Layout/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { poppins } from "@/utils/font";
+import PixelNameReveal from "@/components/Layout/Footer/PixelNameReveal";
 
 export default function RootLayout({
   children,
@@ -56,6 +57,7 @@ export default function RootLayout({
               <TooltipProvider>{children}</TooltipProvider>
             </main>
             <Footer />
+            <PixelNameReveal />
             <CustomCursor />
             <CommandPalette />
             <ScrollToTop />
