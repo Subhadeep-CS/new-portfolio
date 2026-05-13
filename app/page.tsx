@@ -47,7 +47,6 @@ export default function Home() {
       <CrossDivider />
       <AboutContainer />
 
-
       <CrossDivider />
       <StackContainer />
 
@@ -74,18 +73,6 @@ export default function Home() {
 
       <CrossDivider />
       <QuotesContainer />
-      {/* 
-      <CrossDivider />
-      <FeaturedResourcesContainer />
-
-      <CrossDivider />
-      <FeaturedLibraryContainer /> */}
-
-      {/* <CrossDivider />
-      <GithubContainer /> */}
-      {/* 
-      <CrossDivider />
-      <SpotifyContainer /> */}
 
       <CrossDivider />
       <ConnectContainer />

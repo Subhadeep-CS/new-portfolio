@@ -7,6 +7,15 @@ import styles from "./banner.module.css";
 import Image from "next/image";
 import Inspectable from "@/components/InspectMode/Inspectable";
 
+const PARTICLE_CONFIG = {
+  spacing: 20,
+  repulsionRadius: 130,
+  maxRepulsion: 8,
+  baseSize: 0.8,
+  activeSizeMultiplier: 2,
+  lerpFactor: 0.15,
+};
+
 const Banner = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -30,10 +39,6 @@ const Banner = () => {
     let particles: { baseX: number, baseY: number, x: number, y: number }[] = [];
     let animationFrameId: number;
 
-    // Particle Config
-    const spacing = 22;
-    const repulsionRadius = 130;
-    const maxRepulsion = 16;
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -46,16 +51,16 @@ const Banner = () => {
 
     const initParticles = () => {
       particles = [];
-      const cols = Math.ceil(canvas.width / spacing) + 1;
-      const rows = Math.ceil(canvas.height / spacing) + 1;
+      const cols = Math.ceil(canvas.width / PARTICLE_CONFIG.spacing) + 1;
+      const rows = Math.ceil(canvas.height / PARTICLE_CONFIG.spacing) + 1;
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           particles.push({
-            baseX: i * spacing,
-            baseY: j * spacing,
-            x: i * spacing,
-            y: j * spacing
+            baseX: i * PARTICLE_CONFIG.spacing,
+            baseY: j * PARTICLE_CONFIG.spacing,
+            x: i * PARTICLE_CONFIG.spacing,
+            y: j * PARTICLE_CONFIG.spacing
           });
         }
       }
@@ -79,21 +84,21 @@ const Banner = () => {
         const dy = mouseRef.current.y - p.baseY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        let drawSize = 2;
+        let drawSize = PARTICLE_CONFIG.baseSize;
 
-        if (distance < repulsionRadius) {
-          const force = (repulsionRadius - distance) / repulsionRadius;
-          p.x = p.baseX - (dx / distance) * force * maxRepulsion;
-          p.y = p.baseY - (dy / distance) * force * maxRepulsion;
-          drawSize = 1 + force * 2.5;
+        if (distance < PARTICLE_CONFIG.repulsionRadius) {
+          const force = (PARTICLE_CONFIG.repulsionRadius - distance) / PARTICLE_CONFIG.repulsionRadius;
+          p.x = p.baseX - (dx / distance) * force * PARTICLE_CONFIG.maxRepulsion;
+          p.y = p.baseY - (dy / distance) * force * PARTICLE_CONFIG.maxRepulsion;
+          drawSize = 1 + force * PARTICLE_CONFIG.activeSizeMultiplier;
         } else {
-          p.x += (p.baseX - p.x) * 0.15;
-          p.y += (p.baseY - p.y) * 0.15;
+          p.x += (p.baseX - p.x) * PARTICLE_CONFIG.lerpFactor;
+          p.y += (p.baseY - p.y) * PARTICLE_CONFIG.lerpFactor;
         }
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, drawSize, 0, Math.PI * 2);
-        ctx.fillStyle = distance < repulsionRadius ? glowColor : baseColor;
+        ctx.fillStyle = distance < PARTICLE_CONFIG.repulsionRadius ? glowColor : baseColor;
 
         ctx.fill();
       }
