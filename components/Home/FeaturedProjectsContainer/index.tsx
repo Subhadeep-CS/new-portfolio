@@ -42,77 +42,105 @@ const SpotlightCard = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
+import Inspectable from "@/components/InspectMode/Inspectable";
+
 const FeaturedProjectsContainer = () => {
     // Show only the first 3 projects as featured
     const featuredProjects = PROJECTS_DATA.slice(0, 3);
 
     return (
-        <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
-            <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-4 flex justify-between items-center bg-[#FAFAFA] dark:bg-zinc-900/50">
-                <h3 className="text-[19px] font-semibold text-zinc-900 dark:text-zinc-100 border-l-2 border-blue-500 pl-3 leading-none">
-                    Featured Projects
-                </h3>
-            </div>
-            <div className="container border-x border-zinc-200 dark:border-zinc-800 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 px-4 ">
-                    {featuredProjects.map((project, idx) => (
-                        <div key={idx} className="w-full h-full">
-                            <SpotlightCard>
-                                <div className="flex flex-col h-full">
-                                    <div className="flex justify-between items-start gap-4 mb-4">
-                                        <div className="min-w-0">
-                                            <h4 className="text-[15px] sm:text-[16px] font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-blue-500 transition-colors duration-300 leading-tight truncate">
-                                                {project.title}
-                                            </h4>
-                                            <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mt-1 block">
-                                                {project.type}
-                                            </span>
+        <Inspectable
+            metadata={{
+                name: "FeaturedProjectsContainer.tsx",
+                description: "A showcase of top projects using a spotlight-reveal effect on hover and a clean, responsive card layout.",
+                stack: ["React", "Framer Motion", "Lucide Icons", "TailwindCSS"],
+                optimizations: [
+                    "Mouse tracking limited to individual card boundaries",
+                    "Dynamic radial gradient for spotlight effect",
+                    "Optimized line-clamping for consistent layout height"
+                ],
+                patterns: ["Spotlight Reveal Pattern", "Responsive Grid System", "Abstracted Card Components"],
+                architectureNotes: "Uses a custom SpotlightCard sub-component to encapsulate mouse-tracking logic, ensuring the main container remains clean and manageable.",
+                animation: {
+                    type: "Interactive Radial Gradient",
+                    duration: "Real-time",
+                    description: "Follows mouse position using Framer Motion's useMotionValue for smooth, high-performance tracking."
+                },
+                accessibility: ["Keyboard navigable links", "Proper icon labeling", "Contrast-aware colors"],
+                buildProcess: [
+                    { iteration: "v1", note: "Basic project cards." },
+                    { iteration: "v2", note: "Implemented spotlight effect with CSS gradients." },
+                    { iteration: "v3", note: "Refactored to use Framer Motion for better performance." }
+                ]
+            }}
+        >
+            <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
+                <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-4 flex justify-between items-center bg-[#FAFAFA] dark:bg-zinc-900/50">
+                    <h3 className="text-[19px] font-semibold text-zinc-900 dark:text-zinc-100 border-l-2 border-blue-500 pl-3 leading-none">
+                        Featured Projects
+                    </h3>
+                </div>
+                <div className="container border-x border-zinc-200 dark:border-zinc-800 py-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 px-4 ">
+                        {featuredProjects.map((project, idx) => (
+                            <div key={idx} className="w-full h-full">
+                                <SpotlightCard>
+                                    <div className="flex flex-col h-full">
+                                        <div className="flex justify-between items-start gap-4 mb-4">
+                                            <div className="min-w-0">
+                                                <h4 className="text-[15px] sm:text-[16px] font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-blue-500 transition-colors duration-300 leading-tight truncate">
+                                                    {project.title}
+                                                </h4>
+                                                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mt-1 block">
+                                                    {project.type}
+                                                </span>
+                                            </div>
+
+                                            <div className="flex items-center gap-1 shrink-0">
+                                                {project.github && project.github !== "#" && (
+                                                    <Link href={project.github} target="_blank" className="p-1.5 rounded-full text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                                        <Github className="w-4 h-4" />
+                                                    </Link>
+                                                )}
+                                                {project.link && project.link !== "#" ? (
+                                                    <Link href={project.link} target="_blank" className="p-1.5 rounded-full text-zinc-400 hover:text-blue-500 hover:bg-blue-500/10 transition-colors group/link">
+                                                        <ExternalLink className="w-4 h-4 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
+                                                    </Link>
+                                                ) : (
+                                                    <div className="p-1.5 rounded-full text-zinc-300 dark:text-zinc-700" title="Confidential / Internal">
+                                                        <Lock className="w-4 h-4" />
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
 
-                                        <div className="flex items-center gap-1 shrink-0">
-                                            {project.github && project.github !== "#" && (
-                                                <Link href={project.github} target="_blank" className="p-1.5 rounded-full text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
-                                                    <Github className="w-4 h-4" />
-                                                </Link>
-                                            )}
-                                            {project.link && project.link !== "#" ? (
-                                                <Link href={project.link} target="_blank" className="p-1.5 rounded-full text-zinc-400 hover:text-blue-500 hover:bg-blue-500/10 transition-colors group/link">
-                                                    <ExternalLink className="w-4 h-4 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
-                                                </Link>
-                                            ) : (
-                                                <div className="p-1.5 rounded-full text-zinc-300 dark:text-zinc-700" title="Confidential / Internal">
-                                                    <Lock className="w-4 h-4" />
-                                                </div>
-                                            )}
+                                        <p className="text-[13px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 line-clamp-3">
+                                            {project.description}
+                                        </p>
+
+                                        <div className="flex flex-wrap gap-x-2 mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800/60">
+                                            {project.tech.slice(0, 3).map((t, i) => (
+                                                <span key={i} className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
+                                                    {t}{i < project.tech.slice(0, 3).length - 1 && <span className="ml-2 text-zinc-300 dark:text-zinc-700">|</span>}
+                                                </span>
+                                            ))}
                                         </div>
                                     </div>
+                                </SpotlightCard>
+                            </div>
+                        ))}
+                    </div>
 
-                                    <p className="text-[13px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 line-clamp-3">
-                                        {project.description}
-                                    </p>
-
-                                    <div className="flex flex-wrap gap-x-2 mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-800/60">
-                                        {project.tech.slice(0, 3).map((t, i) => (
-                                            <span key={i} className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">
-                                                {t}{i < project.tech.slice(0, 3).length - 1 && <span className="ml-2 text-zinc-300 dark:text-zinc-700">|</span>}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </SpotlightCard>
-                        </div>
-                    ))}
+                    <div className="flex justify-center border-t border-zinc-100 dark:border-zinc-800 pt-8">
+                        <ExpandButton
+                            isLink
+                            href="/projects"
+                            label="View All Projects"
+                        />
+                    </div>
                 </div>
-
-                <div className="flex justify-center border-t border-zinc-100 dark:border-zinc-800 pt-8">
-                    <ExpandButton
-                        isLink
-                        href="/projects"
-                        label="View All Projects"
-                    />
-                </div>
-            </div>
-        </section>
+            </section>
+        </Inspectable>
     );
 };
 

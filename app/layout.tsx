@@ -12,6 +12,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { poppins } from "@/utils/font";
 import PixelNameReveal from "@/components/Layout/Footer/PixelNameReveal";
+import { InspectModeProvider } from "@/components/InspectMode/InspectContext";
+import InspectToggle from "@/components/InspectMode/InspectToggle";
+import InspectOverlay from "@/components/InspectMode/InspectOverlay";
 
 export default function RootLayout({
   children,
@@ -51,20 +54,24 @@ export default function RootLayout({
           forcedTheme="light"
           disableTransitionOnChange
         >
-          <SmoothScroll>
-            <Header />
-            <main className="min-h-screen flex flex-col">
-              <TooltipProvider>{children}</TooltipProvider>
-            </main>
-            <Footer />
-            <PixelNameReveal />
-            <CustomCursor />
-            <CommandPalette />
-            <ScrollToTop />
-            <FloatingCommandButton />
-            <SpeedInsights />
-            <Analytics />
-          </SmoothScroll>
+          <InspectModeProvider>
+            <SmoothScroll>
+              <Header />
+              <main className="min-h-screen flex flex-col">
+                <TooltipProvider>{children}</TooltipProvider>
+              </main>
+              <Footer />
+              <PixelNameReveal />
+              <CustomCursor />
+              <CommandPalette />
+              <ScrollToTop />
+              <FloatingCommandButton />
+              <SpeedInsights />
+              <Analytics />
+              <InspectOverlay />
+              <InspectToggle />
+            </SmoothScroll>
+          </InspectModeProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -11,6 +11,18 @@ export default function CommandPalette() {
     const router = useRouter();
     const { setTheme } = useTheme();
 
+    // Disable background scroll when open
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [open]);
+
     // Toggle the menu when ⌘K is pressed or event dispatched
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -61,7 +73,7 @@ export default function CommandPalette() {
                     </div>
                 </div>
 
-                <Command.List className="max-h-[320px] overflow-y-auto p-2 scrollbar-hide">
+                <Command.List className="max-h-[320px] overflow-y-auto p-2 scrollbar-hide" data-lenis-prevent>
                     <Command.Empty className="py-12 text-center text-sm font-medium text-zinc-500">No results found.</Command.Empty>
 
                     <Command.Group heading="Navigation" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:text-zinc-500 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest mt-1">

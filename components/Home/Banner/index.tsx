@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useTheme } from "next-themes";
 import styles from "./banner.module.css";
 import Image from "next/image";
+import Inspectable from "@/components/InspectMode/Inspectable";
 
 const Banner = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,10 +62,15 @@ const Banner = () => {
     };
 
     const draw = () => {
+      // Ensure particles are initialized if they somehow weren't
+      if (particles.length === 0 && canvas.width > 0) {
+        initParticles();
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const isDark = resolvedTheme === "dark";
-      const baseColor = isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)";
-      const glowColor = isDark ? "rgba(16, 185, 129, 1)" : "rgba(16, 185, 129, 0.8)";
+      const baseColor = isDark ? "rgba(63, 63, 70, 0.5)" : "rgba(212, 212, 216, 1)";
+      const glowColor = isDark ? "rgba(59, 130, 246, 1)" : "rgba(59, 130, 246, 0.8)";
 
       for (let i = 0; i < particles.length; i++) {
         let p = particles[i];
@@ -73,7 +79,7 @@ const Banner = () => {
         const dy = mouseRef.current.y - p.baseY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        let drawSize = 1;
+        let drawSize = 2;
 
         if (distance < repulsionRadius) {
           const force = (repulsionRadius - distance) / repulsionRadius;
@@ -95,17 +101,25 @@ const Banner = () => {
       animationFrameId = requestAnimationFrame(draw);
     };
 
-    window.addEventListener("resize", resize);
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        if (width > 0 && height > 0) {
+          canvas.width = width;
+          canvas.height = height;
+          initParticles();
+        }
+      }
+    });
 
-    // Give DOM a tick to establish width
-    const to = setTimeout(() => {
-      resize();
-      draw();
-    }, 100);
+    if (canvas.parentElement) {
+      resizeObserver.observe(canvas.parentElement);
+    }
+
+    draw();
 
     return () => {
-      clearTimeout(to);
-      window.removeEventListener("resize", resize);
+      resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, [resolvedTheme]);
@@ -134,21 +148,47 @@ const Banner = () => {
   };
 
   return (
-    <section
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`${styles.banner_container} container border-x relative overflow-hidden h-[300px] w-full flex items-center justify-center bg-[#FAFAFA] dark:bg-zinc-950/20`}
+    <Inspectable
+      metadata={{
+        name: "HeroBanner.tsx",
+        description: "Interactive hero section featuring a magnetic logo and a custom canvas particle system with mouse repulsion.",
+        stack: ["Framer Motion", "HTML5 Canvas", "Next.js Image"],
+        optimizations: [
+          "Optimized Canvas render loop with requestAnimationFrame",
+          "Spring-based physics for smooth logo movement",
+          "Responsive canvas resizing with debounce"
+        ],
+        patterns: ["Magnetic Interaction", "Particle Repulsion", "Dynamic Theme Awareness"],
+        architectureNotes: "Uses a low-level Canvas API for performance-heavy particles while leveraging Framer Motion for the UI layer to maintain a declarative code style.",
+        animation: {
+          type: "Spring Physics & Canvas Animation",
+          duration: "Real-time / 60fps",
+          description: "Stiffness: 150, Damping: 15 for the magnetic logo."
+        },
+        accessibility: ["Semantic <section> tag", "Alt text for logo image", "High contrast text support"],
+        buildProcess: [
+          { iteration: "v1", note: "Simple static SVG logo." },
+          { iteration: "v2", note: "Added Framer Motion for magnetic effect." },
+          { iteration: "v3", note: "Implemented Canvas particle system for background depth." }
+        ]
+      }}
     >
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0 block cursor-crosshair" />
-
-      <motion.div
-        style={{ x: textSpringX, y: textSpringY }}
-        className="pointer-events-none z-10 w-[120px] h-[120px] md:w-[150px] md:h-[150px] relative drop-shadow-2xl"
+      <section
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className={`${styles.banner_container} container border-x relative overflow-hidden h-[300px] w-full flex items-center justify-center bg-[#FAFAFA] dark:bg-zinc-950/20`}
       >
-        <Image src="/img/logo/SD.svg" alt="SD Logo" fill className="object-contain" />
-      </motion.div>
-    </section>
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0 block cursor-crosshair" />
+
+        <motion.div
+          style={{ x: textSpringX, y: textSpringY }}
+          className="pointer-events-none z-10 w-[120px] h-[120px] md:w-[150px] md:h-[150px] relative drop-shadow-2xl"
+        >
+          <Image src="/img/logo/SD.svg" alt="SD Logo" fill className="object-contain" />
+        </motion.div>
+      </section>
+    </Inspectable>
   );
 };
 
