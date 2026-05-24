@@ -7,6 +7,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projects | Subhadeep Das",
   description: "Explore the projects and engineering works of Subhadeep Das, a Frontend Developer specialized in React.js and Next.js.",
+  alternates: {
+    canonical: "https://subhadeepdas.com/projects",
+  },
 };
 
 const ProjectsPage = () => {

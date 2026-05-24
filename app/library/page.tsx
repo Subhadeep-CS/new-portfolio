@@ -2,6 +2,15 @@ import CrossDivider from "@/components/Layout/common/CrossDivider";
 import SelfHelpBooksContainer from "@/components/SelfHelp/SelfHelpBooksContainer";
 import ConnectContainer from "@/components/Home/ConnectContainer";
 import PageHeader from "@/components/Layout/common/PageHeader";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Library | Subhadeep Das",
+  description: "Habits & Mindset. A collection of non-technical self-help books that have helped me build discipline and overcome procrastination.",
+  alternates: {
+    canonical: "https://subhadeepdas.com/library",
+  },
+};
 
 export default function SelfHelp() {
     return (

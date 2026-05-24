@@ -15,6 +15,11 @@ import PixelNameReveal from "@/components/Layout/Footer/PixelNameReveal";
 import { InspectModeProvider } from "@/components/InspectMode/InspectContext";
 import InspectToggle from "@/components/InspectMode/InspectToggle";
 import InspectOverlay from "@/components/InspectMode/InspectOverlay";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://subhadeepdas.com"),
+};
 
 export default function RootLayout({
   children,

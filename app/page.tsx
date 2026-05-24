@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   title: "Subhadeep Das | Frontend Engineer & Creative Developer",
   description: "Subhadeep Das is a Frontend Developer specializing in React.js and Next.js. Explore projects, skills, and portfolio.",
   keywords: ["Subhadeep Das", "Frontend Engineer", "React Developer", "UI/UX Designer", "Software Engineer Portfolio"],
+  alternates: {
+    canonical: "https://subhadeepdas.com",
+  },
   openGraph: {
     title: "Subhadeep Das | Frontend Engineer",
     description: "Building production-grade platforms with modern web technologies.",

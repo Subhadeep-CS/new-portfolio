@@ -7,6 +7,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Education | Subhadeep Das",
     description: "Academic background and continuous learning journey of Subhadeep Das, featuring degrees and specialized certifications.",
+    alternates: {
+        canonical: "https://subhadeepdas.com/education",
+    },
 };
 
 export default function Education() {

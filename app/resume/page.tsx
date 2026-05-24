@@ -2,10 +2,14 @@ import PageHeader from "@/components/Layout/common/PageHeader";
 import CrossDivider from "@/components/Layout/common/CrossDivider";
 import ConnectContainer from "@/components/Home/ConnectContainer";
 import { Download } from "lucide-react";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Resume | Subhadeep",
   description: "View and download my professional resume.",
+  alternates: {
+    canonical: "https://subhadeepdas.com/resume",
+  },
 };
 
 export default function ResumePage() {

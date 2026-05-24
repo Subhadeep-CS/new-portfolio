@@ -4,6 +4,15 @@ import BooksContainer from "@/components/Resources/BooksContainer";
 import HelpfulLinksContainer from "@/components/Resources/HelpfulLinksContainer";
 import ConnectContainer from "@/components/Home/ConnectContainer";
 import PageHeader from "@/components/Layout/common/PageHeader";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resources | Subhadeep Das",
+  description: "Growth & Resources. A curated collection of the courses, brilliant minds, books, and resources that have shaped my frontend engineering journey.",
+  alternates: {
+    canonical: "https://subhadeepdas.com/resources",
+  },
+};
 
 export default function Resources() {
     return (
