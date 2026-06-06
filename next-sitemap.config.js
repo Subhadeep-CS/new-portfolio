@@ -11,6 +11,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/_next/static/media/'],
       },
     ],
   },
