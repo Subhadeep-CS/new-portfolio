@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollspy } from "@/hooks/useScrollspy";
@@ -8,6 +8,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { SECTIONS } from "@/utils/app_constant";
+import { useAudio } from "@/components/Audio/AudioContext";
 
 
 
@@ -15,6 +16,18 @@ export default function Scrollspy() {
   const pathname = usePathname();
   const [isHovered, setIsHovered] = useState(false);
   const activeId = useScrollspy(SECTIONS.map((s) => s.id));
+  const { playSound } = useAudio();
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (activeId) {
+      playSound("scroll");
+    }
+  }, [activeId, playSound]);
 
   // Only render on the homepage
   if (pathname !== "/") return null;

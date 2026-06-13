@@ -3,6 +3,7 @@
 import Navbar from "./Navbar";
 import { ModeToggle } from "@/components/ModeToggle";
 import CommandPalette from "./CommandPallete";
+import { SoundToggle } from "@/components/Audio/SoundToggle";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
         <div className="flex items-center gap-2 text-muted sm:ml-auto">
           <Navbar />
           {/* <ModeToggle /> */}
+          <SoundToggle />
           <CommandPalette />
         </div>
       </div>

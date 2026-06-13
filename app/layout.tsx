@@ -17,6 +17,7 @@ import { InspectModeProvider } from "@/components/InspectMode/InspectContext";
 import InspectToggle from "@/components/InspectMode/InspectToggle";
 import InspectOverlay from "@/components/InspectMode/InspectOverlay";
 import { Metadata } from "next";
+import { AudioProvider } from "@/components/Audio/AudioContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://subhadeepdas.com"),
@@ -60,25 +61,29 @@ export default function RootLayout({
           forcedTheme="light"
           disableTransitionOnChange
         >
-          <InspectModeProvider>
-            <SmoothScroll>
-              <Header />
-              <main className="min-h-screen flex flex-col">
-                <TooltipProvider>{children}</TooltipProvider>
-              </main>
-              <Footer />
-              <PixelNameReveal />
-              <CustomCursor />
-              <CommandPalette />
-              <ScrollToTop />
-              <FloatingCommandButton />
-              <Scrollspy />
-              <SpeedInsights />
-              <Analytics />
-              <InspectOverlay />
-              <InspectToggle />
-            </SmoothScroll>
-          </InspectModeProvider>
+          <AudioProvider>
+            <InspectModeProvider>
+              <SmoothScroll>
+                <TooltipProvider>
+                  <Header />
+                  <main className="min-h-screen flex flex-col">
+                    {children}
+                  </main>
+                  <Footer />
+                  <PixelNameReveal />
+                  <CustomCursor />
+                  <CommandPalette />
+                  <ScrollToTop />
+                  <FloatingCommandButton />
+                  <Scrollspy />
+                  <SpeedInsights />
+                  <Analytics />
+                  <InspectOverlay />
+                  <InspectToggle />
+                </TooltipProvider>
+              </SmoothScroll>
+            </InspectModeProvider>
+          </AudioProvider>
         </ThemeProvider>
       </body>
     </html>

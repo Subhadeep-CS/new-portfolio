@@ -5,23 +5,26 @@ import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
 import { Search, Folder, BookOpen, UserCircle, Github, Linkedin, MonitorPlay, TerminalSquare, Rotate3D, FileText } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useAudio, SoundType } from "@/components/Audio/AudioContext";
 
 export default function CommandPalette() {
     const [open, setOpen] = useState(false);
     const router = useRouter();
     const { setTheme } = useTheme();
+    const { playSound } = useAudio();
 
     // Disable background scroll when open
     useEffect(() => {
         if (open) {
             document.body.style.overflow = "hidden";
+            playSound("open");
         } else {
             document.body.style.overflow = "";
         }
         return () => {
             document.body.style.overflow = "";
         };
-    }, [open]);
+    }, [open, playSound]);
 
     // Toggle the menu when ⌘K is pressed or event dispatched
     useEffect(() => {
@@ -43,8 +46,9 @@ export default function CommandPalette() {
         };
     }, []);
 
-    const runCommand = (command: () => void) => {
+    const runCommand = (command: () => void, soundType: SoundType = "menu") => {
         setOpen(false);
+        playSound(soundType);
         command();
     };
 
@@ -78,28 +82,28 @@ export default function CommandPalette() {
 
                     <Command.Group heading="Navigation" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:text-zinc-500 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest mt-1">
                         <Command.Item
-                            onSelect={() => runCommand(() => router.push("/"))}
+                            onSelect={() => runCommand(() => router.push("/"), "menu")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <UserCircle className="w-[18px] h-[18px] mr-3 text-blue-500" />
                             <span>Homepage / About Me</span>
                         </Command.Item>
                         <Command.Item
-                            onSelect={() => runCommand(() => router.push("/projects"))}
+                            onSelect={() => runCommand(() => router.push("/projects"), "menu")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <Folder className="w-[18px] h-[18px] mr-3 text-orange-500" />
                             <span>Projects</span>
                         </Command.Item>
                         <Command.Item
-                            onSelect={() => runCommand(() => router.push("/resources"))}
+                            onSelect={() => runCommand(() => router.push("/resources"), "menu")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <MonitorPlay className="w-[18px] h-[18px] mr-3 text-indigo-500" />
                             <span>Resources & Mentors</span>
                         </Command.Item>
                         <Command.Item
-                            onSelect={() => runCommand(() => router.push("/library"))}
+                            onSelect={() => runCommand(() => router.push("/library"), "menu")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <BookOpen className="w-[18px] h-[18px] mr-3 text-emerald-500" />
@@ -111,7 +115,7 @@ export default function CommandPalette() {
                                 link.href = '/document/SUBHADEEP_DAS_CV_FRONTEND_ENGINEER.pdf';
                                 link.download = 'Subhadeep_Das_CV_Frontend_Engineer.pdf';
                                 link.click();
-                            })}
+                            }, "success")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <FileText className="w-[18px] h-[18px] mr-3 text-red-500" />
@@ -124,7 +128,7 @@ export default function CommandPalette() {
 
                     <Command.Group heading="Social Links" className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:text-zinc-500 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest">
                         <Command.Item
-                            onSelect={() => runCommand(() => window.open("https://github.com/Subhadeep-CS", "_blank"))}
+                            onSelect={() => runCommand(() => window.open("https://github.com/Subhadeep-CS", "_blank"), "menu")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <Github className="w-[18px] h-[18px] mr-3 text-zinc-500 dark:text-zinc-400" />
@@ -132,7 +136,7 @@ export default function CommandPalette() {
                             <span className="ml-auto text-[11px] text-zinc-400 uppercase tracking-widest font-semibold flex items-center gap-1">Open <span className="text-[14px]">↗</span></span>
                         </Command.Item>
                         <Command.Item
-                            onSelect={() => runCommand(() => window.open("https://www.linkedin.com/in/subhadeep-das-frontend-dev", "_blank"))}
+                            onSelect={() => runCommand(() => window.open("https://www.linkedin.com/in/subhadeep-das-frontend-dev", "_blank"), "menu")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <Linkedin className="w-[18px] h-[18px] mr-3 text-blue-600 dark:text-blue-500" />
@@ -148,7 +152,7 @@ export default function CommandPalette() {
                             onSelect={() => runCommand(() => {
                                 setTheme("dark");
                                 console.log("%c INIT HACKER MODE... 🚀", "color: #00ff00; font-size: 20px; font-weight: bold; background: black; padding: 10px;");
-                            })}
+                            }, "hacker")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-emerald-400 transition-colors"
                         >
                             <TerminalSquare className="w-[18px] h-[18px] mr-3 text-emerald-500" />
@@ -162,7 +166,7 @@ export default function CommandPalette() {
                                     document.body.style.transition = '';
                                     document.body.style.transform = '';
                                 }, 1500);
-                            })}
+                            }, "barrelRoll")}
                             className="flex items-center px-3 py-3 rounded-lg cursor-pointer text-[14px] font-medium text-zinc-700 dark:text-zinc-300 aria-selected:bg-zinc-100 dark:aria-selected:bg-zinc-900 aria-selected:text-zinc-900 dark:aria-selected:text-white transition-colors"
                         >
                             <Rotate3D className="w-[18px] h-[18px] mr-3 text-fuchsia-500" />
