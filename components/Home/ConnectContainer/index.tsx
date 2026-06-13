@@ -16,7 +16,7 @@ const ConnectContainer = () => {
         <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <ConnectSectionHeader />
             <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                     {socials.map((social) => {
                         const Icon = social.icon;
                         return (

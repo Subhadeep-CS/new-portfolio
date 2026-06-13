@@ -1,8 +1,11 @@
+import { usePathname } from "next/navigation";
 import Inspectable from "@/components/InspectMode/Inspectable";
 import { HEADER_MENU } from "@/utils/app_constant";
 import Link from "next/link";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <Inspectable
       className="w-full"
@@ -21,14 +24,24 @@ const Navbar = () => {
       }}
     >
       <nav className="w-full px-2 py-2">
-        <ul className="flex items-center gap-2">
-          {HEADER_MENU?.map((menuItem: { name: string; href: string }) => (
-            <Link href={menuItem?.href} key={menuItem.name}>
-              <li className="text-base text-zinc-500 font-medium hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer">
-                {menuItem?.name}
-              </li>
-            </Link>
-          ))}
+        <ul className="flex items-center gap-1.5">
+          {HEADER_MENU?.map((menuItem: { name: string; href: string }) => {
+            const isActive = pathname === menuItem.href;
+
+            return (
+              <Link href={menuItem?.href} key={menuItem.name} className="relative">
+                <li
+                  className={`relative px-3 py-1.5 text-sm font-semibold transition-colors cursor-pointer select-none z-10 ${
+                    isActive
+                      ? "text-zinc-950 dark:text-zinc-50 font-bold"
+                      : "text-zinc-400 dark:text-zinc-550 hover:text-zinc-950 dark:hover:text-zinc-100"
+                  }`}
+                >
+                  {menuItem?.name}
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </nav>
     </Inspectable>

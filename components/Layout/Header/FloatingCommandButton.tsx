@@ -129,7 +129,7 @@ const FloatingCommandButton = () => {
               }`}
             >
               <Compass className={`w-4 h-4 ${isOpen ? "text-blue-500 rotate-45" : "text-zinc-500"} transition-all duration-300`} />
-              <span className="text-[12px] font-semibold text-zinc-600 dark:text-zinc-400 max-w-[80px] truncate">
+              <span className="text-[12px] font-semibold text-zinc-600 dark:text-zinc-400 w-[90px] text-left truncate block">
                 {activeSection ? activeSection.label : "Menu"}
               </span>
               {isOpen ? (
