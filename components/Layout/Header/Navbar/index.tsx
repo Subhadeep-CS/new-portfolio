@@ -23,15 +23,15 @@ const Navbar = () => {
         ]
       }}
     >
-      <nav className="w-full px-2 py-2">
-        <ul className="flex items-center gap-1.5">
+      <nav className="w-full py-2">
+        <ul className="flex items-center gap-1 sm:gap-1.5">
           {HEADER_MENU?.map((menuItem: { name: string; href: string }) => {
             const isActive = pathname === menuItem.href;
 
             return (
               <Link href={menuItem?.href} key={menuItem.name} className="relative">
                 <li
-                  className={`relative px-3 py-1.5 text-sm font-semibold transition-colors cursor-pointer select-none z-10 ${
+                  className={`relative px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold transition-colors cursor-pointer select-none z-10 ${
                     isActive
                       ? "text-zinc-950 dark:text-zinc-50 font-bold"
                       : "text-zinc-400 dark:text-zinc-550 hover:text-zinc-950 dark:hover:text-zinc-100"

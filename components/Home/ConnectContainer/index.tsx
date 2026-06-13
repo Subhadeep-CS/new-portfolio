@@ -16,7 +16,7 @@ const ConnectContainer = () => {
         <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
             <ConnectSectionHeader />
             <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8">
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 w-full">
                     {socials.map((social) => {
                         const Icon = social.icon;
                         return (
@@ -26,12 +26,12 @@ const ConnectContainer = () => {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex gap-3 p-4 bg-white dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-1 transition-all duration-300 group shadow-sm items-center w-full"
+                                        className="flex gap-1.5 sm:gap-3 p-2 sm:p-4 bg-white dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-1 transition-all duration-300 group shadow-sm items-center w-full"
                                     >
-                                        <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 group-hover:scale-110 transition-transform duration-300">
-                                            <Icon className="w-5 h-5" style={{ color: social.color }} />
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-lg flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 group-hover:scale-110 transition-transform duration-300">
+                                            <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5" style={{ color: social.color }} />
                                         </div>
-                                        <span className="font-medium text-[16px] text-zinc-800 dark:text-zinc-200 tracking-wide">{social.name}</span>
+                                        <span className="font-medium text-[11px] xs:text-xs sm:text-[16px] text-zinc-800 dark:text-zinc-200 tracking-wide truncate">{social.name}</span>
                                     </Link>
                                 </div>
                             </MagneticWrapper>
