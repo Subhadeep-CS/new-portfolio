@@ -1,4 +1,5 @@
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import Inspectable from "@/components/InspectMode/Inspectable";
 import { HEADER_MENU } from "@/utils/app_constant";
 import Link from "next/link";
@@ -33,11 +34,23 @@ const Navbar = () => {
                 <li
                   className={`relative px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold transition-colors cursor-pointer select-none z-10 ${
                     isActive
-                      ? "text-zinc-950 dark:text-zinc-50 font-bold"
+                      ? "text-blue-500 dark:text-blue-400 font-bold"
                       : "text-zinc-400 dark:text-zinc-550 hover:text-zinc-950 dark:hover:text-zinc-100"
                   }`}
                 >
                   {menuItem?.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-nav-dot"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-blue-500 dark:bg-blue-400 rounded-full"
+                      transition={{
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 15,
+                        mass: 0.8
+                      }}
+                    />
+                  )}
                 </li>
               </Link>
             );
