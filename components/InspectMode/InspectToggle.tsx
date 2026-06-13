@@ -9,14 +9,14 @@ const InspectToggle: React.FC = () => {
   const { isInspectMode, toggleInspectMode } = useInspectMode();
 
   return (
-    <div className="fixed bottom-6 right-24 z-[10000] flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 left-6 sm:bottom-10 sm:left-10 z-[10000] hidden sm:flex flex-col items-start gap-3">
       {/* Tooltip for Shortcut */}
       <AnimatePresence>
         {!isInspectMode && (
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
+            exit={{ opacity: 0, x: -20 }}
             className="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl text-[10px] text-zinc-400 font-medium whitespace-nowrap"
           >
             Press <kbd className="px-1.5 py-0.5 bg-zinc-800 rounded border border-zinc-700 text-zinc-100">Alt + I</kbd> for Inspect Mode

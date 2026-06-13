@@ -39,7 +39,7 @@ const MetadataPanel: React.FC<MetadataPanelProps> = ({ metadata, isVisible }) =>
           initial={{ opacity: 0, y: 10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 10, scale: 0.95 }}
-          className="fixed bottom-8 left-8 z-[9999] w-80 bg-zinc-900/90 backdrop-blur-xl border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl pointer-events-auto"
+          className="fixed bottom-24 left-6 sm:left-10 z-[9999] w-80 bg-zinc-900/90 backdrop-blur-xl border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl pointer-events-auto"
         >
           <div className="p-4 border-b border-zinc-800 bg-zinc-800/50 flex items-center justify-between">
             <div className="flex items-center gap-2">

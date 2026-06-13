@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /_next/static/media/
 
 # Host
 Host: https://subhadeepdas.com

@@ -58,6 +58,17 @@ import {
   Bitcoin,
   Box,
   Code,
+  Info,
+  Cpu,
+  Briefcase,
+  FolderGit2,
+  GraduationCap,
+  Gamepad2,
+  Award,
+  Trophy,
+  Bookmark,
+  Quote,
+  Send,
 } from "lucide-react";
 
 import { AboutMeInterface, HeaderMenuItem } from "./utils.type";
@@ -641,4 +652,20 @@ export const PROJECTS_DATA: ProjectInterface[] = [
     link: "https://subhadeepdas.com",
     icon: Code,
   },
+];
+
+
+export const SECTIONS = [
+  { id: "profile", label: "Profile", icon: User },
+  { id: "about", label: "About", icon: Info },
+  { id: "stack", label: "Tech Stack", icon: Cpu },
+  { id: "experience", label: "Experience", icon: Briefcase },
+  { id: "projects", label: "Projects", icon: FolderGit2 },
+  { id: "education", label: "Education", icon: GraduationCap },
+  { id: "playground", label: "Playground", icon: Gamepad2 },
+  { id: "certifications", label: "Certifications", icon: Award },
+  { id: "honors", label: "Honors & Awards", icon: Trophy },
+  { id: "bookmarks", label: "Bookmarks", icon: Bookmark },
+  { id: "quotes", label: "Quotes", icon: Quote },
+  { id: "connect", label: "Connect", icon: Send },
 ];

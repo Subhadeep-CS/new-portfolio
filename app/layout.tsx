@@ -7,6 +7,7 @@ import CustomCursor from "@/components/Layout/CustomCursor";
 import CommandPalette from "@/components/Layout/CommandPalette";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
 import FloatingCommandButton from "@/components/Layout/Header/FloatingCommandButton";
+import Scrollspy from "@/components/Layout/Scrollspy";
 import SmoothScroll from "@/components/Layout/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -71,6 +72,7 @@ export default function RootLayout({
               <CommandPalette />
               <ScrollToTop />
               <FloatingCommandButton />
+              <Scrollspy />
               <SpeedInsights />
               <Analytics />
               <InspectOverlay />

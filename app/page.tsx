@@ -37,48 +37,72 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <section className="flex flex-col">
-      <div className="border-b flex justify-center border-collapse">
-        <Banner />
+      <div id="profile" className="scroll-mt-20">
+        <div className="border-b flex justify-center border-collapse">
+          <Banner />
+        </div>
+
+        <CrossDivider />
+        <ProfileInformation />
+
+        <CrossDivider />
+        <DesignationContactInfo />
       </div>
 
       <CrossDivider />
-      <ProfileInformation />
+      <div id="about" className="scroll-mt-20">
+        <AboutContainer />
+      </div>
 
       <CrossDivider />
-      <DesignationContactInfo />
+      <div id="stack" className="scroll-mt-20">
+        <StackContainer />
+      </div>
 
       <CrossDivider />
-      <AboutContainer />
+      <div id="experience" className="scroll-mt-20">
+        <ExperienceContainer />
+      </div>
 
       <CrossDivider />
-      <StackContainer />
+      <div id="projects" className="scroll-mt-20">
+        <FeaturedProjectsContainer />
+      </div>
 
       <CrossDivider />
-      <ExperienceContainer />
+      <div id="education" className="scroll-mt-20">
+        <EducationContainer />
+      </div>
 
       <CrossDivider />
-      <FeaturedProjectsContainer />
+      <div id="playground" className="scroll-mt-20">
+        <LivePlaygroundContainer />
+      </div>
 
       <CrossDivider />
-      <EducationContainer />
+      <div id="certifications" className="scroll-mt-20">
+        <CertificationsContainer />
+      </div>
 
       <CrossDivider />
-      <LivePlaygroundContainer />
+      <div id="honors" className="scroll-mt-20">
+        <HonorRewardContainer />
+      </div>
 
       <CrossDivider />
-      <CertificationsContainer />
+      <div id="bookmarks" className="scroll-mt-20">
+        <BookmarkContainer />
+      </div>
 
       <CrossDivider />
-      <HonorRewardContainer />
+      <div id="quotes" className="scroll-mt-20">
+        <QuotesContainer />
+      </div>
 
       <CrossDivider />
-      <BookmarkContainer />
-
-      <CrossDivider />
-      <QuotesContainer />
-
-      <CrossDivider />
-      <ConnectContainer />
+      <div id="connect" className="scroll-mt-20">
+        <ConnectContainer />
+      </div>
     </section>
   );
 }
