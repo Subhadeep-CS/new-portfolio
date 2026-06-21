@@ -50,7 +50,10 @@ export default function Scrollspy() {
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.8, duration: 0.5 }}
       className="fixed right-6 top-1/2 -translate-y-1/2 z-[40] hidden lg:flex flex-col items-end"
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        playSound("open");
+      }}
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.div

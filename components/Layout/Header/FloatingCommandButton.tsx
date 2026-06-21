@@ -6,12 +6,14 @@ import { Search, Compass, ChevronUp, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollspy } from "@/hooks/useScrollspy";
 import { SECTIONS } from "@/utils/app_constant";
+import { useAudio } from "@/components/Audio/AudioContext";
 
 const FloatingCommandButton = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const activeId = useScrollspy(SECTIONS.map((s) => s.id));
   const containerRef = useRef<HTMLDivElement>(null);
+  const { playSound } = useAudio();
 
   const handleOpenPalette = () => {
     window.dispatchEvent(new CustomEvent("open-command-palette"));
@@ -19,7 +21,11 @@ const FloatingCommandButton = () => {
 
   const toggleDropdown = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsOpen(!isOpen);
+    const nextOpen = !isOpen;
+    setIsOpen(nextOpen);
+    if (nextOpen) {
+      playSound("open");
+    }
   };
 
   const handleScrollTo = (id: string) => {

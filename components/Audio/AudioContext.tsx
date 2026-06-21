@@ -84,7 +84,7 @@ class SoundGenerator {
     osc.frequency.setValueAtTime(1200, this.ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.04);
 
-    gain.gain.setValueAtTime(0.04, this.ctx.currentTime);
+    gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
 
     osc.start(this.ctx.currentTime);
@@ -111,8 +111,8 @@ class SoundGenerator {
       osc.stop(this.ctx.currentTime + delay + duration + 0.01);
     };
 
-    playTick(0, 580, 0.05, 0.05);
-    playTick(0.03, 880, 0.07, 0.03);
+    playTick(0, 580, 0.05, 0.15);
+    playTick(0.03, 880, 0.07, 0.10);
   }
 
   private playOpen() {
@@ -136,10 +136,10 @@ class SoundGenerator {
     };
 
     // A beautiful rising futuristic chime
-    playNote(0, 523.25, 0.25, 0.03); // C5
-    playNote(0.06, 659.25, 0.25, 0.03); // E5
-    playNote(0.12, 783.99, 0.25, 0.03); // G5
-    playNote(0.18, 1046.50, 0.3, 0.03); // C6
+    playNote(0, 523.25, 0.25, 0.10); // C5
+    playNote(0.06, 659.25, 0.25, 0.10); // E5
+    playNote(0.12, 783.99, 0.25, 0.10); // G5
+    playNote(0.18, 1046.50, 0.3, 0.10); // C6
   }
 
   private playScroll() {
@@ -155,7 +155,7 @@ class SoundGenerator {
     osc.frequency.setValueAtTime(220, this.ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(90, this.ctx.currentTime + 0.07);
 
-    gain.gain.setValueAtTime(0.025, this.ctx.currentTime);
+    gain.gain.setValueAtTime(0.10, this.ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.07);
 
     osc.start(this.ctx.currentTime);
@@ -183,10 +183,10 @@ class SoundGenerator {
       osc.stop(this.ctx.currentTime + delay + duration + 0.01);
     };
 
-    playBeep(0, 900, 0.04, 0.02);
-    playBeep(0.03, 1400, 0.04, 0.02);
-    playBeep(0.06, 1100, 0.06, 0.02);
-    playBeep(0.11, 1800, 0.08, 0.03);
+    playBeep(0, 900, 0.04, 0.06);
+    playBeep(0.03, 1400, 0.04, 0.06);
+    playBeep(0.06, 1100, 0.06, 0.06);
+    playBeep(0.11, 1800, 0.08, 0.09);
   }
 
   private playBarrelRoll() {
@@ -202,7 +202,7 @@ class SoundGenerator {
     osc.frequency.exponentialRampToValueAtTime(160, this.ctx.currentTime + 1.2);
 
     gain.gain.setValueAtTime(0, this.ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.04, this.ctx.currentTime + 0.2);
+    gain.gain.linearRampToValueAtTime(0.12, this.ctx.currentTime + 0.2);
     gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 1.2);
 
     osc.start(this.ctx.currentTime);
@@ -229,9 +229,9 @@ class SoundGenerator {
       osc.stop(this.ctx.currentTime + delay + duration + 0.01);
     };
 
-    playNote(0, 523.25, 0.12, 0.03); // C5
-    playNote(0.06, 659.25, 0.12, 0.03); // E5
-    playNote(0.12, 783.99, 0.22, 0.03); // G5
+    playNote(0, 523.25, 0.12, 0.10); // C5
+    playNote(0.06, 659.25, 0.12, 0.10); // E5
+    playNote(0.12, 783.99, 0.22, 0.10); // G5
   }
 }
 
