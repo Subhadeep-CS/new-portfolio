@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useDeferredValue } from "react";
 import { useTheme } from "next-themes";
 import { flushSync } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Gem, Zap, Check, Sliders, RotateCcw, Palette } from "lucide-react";
+import { Sun, Moon, Gem, Zap, Check, Sliders, RotateCcw, Palette, ChevronLeft } from "lucide-react";
 import { useAudio } from "@/components/Audio/AudioContext";
 import { 
   CustomThemeColors, 
@@ -224,9 +224,22 @@ export function ModeToggle() {
                   className="w-64 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-background/95 backdrop-blur-xl shadow-2xl p-4 flex flex-col gap-4 text-foreground"
                 >
                   <div className="flex justify-between items-center border-b border-zinc-200/50 dark:border-zinc-800/50 pb-2">
-                    <span className="text-xs font-bold flex items-center gap-1.5 uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                      <Palette className="w-3.5 h-3.5" /> Customizer
-                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          playSound("click");
+                          setIsCustomizerOpen(false);
+                        }}
+                        className="sm:hidden p-1 rounded-lg hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 text-zinc-400 hover:text-foreground cursor-pointer transition-colors"
+                        title="Back to themes"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <span className="text-xs font-bold flex items-center gap-1.5 uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+                        <Palette className="w-3.5 h-3.5" /> Customizer
+                      </span>
+                    </div>
                     <button
                       onClick={handleResetColors}
                       className="p-1 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 text-zinc-400 hover:text-foreground cursor-pointer transition-colors"
@@ -320,7 +333,9 @@ export function ModeToggle() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="w-52 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-background/95 backdrop-blur-xl shadow-2xl p-1.5 flex flex-col gap-0.5"
+              className={`w-52 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-background/95 backdrop-blur-xl shadow-2xl p-1.5 flex-col gap-0.5 ${
+                isCustomizerOpen && theme === "custom" ? "hidden sm:flex" : "flex"
+              }`}
             >
               <div className="px-2.5 py-1.5 text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                 Select Theme
