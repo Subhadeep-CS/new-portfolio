@@ -53,7 +53,7 @@ export const LiveClock = () => {
                 <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border border-zinc-200 dark:border-zinc-800 shrink-0">
                     <Clock className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
                 </div>
-                <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">--:--</span>
+                <span className="text-sm font-medium text-zinc-800 dark:text-zinc-100">--:--</span>
             </div>
         );
     }
@@ -67,7 +67,7 @@ export const LiveClock = () => {
             <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border border-zinc-200 dark:border-zinc-800 shrink-0">
                 <Clock className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
             </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+            <div className="flex items-center gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-100">
                 <span>{timeString}</span>
                 <span className="text-zinc-400 dark:text-zinc-600">//</span>
                 <span className="text-zinc-500 dark:text-zinc-400">{diffString}</span>

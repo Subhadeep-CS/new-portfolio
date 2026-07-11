@@ -17,14 +17,14 @@ const QuotesContainer = () => {
 
     return (
         <section className="divide-y divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-200 dark:border-zinc-800">
-            <div className="container border-x border-zinc-200 px-4 py-8">
+            <div className="container border-x border-zinc-200 dark:border-zinc-800 px-4 py-8">
                 <div
-                    className="relative w-full max-w-4xl mx-auto border border-zinc-200 rounded-xl bg-[#FAFAFA] p-8 sm:p-12 overflow-hidden flex flex-col justify-center min-h-[220px]"
+                    className="relative w-full max-w-4xl mx-auto border border-zinc-200 dark:border-zinc-800 rounded-xl bg-[#FAFAFA] dark:bg-zinc-900/30 p-8 sm:p-12 overflow-hidden flex flex-col justify-center min-h-[220px]"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
                     {/* The giant subtle serif quote icon in the background to match the image */}
-                    <span className="absolute -top-6 left-4 text-[180px] text-zinc-100 font-serif leading-none select-none pointer-events-none">
+                    <span className="absolute -top-6 left-4 text-[180px] text-zinc-100 dark:text-zinc-900/20 font-serif leading-none select-none pointer-events-none">
                         “
                     </span>
 
@@ -37,10 +37,10 @@ const QuotesContainer = () => {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
                             className="relative z-10 w-full"
                         >
-                            <p className="text-[17px] sm:text-[19px] font-medium text-zinc-600 italic font-mono mb-4 text-center leading-relaxed">
+                            <p className="text-[17px] sm:text-[19px] font-medium text-zinc-600 dark:text-zinc-300 italic font-mono mb-4 text-center leading-relaxed">
                                 &quot;{QUOTES[index].text}&quot;
                             </p>
-                            <p className="text-right text-[15px] sm:text-[16px] text-zinc-400 font-mono italic">
+                            <p className="text-right text-[15px] sm:text-[16px] text-zinc-400 dark:text-zinc-500 font-mono italic">
                                 — {QUOTES[index].author}
                             </p>
                         </motion.div>

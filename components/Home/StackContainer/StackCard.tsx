@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
@@ -16,6 +17,7 @@ interface TechProps {
 
 const StackCard = ({ tech }: TechProps) => {
     const Icon = tech.icon;
+    const [isHovered, setIsHovered] = useState(false);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -33,7 +35,9 @@ const StackCard = ({ tech }: TechProps) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onMouseMove={handleMouseMove}
-                    className="relative p-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-white dark:bg-zinc-950 transition-colors w-16 h-16 flex items-center justify-center group overflow-hidden"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    className="relative p-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-white dark:bg-zinc-950 transition-colors w-16 h-16 flex items-center justify-center group overflow-hidden text-zinc-500 dark:text-zinc-400"
                 >
                     <motion.div
                         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
@@ -48,7 +52,10 @@ const StackCard = ({ tech }: TechProps) => {
                         }}
                     />
                     <div className="relative z-10 transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="w-8 h-8 filter drop-shadow-md" color={tech.color} />
+                        <Icon 
+                            className="w-8 h-8 filter drop-shadow-md transition-colors duration-300" 
+                            color={isHovered ? tech.color : "currentColor"} 
+                        />
                     </div>
                 </Link>
             </TooltipTrigger>

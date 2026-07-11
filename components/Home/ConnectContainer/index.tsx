@@ -29,9 +29,14 @@ const ConnectContainer = () => {
                                         className="flex gap-1.5 sm:gap-3 p-2 sm:p-4 bg-white dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-1 transition-all duration-300 group shadow-sm items-center w-full"
                                     >
                                         <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-lg flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 group-hover:scale-110 transition-transform duration-300">
-                                            <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5" style={{ color: social.color }} />
+                                            <Icon 
+                                                className={`w-4.5 h-4.5 sm:w-5 sm:h-5 ${
+                                                    social.name === "GitHub" ? "text-zinc-900 dark:text-zinc-50" : ""
+                                                }`} 
+                                                style={social.name === "GitHub" ? undefined : { color: social.color }} 
+                                            />
                                         </div>
-                                        <span className="font-medium text-[11px] xs:text-xs sm:text-[16px] text-zinc-800 dark:text-zinc-200 tracking-wide truncate">{social.name}</span>
+                                        <span className="font-medium text-[11px] xs:text-xs sm:text-[16px] text-zinc-800 dark:text-zinc-100 tracking-wide truncate">{social.name}</span>
                                     </Link>
                                 </div>
                             </MagneticWrapper>

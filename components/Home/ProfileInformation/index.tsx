@@ -3,8 +3,8 @@ import UserInformation from "./UserInformation";
 
 const ProfileInformation = () => {
   return (
-    <section className="w-full border-y border-zinc-200">
-      <div className="container border-x border-zinc-200 flex flex-col md:flex-row items-stretch">
+    <section className="w-full border-y border-zinc-200 dark:border-zinc-800">
+      <div className="container border-x border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-stretch">
         <div className="flex justify-start md:justify-center items-center shrink-0">
           <UserAvatarFlagContainer />
         </div>

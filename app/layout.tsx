@@ -55,10 +55,9 @@ export default function RootLayout({
       <body className={`${poppins.variable} font-sans antialiased text-zinc-900 dark:text-zinc-50`}>
         <ThemeProvider
           attribute="class"
-          // defaultTheme="system"
-          // enableSystem
-          defaultTheme="light"
-          forcedTheme="light"
+          defaultTheme="dark"
+          themes={["light", "dark", "emerald", "cyberpunk", "custom"]}
+          enableSystem={false}
           disableTransitionOnChange
         >
           <AudioProvider>

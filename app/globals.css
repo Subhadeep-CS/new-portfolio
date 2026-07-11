@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *, .emerald *, .cyberpunk *, .custom *));
 
 @theme inline {
   /* container query*/
@@ -166,6 +166,92 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.emerald {
+  --background: oklch(0.12 0.02 160);
+  --foreground: oklch(0.95 0.015 150);
+  --card: oklch(0.15 0.025 160);
+  --card-foreground: oklch(0.95 0.015 150);
+  --popover: oklch(0.15 0.025 160);
+  --popover-foreground: oklch(0.95 0.015 150);
+  --primary: oklch(0.78 0.16 80);
+  --primary-foreground: oklch(0.12 0.02 160);
+  --secondary: oklch(0.18 0.025 160);
+  --secondary-foreground: oklch(0.78 0.16 80);
+  --muted: oklch(0.18 0.025 160);
+  --muted-foreground: oklch(0.65 0.03 160);
+  --accent: oklch(0.2 0.03 160);
+  --accent-foreground: oklch(0.78 0.16 80);
+  --destructive: oklch(0.6 0.2 27);
+  --border: oklch(0.25 0.03 160 / 30%);
+  --input: oklch(0.25 0.03 160 / 40%);
+  --ring: oklch(0.78 0.16 80);
+
+  /* Overrides for Tailwind hardcoded variables */
+  --color-white: oklch(0.15 0.025 160);
+  --color-zinc-50: oklch(0.95 0.015 150);
+  --color-zinc-100: oklch(0.9 0.015 150);
+  --color-zinc-200: oklch(0.25 0.03 160 / 30%);
+  --color-zinc-300: oklch(0.25 0.03 160 / 40%);
+  --color-zinc-400: oklch(0.65 0.03 160);
+  --color-zinc-500: oklch(0.55 0.025 160);
+  --color-zinc-600: oklch(0.45 0.02 160);
+  --color-zinc-700: oklch(0.35 0.02 160);
+  --color-zinc-800: oklch(0.22 0.03 160 / 60%);
+  --color-zinc-900: oklch(0.14 0.025 160);
+  --color-zinc-950: oklch(0.12 0.02 160);
+
+  --color-blue-50: oklch(0.97 0.02 80);
+  --color-blue-100: oklch(0.94 0.04 80);
+  --color-blue-400: oklch(0.82 0.14 80);
+  --color-blue-500: oklch(0.78 0.16 80);
+  --color-blue-600: oklch(0.72 0.18 80);
+  --color-blue-900: oklch(0.2 0.05 80);
+  --color-blue-950: oklch(0.14 0.04 80);
+}
+
+.cyberpunk {
+  --background: oklch(0.11 0.04 290);
+  --foreground: oklch(0.93 0.02 290);
+  --card: oklch(0.14 0.05 290);
+  --card-foreground: oklch(0.93 0.02 290);
+  --popover: oklch(0.14 0.05 290);
+  --popover-foreground: oklch(0.93 0.02 290);
+  --primary: oklch(0.68 0.28 335);
+  --primary-foreground: oklch(0.11 0.04 290);
+  --secondary: oklch(0.16 0.06 290);
+  --secondary-foreground: oklch(0.74 0.2 195);
+  --muted: oklch(0.16 0.06 290);
+  --muted-foreground: oklch(0.62 0.08 290);
+  --accent: oklch(0.18 0.07 290);
+  --accent-foreground: oklch(0.74 0.2 195);
+  --destructive: oklch(0.6 0.2 27);
+  --border: oklch(0.23 0.08 290 / 35%);
+  --input: oklch(0.23 0.08 290 / 45%);
+  --ring: oklch(0.68 0.28 335);
+
+  /* Overrides for Tailwind hardcoded variables */
+  --color-white: oklch(0.14 0.05 290);
+  --color-zinc-50: oklch(0.93 0.02 290);
+  --color-zinc-100: oklch(0.88 0.02 290);
+  --color-zinc-200: oklch(0.23 0.08 290 / 35%);
+  --color-zinc-300: oklch(0.23 0.08 290 / 45%);
+  --color-zinc-400: oklch(0.62 0.08 290);
+  --color-zinc-500: oklch(0.52 0.07 290);
+  --color-zinc-600: oklch(0.42 0.06 290);
+  --color-zinc-700: oklch(0.32 0.05 290);
+  --color-zinc-800: oklch(0.2 0.07 290 / 60%);
+  --color-zinc-900: oklch(0.13 0.05 290);
+  --color-zinc-950: oklch(0.11 0.04 290);
+
+  --color-blue-50: oklch(0.96 0.05 195);
+  --color-blue-100: oklch(0.9 0.1 195);
+  --color-blue-400: oklch(0.78 0.22 195);
+  --color-blue-500: oklch(0.74 0.25 195);
+  --color-blue-600: oklch(0.68 0.25 195);
+  --color-blue-900: oklch(0.2 0.1 195);
+  --color-blue-950: oklch(0.14 0.08 195);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -241,4 +327,19 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
   }
+}
+
+/* Circular Theme Reveal Transition using View Transitions API */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
 }

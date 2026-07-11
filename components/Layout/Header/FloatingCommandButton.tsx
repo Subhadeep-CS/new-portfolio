@@ -123,7 +123,7 @@ const FloatingCommandButton = () => {
 
         {isHomepage && (
           <>
-            <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-850 mx-1" />
+            <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 mx-1" />
 
             {/* Right Dropdown Toggle Button */}
             <button
@@ -149,7 +149,7 @@ const FloatingCommandButton = () => {
 
         {!isHomepage && (
           <>
-            <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-850 mx-1" />
+            <div className="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800 mx-1" />
 
             {/* Menu Button that opens palette on other pages */}
             <button

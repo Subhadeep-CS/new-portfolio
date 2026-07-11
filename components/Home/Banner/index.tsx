@@ -73,7 +73,7 @@ const Banner = () => {
       }
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const isDark = resolvedTheme === "dark";
+      const isDark = resolvedTheme === "dark" || resolvedTheme === "emerald" || resolvedTheme === "cyberpunk";
       const baseColor = isDark ? "rgba(63, 63, 70, 0.5)" : "rgba(212, 212, 216, 1)";
       const glowColor = isDark ? "rgba(59, 130, 246, 1)" : "rgba(59, 130, 246, 0.8)";
 
@@ -182,7 +182,7 @@ const Banner = () => {
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className={`${styles.banner_container} container border-x relative overflow-hidden h-[300px] w-full flex items-center justify-center bg-[#FAFAFA] dark:bg-zinc-950/20`}
+        className={`${styles.banner_container} container border-x border-zinc-200 dark:border-zinc-800 relative overflow-hidden h-[300px] w-full flex items-center justify-center bg-[#FAFAFA] dark:bg-zinc-950/20`}
       >
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0 block cursor-crosshair" />
 
@@ -190,7 +190,7 @@ const Banner = () => {
           style={{ x: textSpringX, y: textSpringY }}
           className="pointer-events-none z-10 w-[120px] h-[120px] md:w-[150px] md:h-[150px] relative drop-shadow-2xl"
         >
-          <Image src="/img/logo/SD.svg" alt="SD Logo" fill className="object-contain" />
+          <Image src="/img/logo/SD.svg" alt="SD Logo" fill className="object-contain dark:invert" />
         </motion.div>
       </section>
     </Inspectable>

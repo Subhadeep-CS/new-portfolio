@@ -35,7 +35,7 @@ const ExperienceRoleItem = ({ role, isLastRole, defaultExpanded = false }: { rol
                         className="flex items-center justify-between gap-2 group/role cursor-pointer"
                     >
                         <div className="space-y-1">
-                            <h4 className="text-[14px] md:text-[16px] font-semibold text-zinc-800 dark:text-zinc-200 transition-colors group-hover/role:text-blue-500 leading-tight pr-2 text-wrap">
+                            <h4 className="text-[14px] md:text-[16px] font-semibold text-zinc-800 dark:text-zinc-100 transition-colors group-hover/role:text-blue-500 leading-tight pr-2 text-wrap">
                                 {role.title}
                             </h4>
 
