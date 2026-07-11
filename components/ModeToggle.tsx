@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useDeferredValue } from "react";
 import { useTheme } from "next-themes";
 import { flushSync } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Gem, Zap, Check, Sliders, RotateCcw, Palette, ChevronLeft } from "lucide-react";
+import { Sun, Moon, Gem, Zap, Check, Sliders, RotateCcw, Palette, ChevronLeft, Monitor } from "lucide-react";
 import { useAudio } from "@/components/Audio/AudioContext";
 import { 
   CustomThemeColors, 
@@ -70,13 +70,11 @@ export function ModeToggle() {
 
   const activeThemeObj = theme === "custom" 
     ? { id: "custom", label: "Custom Theme", icon: Sliders }
-    : (theme === "emerald" 
-        ? { id: "emerald", label: "Emerald Gold", icon: Gem } 
-        : (theme === "cyberpunk"
-            ? { id: "cyberpunk", label: "Cyberpunk", icon: Zap }
-            : (theme === "light" 
-                ? { id: "light", label: "Light Mode", icon: Sun }
-                : { id: "dark", label: "Dark Mode", icon: Moon })));
+    : (theme === "system" 
+        ? { id: "system", label: "System Theme", icon: Monitor } 
+        : (theme === "light" 
+            ? { id: "light", label: "Light Mode", icon: Sun }
+            : { id: "dark", label: "Dark Mode", icon: Moon }));
 
   const ActiveIcon = activeThemeObj.icon;
 
@@ -159,6 +157,12 @@ export function ModeToggle() {
 
   const THEMES = [
     {
+      id: "system",
+      label: "System Theme",
+      icon: Monitor,
+      dotStyle: { bg: "#1f2937", fg: "#f3f4f6", accent: "#3b82f6" },
+    },
+    {
       id: "light",
       label: "Light Mode",
       icon: Sun,
@@ -170,6 +174,7 @@ export function ModeToggle() {
       icon: Moon,
       dotStyle: { bg: "#09090b", fg: "#fafafa", accent: "#3b82f6" },
     },
+    /*
     {
       id: "emerald",
       label: "Emerald Gold",
@@ -182,6 +187,7 @@ export function ModeToggle() {
       icon: Zap,
       dotStyle: { bg: "#0f091c", fg: "#eeddf5", accent: "#ff007f" },
     },
+    */
     {
       id: "custom",
       label: "Custom Theme",
