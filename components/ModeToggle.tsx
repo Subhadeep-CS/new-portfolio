@@ -91,8 +91,11 @@ export function ModeToggle() {
 
     playSound("success");
 
-    // Fallback for browsers that do not support view transitions
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    // Fallback for mobile and browsers that do not support view transitions
     if (
+      isMobile ||
       typeof document === "undefined" ||
       !document.startViewTransition ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -100,6 +103,7 @@ export function ModeToggle() {
       setTheme(newTheme);
       if (newTheme !== "custom") {
         setIsOpen(false);
+        setIsCustomizerOpen(false);
       }
       return;
     }
