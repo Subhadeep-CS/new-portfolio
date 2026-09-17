@@ -122,13 +122,13 @@ export const ABOUT_ME: AboutMeInterface[] = [
   {
     key: "Who I Am",
     details:
-      "I am a results-driven Software Engineer specializing in Frontend development with React.js and Next.js. With a strong foundation in building scalable, high-performance web applications, I focus on delivering seamless user experiences through clean architecture and modern engineering practices.",
+      "I am a results-driven Frontend Software Engineer with 2+ years of experience building scalable, high-performance web applications using React.js, Next.js, and TypeScript. Currently exploring Frontend Software Engineer opportunities where I can contribute to production applications using React.js, Next.js and TypeScript.",
     children: [],
   },
   {
     key: "What I Specialize In",
     details:
-      "I specialize in architecting modern frontend systems, from real-time communication platforms to complex enterprise dashboards, ensuring high performance, accessibility, and scalability.",
+      "I specialize in architecting modern frontend systems, from real-time communication platforms (WebRTC, Socket.IO) to complex enterprise dashboards and video streaming applications, ensuring high performance, accessibility, and scalability.",
     children: [
       {
         key: "Core Technologies",
@@ -142,7 +142,7 @@ export const ABOUT_ME: AboutMeInterface[] = [
       {
         key: "State & Data Management",
         details:
-          "Redux Toolkit, RTK Query, Zustand, TanStack Query, GraphQL",
+          "Redux Toolkit, RTK Query, Zustand, TanStack Query, REST APIs, GraphQL",
       },
       {
         key: "Performance & Optimization",
@@ -177,7 +177,7 @@ export const ABOUT_ME: AboutMeInterface[] = [
   {
     key: "Where I’m Headed",
     details:
-      "I’m focused on mastering advanced frontend architecture and deepening my expertise in full-stack development, while continuing to advocate for web performance and accessibility.",
+      "I’m currently open to Frontend Software Engineer opportunities (available to join from 19 September 2026). Focused on scaling production web applications, real-time communication systems, and enterprise solutions using React.js, Next.js, and TypeScript.",
     children: [],
   },
 ];
@@ -584,6 +584,14 @@ export const PROJECTS_DATA: ProjectInterface[] = [
     icon: Tv,
   },
   {
+    title: "Webart CRM Workspace",
+    description: "An advanced internal CRM system featuring real-time communication modules. Engineered peer-to-peer audio and video calling integrations alongside secure instant messaging.",
+    year: "2024",
+    type: "Real-Time Communication",
+    tech: ["React", "WebRTC", "Socket.io", "Tailwind CSS"],
+    icon: Users,
+  },
+  {
     title: "Pr3cio",
     description: "A comprehensive web-based music streaming service. Features include real-time audio playback, dynamic playlist generation, and a fluid, dark-mode focused interface.",
     year: "2024",
@@ -591,14 +599,6 @@ export const PROJECTS_DATA: ProjectInterface[] = [
     tech: ["React", "Web Audio API", "Zustand", "Framer Motion"],
     link: "https://pr3cio.com/",
     icon: Headphones,
-  },
-  {
-    title: "Webart CRM Workspace",
-    description: "An advanced internal CRM system featuring real-time communication modules. Engineered peer-to-peer audio and video calling integrations alongside secure instant messaging.",
-    year: "2024",
-    type: "Internal Product",
-    tech: ["React", "WebRTC", "Socket.io", "Tailwind CSS"],
-    icon: Users,
   },
   {
     title: "The Million Carats",

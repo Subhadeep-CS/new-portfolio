@@ -20,17 +20,17 @@ import SpotifyContainer from "@/components/Home/SpotifyContainer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Subhadeep Das | Frontend Engineer & Creative Developer",
-  description: "Subhadeep Das is a Frontend Developer specializing in React.js and Next.js. Explore projects, skills, and portfolio.",
-  keywords: ["Subhadeep Das", "Frontend Engineer", "React Developer", "UI/UX Designer", "Software Engineer Portfolio"],
+  title: "Subhadeep Das | Frontend Software Engineer | React.js & Next.js",
+  description: "Subhadeep Das is a Frontend Software Engineer with 2+ years of experience building production applications using React.js, Next.js and TypeScript, with experience in real-time systems, WebRTC, video streaming and enterprise applications.",
+  keywords: ["Subhadeep Das", "Frontend Software Engineer", "React.js Developer", "Next.js Developer", "TypeScript", "WebRTC", "Video Streaming", "Enterprise Dashboards", "Software Engineer Portfolio"],
   alternates: {
     canonical: "https://subhadeepdas.com",
   },
   openGraph: {
-    title: "Subhadeep Das | Frontend Engineer",
-    description: "Building production-grade platforms with modern web technologies.",
+    title: "Subhadeep Das | Frontend Software Engineer | React.js & Next.js",
+    description: "Subhadeep Das is a Frontend Software Engineer with 2+ years of experience building production applications using React.js, Next.js and TypeScript, with experience in real-time systems, WebRTC, video streaming and enterprise applications.",
     type: "website",
-    url: "https://subhadeepdas.com", // Adjust to your actual domain
+    url: "https://subhadeepdas.com",
   }
 };
 

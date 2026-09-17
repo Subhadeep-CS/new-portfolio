@@ -7,6 +7,7 @@ import CustomCursor from "@/components/Layout/CustomCursor";
 import CommandPalette from "@/components/Layout/CommandPalette";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
 import FloatingCommandButton from "@/components/Layout/Header/FloatingCommandButton";
+import FloatingAvailabilityCTA from "@/components/Layout/common/FloatingAvailabilityCTA";
 import Scrollspy from "@/components/Layout/Scrollspy";
 import SmoothScroll from "@/components/Layout/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -40,13 +41,33 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Subhadeep Das",
               "url": "https://subhadeepdas.com",
+              "jobTitle": "Frontend Software Engineer",
+              "description": "Subhadeep Das is a Frontend Software Engineer with 2+ years of experience building production applications using React.js, Next.js and TypeScript, with experience in real-time systems, WebRTC, video streaming and enterprise applications.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Kolkata",
+                "addressCountry": "India"
+              },
+              "knowsAbout": [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "JavaScript",
+                "Redux Toolkit",
+                "RTK Query",
+                "Zustand",
+                "React Query",
+                "REST APIs",
+                "Socket.IO",
+                "WebRTC",
+                "HLS",
+                "Node.js",
+                "GSAP"
+              ],
               "sameAs": [
                 "https://www.linkedin.com/in/subhadeep-das-frontend-dev",
-                "https://github.com/Subhadeep-CS",
-                "https://www.facebook.com/profile.php?id=100043405891398"
+                "https://github.com/Subhadeep-CS"
               ],
-              "jobTitle": "Frontend Developer",
-              "description": "Software Engineer specialized in building high-performance, pixel-perfect React and Next.js applications.",
               "image": "https://subhadeepdas.com/img/logo/SD.svg"
             })
           }}
@@ -74,6 +95,7 @@ export default function RootLayout({
                   <CommandPalette />
                   <ScrollToTop />
                   <FloatingCommandButton />
+                  <FloatingAvailabilityCTA />
                   <Scrollspy />
                   <SpeedInsights />
                   <Analytics />
