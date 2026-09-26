@@ -250,8 +250,8 @@ export const EXPERIENCE_DATA: ExperienceInterface[] = [
         title: "Software Engineer",
         type: "Full-time",
         startDate: "Jul 2025",
-        endDate: "Present",
-        duration: "Present",
+        endDate: "Sep 2026",
+        duration: "1 yr 3 mos",
         responsibilities: [
           "Architected and scaled Next.js applications (App Router, SSR, SSG), improving SEO rankings and reducing LCP and TTI metrics.",
           "Designed and implemented a real-time chat platform using WebSockets and Socket.IO, enabling instant messaging and live presence.",

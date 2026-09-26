@@ -23,7 +23,10 @@ export default function Education() {
 
             <CrossDivider />
             <div className="relative w-full border-y-1">
-                <div className="container py-8 px-4 md:px-0 border-x-1 border-zinc-200 dark:border-zinc-800">
+                <div 
+                    className="container py-8 px-4 md:px-0 border-x-1 border-zinc-200 dark:border-zinc-800"
+                    data-kodo="Subhadeep has a strong foundation! He holds a Master's degree in Computer Science! 🎓"
+                >
                     <EducationTimeline />
                 </div>
             </div>

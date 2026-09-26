@@ -7,7 +7,6 @@ import CustomCursor from "@/components/Layout/CustomCursor";
 import CommandPalette from "@/components/Layout/CommandPalette";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
 import FloatingCommandButton from "@/components/Layout/Header/FloatingCommandButton";
-import FloatingAvailabilityCTA from "@/components/Layout/common/FloatingAvailabilityCTA";
 import Scrollspy from "@/components/Layout/Scrollspy";
 import SmoothScroll from "@/components/Layout/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -19,6 +18,7 @@ import InspectToggle from "@/components/InspectMode/InspectToggle";
 import InspectOverlay from "@/components/InspectMode/InspectOverlay";
 import { Metadata } from "next";
 import { AudioProvider } from "@/components/Audio/AudioContext";
+import KodoWidget from "@/components/mascot/KodoWidget";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://subhadeepdas.com"),
@@ -95,12 +95,12 @@ export default function RootLayout({
                   <CommandPalette />
                   <ScrollToTop />
                   <FloatingCommandButton />
-                  <FloatingAvailabilityCTA />
                   <Scrollspy />
+                  <KodoWidget />
                   <SpeedInsights />
                   <Analytics />
-                  <InspectOverlay />
-                  <InspectToggle />
+                  {/* <InspectOverlay /> */}
+                  {/* <InspectToggle /> */}
                 </TooltipProvider>
               </SmoothScroll>
             </InspectModeProvider>

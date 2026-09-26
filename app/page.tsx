@@ -50,22 +50,22 @@ export default function Home() {
       </div>
 
       <CrossDivider />
-      <div id="about" className="scroll-mt-20">
+      <div id="about" className="scroll-mt-20" data-kodo="Let me introduce you to Subhadeep.">
         <AboutContainer />
       </div>
 
       <CrossDivider />
-      <div id="stack" className="scroll-mt-20">
+      <div id="stack" className="scroll-mt-20" data-kodo="Oh, that's a solid tech stack! 🛠️">
         <StackContainer />
       </div>
 
       <CrossDivider />
-      <div id="experience" className="scroll-mt-20">
+      <div id="experience" className="scroll-mt-20" data-kodo="Curious about his professional journey?">
         <ExperienceContainer />
       </div>
 
       <CrossDivider />
-      <div id="projects" className="scroll-mt-20">
+      <div id="projects" className="scroll-mt-20" data-kodo="Want to see what he's built?">
         <FeaturedProjectsContainer />
       </div>
 
@@ -75,7 +75,7 @@ export default function Home() {
       </div>
 
       <CrossDivider />
-      <div id="playground" className="scroll-mt-20">
+      <div id="playground" className="scroll-mt-20" data-kodo="This is where the fun stuff lives 👀">
         <LivePlaygroundContainer />
       </div>
 
@@ -100,7 +100,7 @@ export default function Home() {
       </div>
 
       <CrossDivider />
-      <div id="connect" className="scroll-mt-20">
+      <div id="connect" className="scroll-mt-20" data-kodo="Let's get in touch! 📬">
         <ConnectContainer />
       </div>
     </section>
