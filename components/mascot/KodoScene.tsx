@@ -5,15 +5,15 @@ import Kodo from './Kodo';
 
 export default function KodoScene() {
   return (
-    <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px]">
+    <div className="w-[125px] h-[125px] sm:w-[145px] sm:h-[145px]">
       <Canvas
-        camera={{ position: [0, 0, 4.5], fov: 45 }}
+        camera={{ position: [0, 0, 4.8], fov: 46 }}
         dpr={[1, 2]} // Optimize for performance (limit max dpr to 2)
         gl={{ antialias: true, alpha: true, preserveDrawingBuffer: false }}
       >
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[10, 10, 5]} intensity={2} />
-        <directionalLight position={[-10, 10, -5]} intensity={1} color="#4ade80" />
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[10, 10, 5]} intensity={2.2} />
+        <directionalLight position={[-10, 10, -5]} intensity={1.2} color="#38bdf8" />
         <pointLight position={[0, -2, 5]} intensity={1} />
         
         <Suspense fallback={null}>

@@ -13,6 +13,9 @@ export function useKodoInteraction() {
     let isHoveringTarget = false;
 
     const handleMouseOver = (e: MouseEvent) => {
+      // Don't trigger hover reactions during an active guided tour
+      if (useKodoStore.getState().isTourActive) return;
+
       const target = e.target as HTMLElement;
       
       // Look for data-kodo attribute traversing up the tree
